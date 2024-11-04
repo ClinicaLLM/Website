@@ -267,6 +267,7 @@
             overflow: scroll;
             -ms-overflow-style: none;  /* Hide scrollbar for IE and Edge */
             scrollbar-width: none;  /* Hide scrollbar for Firefox */
+            scroll-snap-type: x mandatory;
         }
 
         .industry-grid::-webkit-scrollbar {
@@ -413,6 +414,21 @@
     
     .capabilities-summary {
         grid-template-columns: 1fr;
+    }
+}
+
+@media (min-width: 1200px) {
+    .industry-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        overflow-x: visible;
+        padding: 0;
+        margin: 0;
+    }
+    
+    .industry-card {
+        flex: unset;
+        max-width: unset;
     }
 }
 
