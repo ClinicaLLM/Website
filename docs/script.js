@@ -266,7 +266,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 },
                 {
                     time: "00:01",
-                    event: "<b>Med42</b> analysis",
+                    event: "<b>Llama</b> analysis",
                     details: "Clinical protocols and best practices identified",
                     system: "Medical AI Engine"
                 },
@@ -302,7 +302,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 },
                 {
                     time: "00:01",
-                    event: "Med42 processing",
+                    event: "<b>Llama</b> processing",
                     details: "Comparing with known disease patterns",
                     system: "Medical AI Analysis"
                 },
@@ -338,7 +338,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 },
                 {
                     time: "00:01",
-                    event: "Med42 mapping",
+                    event: "<b>Llama</b> mapping",
                     details: "Conditions matched to ICD codes",
                     system: "Medical AI Mapper"
                 },
