@@ -1566,3 +1566,23 @@
         .timeline-wheel * {
             font-size: 1.32rem;
         }
+
+        @media (max-width: 768px) {
+            .timeline-wheel {
+                padding: 0 10px;
+            }
+        
+            .example-timeline.current {
+                padding: 20px;
+            }
+        
+            .wheel-controls {
+                bottom: -50px;
+            }
+        
+            .rotate-btn {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+        }
