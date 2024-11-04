@@ -1,0 +1,159 @@
+.industry-section {
+    padding: 4rem;
+}
+
+.industry-title {
+    font-size: 3.2rem;
+    margin-bottom: 2rem;
+    color: var(--accent);
+    text-align: center;
+}
+
+/* Healthcare Section */
+.healthcare-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    margin-bottom: 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.healthcare-card {
+    background: rgba(0,229,255,0.08);
+    border: 1px solid var(--accent);
+    border-radius: 12px;
+    padding: 3rem;
+    box-shadow: 0 0 30px rgba(0,229,255,0.05);
+}
+
+.healthcare-header {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.healthcare-icon {
+    font-size: 3rem;
+    color: var(--accent);
+}
+
+.healthcare-title {
+    font-size: 2.5rem;
+    color: var(--white);
+}
+
+.healthcare-desc {
+    font-size: 1.4rem;
+    color: rgba(255,255,255,0.8);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.healthcare-features {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.healthcare-feature {
+    background: rgba(0,0,0,0.3);
+    padding: 2rem;
+    border-radius: 8px;
+    border: 1px solid rgba(0,229,255,0.1);
+    transition: all 0.3s ease;
+}
+
+.healthcare-feature:hover {
+    border-color: var(--accent);
+    transform: translateY(-5px);
+}
+
+.feature-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.feature-icon {
+    font-size: 1.8rem;
+    color: var(--accent);
+}
+
+.feature-title {
+    font-size: 1.4rem;
+    color: var(--white);
+}
+
+.feature-desc {
+    font-size: 1.2rem;
+    color: rgba(255,255,255,0.7);
+    line-height: 1.5;
+}
+
+/* Other Industries Section */
+.other-industries {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 4rem;
+    opacity: 0.8;
+}
+
+.industry-card {
+    background: rgba(0,0,0,0.4);
+    border: 1px solid rgba(0,229,255,0.1);
+    border-radius: 12px;
+    padding: 2rem;
+    transition: all 0.3s ease;
+}
+
+.industry-card:hover {
+    border-color: var(--accent);
+    transform: translateY(-5px);
+    opacity: 1;
+}
+
+.industry-card-title {
+    font-size: 1.8rem;
+    color: var(--accent);
+    margin-bottom: 1rem;
+}
+
+.industry-card-desc {
+    font-size: 1.2rem;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 1.5rem;
+}
+
+.industry-list {
+    list-style: none;
+}
+
+.industry-list li {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.8);
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    line-height: 1.6;
+}
+
+.industry-list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+}
+
+@media (max-width: 1200px) {
+    .healthcare-features {
+        grid-template-columns: 1fr;
+    }
+    
+    .other-industries {
+        grid-template-columns: 1fr;
+    }
+}
