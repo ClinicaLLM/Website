@@ -33,8 +33,8 @@ document.addEventListener('DOMContentLoaded', function() {
             ],
             stats: {
                 responseTime: "3s",
-                accuracy: "100%",
-                systems: "5+"
+                accuracy: "Industrial",
+                systems: "Several"
             }
         },
         {
@@ -68,9 +68,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             ],
             stats: {
-                responseTime: "2s",
-                accuracy: "99.9%",
-                systems: "3+"
+                responseTime: "Seamless",
+                accuracy: "Assured",
+                systems: "Several"
             }
         },
         {
@@ -104,9 +104,9 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             ],
             stats: {
-                responseTime: "4s",
-                accuracy: "99.8%",
-                systems: "4+"
+                responseTime: "Immediate",
+                accuracy: "Traceable",
+                systems: "Several"
             }
         },
         {
@@ -142,7 +142,7 @@ document.addEventListener('DOMContentLoaded', function() {
             stats: {
                 performance: "40K tokens/s",
                 reliability: "High confidence alerts",
-                systems: "5+"
+                systems: "Several"
             }
         },
         {
@@ -178,7 +178,7 @@ document.addEventListener('DOMContentLoaded', function() {
             stats: {
                 performance: "35K tokens/s",
                 reliability: "Verified by clinicians",
-                systems: "4+"
+                systems: "Several"
             }
         },
         {
@@ -214,7 +214,7 @@ document.addEventListener('DOMContentLoaded', function() {
             stats: {
                 performance: "38K tokens/s",
                 reliability: "Human-validated extraction",
-                systems: "3+"
+                systems: "Several"
             }
         },
         {
@@ -250,7 +250,7 @@ document.addEventListener('DOMContentLoaded', function() {
             stats: {
                 performance: "42K tokens/s",
                 reliability: "Clinically validated results",
-                systems: "6+"
+                systems: "Several"
             }
         },
         {
@@ -286,7 +286,7 @@ document.addEventListener('DOMContentLoaded', function() {
             stats: {
                 performance: "30K tokens/s",
                 reliability: "Evidence-based suggestions",
-                systems: "5+"
+                systems: "Several"
             }
         },
         {
@@ -322,7 +322,7 @@ document.addEventListener('DOMContentLoaded', function() {
             stats: {
                 performance: "32K tokens/s",
                 reliability: "Clinician-supervised analysis",
-                systems: "4+"
+                systems: "Several"
             }
         },
         {
@@ -358,7 +358,7 @@ document.addEventListener('DOMContentLoaded', function() {
             stats: {
                 performance: "36K tokens/s",
                 reliability: "Expert-reviewed coding",
-                systems: "3+"
+                systems: "Several"
             }
         }
         
