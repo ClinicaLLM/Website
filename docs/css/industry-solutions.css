@@ -127,6 +127,10 @@
     margin-bottom: 1.5rem;
 }
 
+.industry-card * {
+    font-size: 2rem;
+}
+
 .industry-list {
     list-style: none;
 }

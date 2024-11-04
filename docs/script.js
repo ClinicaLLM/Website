@@ -158,7 +158,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 },
                 {
                     time: "00:01",
-                    event: "Llama processing",
+                    event: "CliniRAG processing",
                     details: "Analyzing clinical narrative and key events",
                     system: "NLP Analysis"
                 },
@@ -230,7 +230,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 },
                 {
                     time: "00:01",
-                    event: "Llama processing",
+                    event: "CliniRAG processing",
                     details: "Query translated to clinical concepts",
                     system: "Semantic Engine"
                 },
