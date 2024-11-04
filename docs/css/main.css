@@ -1464,7 +1464,9 @@
             min-height: 600px;
             overflow:visible;
             perspective: 1000px;
-            max-width: 1883px;
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 0 20px; /* Add padding for mobile */
         }
         
         .timeline-carousel {
@@ -1498,14 +1500,16 @@
         }
         
         .example-timeline.current {
-            transform: translateY(0) scale(1.1);
+            transform: translateY(0) scale(1);
             opacity: 1;
             background: rgba(0,229,255,0.08);
             border-color: var(--accent);
             box-shadow: 0 0 30px rgba(0,229,255,0.1);
             z-index: 1;
             height: -webkit-fill-available;
-            padding: 60px;
+            padding: 30px;
+            margin: 0 auto; /* Center the timeline */
+            max-width: 100%; /* Ensure it doesn't overflow */
         }
         
         .example-timeline.next {
@@ -1540,10 +1544,12 @@
         .wheel-controls {
             position: absolute;
             bottom: -60px;
+            left: 50%;
             right: 0;
             transform: translateX(-50%);
             display: flex;
             gap: 2rem;
+            width: fit-content;
         }
         
         .rotate-btn {
