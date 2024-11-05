@@ -1581,8 +1581,9 @@
         }
 
         @media (max-width: 768px) {
-            .timeline-wheel {
-                padding: 0 10px;
+
+            .interop-showcase {
+                padding: 0 !important;
             }
         
             .example-timeline.current {
@@ -1597,5 +1598,8 @@
                 width: 40px;
                 height: 40px;
                 font-size: 1.2rem;
+            }
+            .flow-arrow {
+                display: none !important;
             }
         }
