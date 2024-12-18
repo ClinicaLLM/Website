@@ -26,7 +26,7 @@
             left: 35%;
             width: 65%;
             height: 120vh;
-            background-image: url('../assets/background.png');
+            background-image: url('../assets/background-no-humans.png');
             background-size: cover;
             background-position: center 70%;
             filter: brightness(0.95);
