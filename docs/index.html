@@ -143,13 +143,47 @@
 
         /* --- Commitment Section --- */
         /* --- MAX CONTRAST Commitment Section Styling --- */
+        /* --- UPDATED MAX CONTRAST Commitment Section Styling with Background Image --- */
         .commitment-section {
-            background-color: #111111; /* Very dark gray / near black */
-            color: #FFFFFF; /* PURE WHITE for ALL text in this section */
+            /* Existing Padding */
             padding: 90px 0;
+        
+            /* --- NEW Background Image Styles --- */
+            background-color: #111111; /* Fallback color */
+            background-image: url('[commitment-fundo.jpg]'); /* <<< REPLACE THIS URL */
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            position: relative; /* Needed for the overlay */
+            z-index: 0;
+        
+            /* --- Keep High Contrast Text Color --- */
+            color: #FFFFFF; /* Default text color for the section */
         }
+        
+        /* --- Strong Dark Overlay for Readability --- */
+        .commitment-section::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            /* Near-black overlay, adjust opacity (0.8 is quite strong) */
+            background-color: rgba(10, 10, 10, 0.8);
+            z-index: 1; /* Overlay above background image */
+        }
+        
+        /* --- Ensure Commitment Content is Above Overlay --- */
+        .commitment-section .container { /* Target the container within this section */
+            position: relative; /* Position relative to its normal flow */
+            z-index: 2; /* Place content above the overlay */
+        }
+        
+        
+        /* --- Styles for content within the section (maintain high contrast) --- */
         .commitment-section h2 {
-            color: #FFFFFF; /* Ensure heading is white */
+            color: #FFFFFF;
             text-align: center;
             font-size: 2.8em;
             margin-bottom: 60px;
@@ -161,27 +195,26 @@
             max-width: 800px;
             margin: 30px auto;
             padding: 20px 30px;
-            border-left: 5px solid #2CA58D; /* Keep accent border */
+            /* Keep accent border, make it slightly brighter if needed */
+            border-left: 5px solid #34D3B3; /* Brighter teal for visibility */
             line-height: 1.6;
             text-align: center;
-            color: #FFFFFF; /* Explicitly white */
-            font-weight: 400; /* Standard weight for readability */
+            color: #FFFFFF;
+            font-weight: 400;
         }
         .commitment-section p {
-            max-width: 800px;
-            margin: 20px auto;
-            text-align: center;
-            font-size: 1.1em;
-            color: #FFFFFF; /* Explicitly white */
-            font-weight: 400; /* Ensure not too thin */
-            line-height: 1.7; /* Ensure good line spacing */
+             max-width: 800px;
+             margin: 20px auto;
+             text-align: center;
+             font-size: 1.1em;
+             color: #FFFFFF; /* Ensure paragraphs are also white */
+             font-weight: 400;
+             line-height: 1.7;
         }
-
-        /* Links within this section */
         .commitment-section a {
-            color: #5DCAB3; /* Light Teal for links stands out on black */
+            color: #5DCAB3; /* Light Teal for links */
             text-decoration: underline;
-            font-weight: 500; /* Slightly bolder links */
+            font-weight: 500;
         }
         .commitment-section a:hover {
             color: #88E0CC; /* Brighter teal on hover */
