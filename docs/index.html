@@ -1,595 +1,511 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <link rel="icon" type="image/png" href="assets/logo.png">
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>CliniRAG | Next-Gen AI Intelligence</title>
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/industry-solutions.css">
-    <link rel="stylesheet" href="css/secure-ai-integration.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ASKLEPIC - Secure and reliable autonomy</title>
+    <style>
+        /* --- Enhanced Basic Styling --- */
+        body {
+            font-family: 'Inter', sans-serif; /* Example font */
+            margin: 0;
+            padding: 0;
+            color: #333; /* Slightly softer dark gray */
+            background-color: #FFFFFF;
+            line-height: 1.7; /* Increased for readability */
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 25px; /* Slightly increased padding */
+        }
+
+        /* --- Navigation --- */
+        nav {
+            background-color: #FFFFFF;
+            padding: 15px 0;
+            border-bottom: 1px solid #EAEAEA; /* Lighter border */
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05); /* Subtle shadow */
+        }
+        nav .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        /* Updated Logo Style */
+        nav .logo {
+            font-size: 1.8em; /* Slightly larger */
+            font-weight: 700; /* Bold */
+            color: #0A2342; /* Deep Blue */
+            text-decoration: none;
+            letter-spacing: 0.5px; /* Slight spacing */
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            align-items: center; /* Align items vertically */
+        }
+        nav ul li {
+            margin-left: 30px; /* Increased spacing */
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            padding-bottom: 5px; /* Space for potential underline effect */
+        }
+        nav ul li a:hover {
+            color: #2CA58D; /* Teal Accent */
+            /* Add subtle underline or border-bottom effect on hover */
+        }
+        .cta-nav-button {
+            background-color: #2CA58D;
+            color: #FFFFFF;
+            padding: 10px 18px; /* Slightly larger padding */
+            border-radius: 6px; /* Slightly more rounded */
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+        .cta-nav-button:hover {
+            background-color: #1f7966;
+            transform: translateY(-1px); /* Subtle lift effect */
+        }
+
+        /* --- Hero Section --- */
+        .hero-section {
+            background-color: #0A2342;
+            color: #FFFFFF;
+            text-align: center;
+            padding: 120px 20px 140px 20px; /* Increased padding */
+            background-image: url('[Placeholder: Subtle, Abstract Secure Network/Nodes Background]');
+            background-size: cover;
+            background-position: center;
+        }
+        .hero-section h1 {
+            font-size: 3.2em; /* Slightly larger */
+            margin-bottom: 20px;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        .hero-section .tagline { /* Specific class for tagline */
+            font-size: 1.3em;
+            max-width: 750px;
+            margin: 0 auto 35px auto;
+            opacity: 0.9;
+            font-weight: 400;
+        }
+        .cta-button {
+            background-color: #2CA58D;
+            color: #FFFFFF;
+            padding: 16px 35px; /* Larger padding */
+            font-size: 1.15em; /* Slightly larger font */
+            border: none;
+            border-radius: 6px;
+            text-decoration: none;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            display: inline-block; /* Ensure proper spacing/alignment */
+            font-weight: 500;
+        }
+        .cta-button:hover {
+            background-color: #1f7966;
+            transform: translateY(-2px); /* Slightly larger lift */
+        }
+
+        /* --- General Section Styling --- */
+        section {
+            padding: 90px 0; /* Increased section padding */
+        }
+        section:nth-child(even) { /* Subtle alternating background */
+             background-color: #F8F9FA; /* Very light gray */
+        }
+        section h2 {
+            text-align: center;
+            font-size: 2.8em; /* Larger section titles */
+            margin-bottom: 60px; /* Increased spacing */
+            color: #0A2342;
+            font-weight: 700;
+        }
+        section h3 {
+            font-size: 1.6em;
+            margin-bottom: 15px;
+            color: #0A2342;
+            font-weight: 600;
+         }
+
+        /* --- Commitment Section --- */
+        /* --- MAX CONTRAST Commitment Section Styling --- */
+        .commitment-section {
+            background-color: #111111; /* Very dark gray / near black */
+            color: #FFFFFF; /* PURE WHITE for ALL text in this section */
+            padding: 90px 0;
+        }
+        .commitment-section h2 {
+            color: #FFFFFF; /* Ensure heading is white */
+            text-align: center;
+            font-size: 2.8em;
+            margin-bottom: 60px;
+            font-weight: 700;
+        }
+        .commitment-section blockquote {
+            font-size: 1.4em;
+            font-style: italic;
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 20px 30px;
+            border-left: 5px solid #2CA58D; /* Keep accent border */
+            line-height: 1.6;
+            text-align: center;
+            color: #FFFFFF; /* Explicitly white */
+            font-weight: 400; /* Standard weight for readability */
+        }
+        .commitment-section p {
+            max-width: 800px;
+            margin: 20px auto;
+            text-align: center;
+            font-size: 1.1em;
+            color: #FFFFFF; /* Explicitly white */
+            font-weight: 400; /* Ensure not too thin */
+            line-height: 1.7; /* Ensure good line spacing */
+        }
+
+        /* Links within this section */
+        .commitment-section a {
+            color: #5DCAB3; /* Light Teal for links stands out on black */
+            text-decoration: underline;
+            font-weight: 500; /* Slightly bolder links */
+        }
+        .commitment-section a:hover {
+            color: #88E0CC; /* Brighter teal on hover */
+        }
+
+        /* --- Pillars Section --- */
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Slightly larger min width */
+            gap: 45px; /* Increased gap */
+            text-align: left; /* Align text left within cards */
+        }
+        .pillar-card {
+            background-color: #FFFFFF; /* White cards */
+            padding: 35px; /* Increased padding */
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* Slightly enhanced shadow */
+            display: flex; /* Use flex for icon alignment */
+            flex-direction: column; /* Stack content vertically */
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+         .pillar-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+         }
+        .pillar-card .icon {
+            font-size: 2.8em; /* Slightly smaller icon */
+            margin-bottom: 20px; /* Increased space */
+            color: #2CA58D;
+            line-height: 1; /* Ensure icon aligns well */
+            /* Placeholder: Use actual SVG icons */
+        }
+         .pillar-card h3 {
+            margin-bottom: 15px; /* Increased space */
+         }
+         .pillar-card p {
+             margin-bottom: 0; /* Remove default bottom margin */
+             flex-grow: 1; /* Allow text to fill space */
+             color: #555; /* Slightly lighter text */
+         }
+
+        /* --- How It Works Section --- */
+        .how-it-works-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            text-align: center;
+        }
+        .step-card {
+            /* Basic styling for steps */
+            padding: 20px;
+        }
+        .step-card .step-number {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #2CA58D;
+            margin-bottom: 10px;
+            /* Add visual element like circle later */
+        }
+        .step-card h4 {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+            color: #0A2342;
+        }
+
+        /* --- Trust Signals --- */
+        .trust-logos {
+            text-align: center;
+            /* Add grid/flex layout for logos */
+        }
+        .trust-logos img { /* Placeholder style */
+             height: 50px; /* Example height */
+             margin: 15px;
+             opacity: 0.7;
+             filter: grayscale(100%); /* Make them uniform initially */
+             transition: opacity 0.3s ease, filter 0.3s ease;
+        }
+        .trust-logos img:hover {
+             opacity: 1;
+             filter: grayscale(0%);
+        }
+
+
+        /* --- Security Page Specific --- */
+        .security-content {
+            max-width: 850px; /* Slightly wider content area */
+            margin: 0 auto;
+        }
+        .security-content h3 {
+            margin-top: 40px; /* Space between sections */
+            border-bottom: 2px solid #EAEAEA; /* Subtle separator */
+            padding-bottom: 10px;
+        }
+        .feature-list {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 20px; /* Space above list */
+        }
+        .feature-list li {
+            margin-bottom: 18px; /* Increased spacing */
+            padding-left: 30px; /* Indent more */
+            position: relative;
+            font-size: 1.05em; /* Slightly larger list text */
+        }
+        .feature-list li::before {
+            content: '✓'; /* Keep simple check */
+            color: #2CA58D;
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+            top: 2px; /* Adjust vertical alignment */
+            font-size: 1.2em;
+        }
+
+        /* --- Footer --- */
+        footer {
+            background-color: #111111; /* Darker footer */
+            color: #A0A0A0; /* Lighter gray */
+            padding: 50px 0; /* Increased padding */
+            text-align: center;
+            font-size: 0.95em;
+        }
+        footer .footer-links {
+            margin-bottom: 15px;
+        }
+        footer .footer-links a {
+            color: #A0A0A0;
+            text-decoration: none;
+            margin: 0 12px;
+            transition: color 0.3s ease;
+        }
+        footer .footer-links a:hover {
+            color: #FFFFFF;
+        }
+        footer .copyright {
+            font-size: 0.9em;
+        }
+
+        /* --- Basic Responsiveness --- */
+        @media (max-width: 992px) {
+             .hero-section h1 { font-size: 2.8em; }
+             section h2 { font-size: 2.4em; }
+        }
+        @media (max-width: 768px) {
+            nav ul { display: none; } /* Needs proper mobile menu implementation */
+            .hero-section h1 { font-size: 2.2em; }
+            .hero-section .tagline { font-size: 1.1em; }
+            section { padding: 60px 0; }
+            section h2 { font-size: 2em; margin-bottom: 40px; }
+            .pillars-grid { grid-template-columns: 1fr; gap: 30px;} /* Stack pillars */
+            .commitment-section blockquote { font-size: 1.2em; }
+        }
+
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="hero-bg"></div>
-    <div class="overlay"></div>
 
-    <div class="container">
-
-        <nav>
-            <div class="logo-title">
-                <img src="assets/logo.png" alt="MedAI Logo" class="nav-logo">
-                <h1>CliniRAG</h1>
-            </div>
-            <div class="logo">CliniRAG</div>
-        </nav>
-
-        <div class="rotating-logos">
-            <div class="logos-container">
-                <div class="logo-group">
-                    <span>FHIR</span>
-                    <span>•</span>
-                    <span>Zero Trust</span>
-                    <span>•</span>
-                    <span>RAG</span>
-                    <span>•</span>
-                    <span>CI/CD</span>
-                    <span>•</span>
-                    <span>Compliance</span>
-                    <span>•</span>
-                    <span>API-First</span>
-                    <span>•</span>
-                </div>
-                <div class="logo-group">
-                    <span>FHIR</span>
-                    <span>•</span>
-                    <span>Zero Trust</span>
-                    <span>•</span>
-                    <span>RAG</span>
-                    <span>•</span>
-                    <span>CI/CD</span>
-                    <span>•</span>
-                    <span>Compliance</span>
-                    <span>•</span>
-                    <span>API-First</span>
-                    <span>•</span>
-                </div>
-                <div class="logo-group">
-                    <span>FHIR</span>
-                    <span>•</span>
-                    <span>Zero Trust</span>
-                    <span>•</span>
-                    <span>RAG</span>
-                    <span>•</span>
-                    <span>CI/CD</span>
-                    <span>•</span>
-                    <span>Compliance</span>
-                    <span>•</span>
-                    <span>API-First</span>
-                    <span>•</span>
-                </div>
-            </div>
+    <!-- === Navigation Bar === -->
+    <nav>
+        <div class="container">
+            <a href="#homepage" class="logo">ASKLEPIC</a> 
+            <ul>
+                <li><a href="#homepage">Home</a></li>
+                <li><a href="#platform">Platform</a></li>
+                <li><a href="#security">Security</a></li>
+                <li><a href="#use-cases">Use Cases</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">
+                    <span class="cta-nav-button">Request Demo</span>
+                </a></li>
+            </ul>
+            <!-- Implement Mobile Menu Button Here -->
         </div>
+    </nav>
 
-        <div class="content">
-            <div class="tagline">Created BY Doctors, Empowering ALL Industries</div>
-            <h1>Secure AI Intelligence for Every Sector</h1>
-            <p style="font-size:1.5rem;">Born from medical interoperability, our AI system revolutionizes data processing across industries - from healthcare to automotive, insurance to manufacturing. Experience enterprise-grade security with domain-specific intelligence.</p>
-        </div>
+    <!-- === HOMEPAGE CONTENT === -->
+    <main id="homepage">
 
-        <div class="cofounders">
-            <div class="cofounder-card">
-                <div class="cofounder-img">
-                    <img src="assets/rui.jpg" alt="Dr. Rui Costa Cunha">
-                </div>
-                <div class="cofounder-info">
-                    <h3 class="cofounder-name">Dr. Rui Costa Cunha</h3>
-                    <div class="cofounder-title">Co-Founder</div>
-                    <p class="cofounder-bio">Medical doctor with over 15 years of software development experience, specializing in DevOps. Combines clinical expertise with advanced technical knowledge to bridge the gap between healthcare requirements and technological solutions.</p>
-                </div>
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="container">
+                <h1>Secure & Reliable Autonomy, Engineered for Healthcare</h1>
+                <h1>The Standard for Trustworthy Healthcare Automation</h1> 
+                <p class="tagline">We provide advanced agentic systems delivering intelligent automation with uncompromising security, built on Zero Trust principles and deployed exclusively within your institution.</p>
+                <a href="#contact" class="cta-button">Request a Demo</a>
             </div>
+        </section>
 
-            <div class="cofounder-card">
-                <div class="cofounder-img">
-                    <img src="assets/tiago.png" alt="Dr. Tiago Taveira-Gomes">
-                </div>
-                <div class="cofounder-info">
-                    <h3 class="cofounder-name">Dr. Tiago Taveira-Gomes</h3>
-                    <div class="cofounder-title">Co-Founder</div>
-                    <p class="cofounder-bio">Medical doctor, data scientist and software architect with PhD in medical informatics. An invited professor in medicine, data science, medical informatics, software development and clinical research. Combines deep medical knowledge with advanced software architecture expertise.</p>
-                </div>
+        <section id="commitment" class="commitment-section">
+            <div class="container">
+                <h2>Our Uncompromising Commitment</h2>
+                <blockquote>
+                    Patient data can't afford excuses. No compromises. No shortcuts. Your data never leaves your institution. Period.
+                </blockquote>
+                <p>At ASKLEPIC, data privacy isn't an afterthought—it's the foundation. We reject models that require anonymization or pseudo-anonymization because true security means absolute control. Our systems operate entirely within your perimeter, ensuring complete data sovereignty and peace of mind.</p>
             </div>
-        </div>
+        </section>
 
-        <!-- <div class="news-section">
-            <h2 class="news-title">Latest News</h2>
-            <div class="news-item">
-                <div class="news-date">October 28, 2024</div>
-                <h3>Strategic Partnership with ULS Coimbra</h3>
-                <p>We're proud to announce our collaboration with ULS Coimbra to implement advanced AI solutions across their healthcare network, enhancing patient care and operational efficiency.</p>
-            </div>
-            <div class="news-item">
-                <div class="news-date">October 28, 2024</div>
-                <h3>Technology Partnership with Opvance</h3>
-                <p>CliniRAG Secure partners with Opvance to expand our AI capabilities and deliver enhanced healthcare solutions to medical institutions worldwide.</p>
-            </div>
-        </div> -->
-
-        <div class="industry-section">
-            <div class="core-capabilities">
-                <h2 class="section-title">A STRICT, TYPED, INTEROPERABLE AI SOLUTION</h2>
-                <p class="section-subtitle">Transform unstructured data into actionable intelligence while maintaining strict privacy controls.<br/>
-
-                    Secure, Compliant, and Privacy-First Clinical AI Infrastructure
-                </p>
-                
-                <div class="data-flow-container">
-                    <div class="data-flow-card">
-                        <div class="flow-step input-step">
-                            <h3>Input</h3>
-                            <div class="sample-text blur-content">
-                                Patient presented with severe headache ongoing for 3 days. BP 140/90, HR 80. 
-                                Previous history of migraines. Prescribed ibuprofen 400mg TID and recommended rest.
-                                Follow-up in 2 weeks if symptoms persist.
-                            </div>
-                        </div>
-        
-                        <div class="flow-arrow">→</div>
-        
-                        <div class="flow-step transform-step">
-                            <h3>Structured Data</h3>
-                            <div class="code-block">{
-"presentation": {
-    "symptoms": [{
-        "description": "<span class="blur-content">severe headache</span>",
-        "duration": "<span class="blur-content">3 days</span>"
-    }],
-    "vitals": {
-        "bp_systolic": <span class="blur-content">140</span>,
-        "bp_diastolic": <span class="blur-content">90</span>,
-        "heart_rate": <span class="blur-content">80</span>
-        }
-    },
-    "history": {
-        "conditions": [<span class="blur-content">migraines</span>]
-        },
-    "plan": {
-        "medications": [{
-            "name": <span class="blur-content">ibuprofen</span>,
-            "dose": <span class="blur-content">400mg</span>,
-            "frequency": <span class="blur-content">TID</span>
-        }],
-        "recommendations": [<span class="blur-content">rest</span>],
-        "followUp": <span class="blur-content">2 weeks if persistent</span>
-    }
-}</div>
-                        </div>
-        
-                        <div class="flow-arrow">→</div>
-        
-                        <div class="flow-step integration-step">
-                            <h3>System Integration</h3>
-                            <div class="integration-examples">
-                                <div class="integration-item">
-                                    <span class="integration-icon">🏥</span>
-                                    <div class="integration-code">
-                                        POST /fhir/v4/Observation
-                                        Content-Type: application/fhir+json
-                                    </div>
-                                </div>
-                                <div class="integration-item">
-                                    <span class="integration-icon">📊</span>
-                                    <div class="integration-code">
-                                        POST /api/v1/ehr/encounter
-                                        Content-Type: application/json
-                                    </div>
-                                </div>
-                                <div class="integration-item">
-                                    <span class="integration-icon">⚡</span>
-                                    <div class="integration-code">
-                                        PUT /api/v2/analytics/process
-                                        Content-Type: application/json
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+        <!-- Core Pillars Section -->
+        <section id="pillars">
+            <div class="container">
+                <h2>Secure. Reliable. Autonomous.</h2>
+                <div class="pillars-grid">
+                    <div class="pillar-card">
+                        <div class="icon">[🛡️]</div> 
+                        <h3>Secure by Design</h3>
+                        <p>Built on Zero Trust principles and deployed on-premise. We ensure granular control, continuous verification, and complete data sovereignty, eliminating external data exposure risks.</p>
                     </div>
-        
-                    <div class="capabilities-summary">
-                        <div class="capability-item">
-                            <div class="capability-icon">🔒</div>
-                            <div class="capability-content">
-                                <h4>Privacy by Design</h4>
-                                <p>End-to-end encryption with granular access controls and data masking</p>
-                            </div>
-                        </div>
-                        <div class="capability-item">
-                            <div class="capability-icon">🔍</div>
-                            <div class="capability-content">
-                                <h4>Intelligent Extraction</h4>
-                                <p>Context-aware parsing of complex documents, notes, and records</p>
-                            </div>
-                        </div>
-                        <div class="capability-item">
-                            <div class="capability-icon">🔄</div>
-                            <div class="capability-content">
-                                <h4>Real-time Processing</h4>
-                                <p>Immediate transformation and validation of incoming data</p>
-                            </div>
-                        </div>
+                    <div class="pillar-card">
+                        <div class="icon">[⚙️]</div> 
+                        <h3>Consistently Reliable</h3>
+                        <p>Engineered for dependable, predictable performance in critical healthcare environments. Count on consistent outputs and stable operations for your essential workflows.</p>
                     </div>
-                </div>
-            </div>
-        
-        </div>
-
-        <div class="llm-integration-section">
-            <h2 class="mega-title">Enterprise LLM Integration</h2>
-            <div class="main-integration-card">
-                <div class="model-header">
-                    <h3 class="model-title">Self-Hosted AI With <span class="mega-icon">🦙</span>Llama & <span class="mega-icon">🧬</span>other models</h3>
-                </div>
-                
-                <div class="key-features">
-                    <div class="feature">
-                        <span class="mega-stat">100%</span>
-                        <span class="feature-label">Data Privacy</span>
-                        <p class="feature-desc">Complete control over your sensitive information with on-premises deployment</p>
+                    <div class="pillar-card">
+                        <div class="icon">[🤖]</div> 
+                        <h3>Intelligent Autonomy</h3>
+                        <p>Advanced agentic systems automate complex tasks, analyze data securely within your walls, and surface critical insights to enhance decision-making and operational efficiency.</p>
                     </div>
-                    <div class="feature">
-                        <span class="mega-stat">Local</span>
-                        <span class="feature-label">Processing</span>
-                        <p class="feature-desc">All operations happen within your secure infrastructure</p>
-                    </div>
-                    <div class="feature">
-                        <span class="mega-stat">Open</span>
-                        <span class="feature-label">Architecture</span>
-                        <p class="feature-desc">Full visibility and customization capabilities</p>
-                    </div>
-                </div>
-            </div>
-        
-            <div class="hybrid-integration">
-                <h3 class="secondary-title">Hybrid Deployment Available</h3>
-                <div class="hybrid-models">
-                    <div class="hybrid-model">
-                        <span class="model-icon">🤖</span>
-                        <span class="model-name">GPT-4</span>
-                    </div>
-                    <div class="hybrid-model">
-                        <span class="model-icon">🔮</span>
-                        <span class="model-name">Claude</span>
-                    </div>
-                    <div class="hybrid-model">
-                        <span class="model-icon">⚡</span>
-                        <span class="model-name">Others</span>
-                    </div>
-                </div>
-                <p class="hybrid-note">Secure integration available with leading cloud LLMs</p>
-            </div>
-        </div>
-
-        
-
-        <section class="secure-ai-integration">
-    
-            <div class="pillars-container">
-                <!-- Privacy & Security Architecture -->
-                <div class="pillar">
-                    <div class="pillar-header">
-                        <div class="pillar-icon">🔒</div>
-                        <h3>Zero-Trust Architecture</h3>
-                    </div>
-                    <div class="security-demo">
-                        <div class="demo-window">
-                            <div class="window-header">
-                                <span>Live Data Processing</span>
-                            </div>
-                            <div class="data-flow">
-                                <div class="raw-data blur-content">
-                                    Patient clinical notes...
-                                    Diagnostic information...
-                                    Treatment records...
-                                </div>
-                                <div class="processing-steps">
-                                    <div class="step">Local Processing</div>
-                                    <div class="step">End-to-End Encryption</div>
-                                    <div class="step">Data Masking</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-        
-                <!-- AI/LLM Integration -->
-                <div class="pillar">
-                    <div class="pillar-header">
-                        <div class="pillar-icon">🧠</div>
-                        <h3>Local LLM Processing</h3>
-                    </div>
-                    <div class="model-integration">
-                        <div class="model-card">
-                            <span class="model-icon">🦙</span>
-                            <div class="model-info">
-                                <h4>Llama Integration</h4>
-                                <p>Data Extraction & Processing</p>
-                                <p>Clinical Analysis & Validation</p>
-                                <div class="performance-metric">40K tokens/s</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-        
-                <!-- Data Transformation -->
-                <div class="pillar">
-                    <div class="pillar-header">
-                        <div class="pillar-icon">🔄</div>
-                        <h3>Clinical Interoperability</h3>
-                    </div>
-                    <div class="transform-demo">
-                        <div class="input-output">
-                            <div class="input">
-                                <h4>Unstructured Input</h4>
-                                <div class="text-sample blur-content">
-                                    Clinical notes and observations...
-                                </div>
-                            </div>
-                            <div class="transform-arrow">→</div>
-                            <div class="output">
-                                <h4>Structured Output</h4>
-                                <div class="code-sample">
-                                    {
-                                        "type": "observation",
-                                        "data": "<span class="blur-content">...</span>"
-                                    }
-                                </div>
-                            </div>
-                        </div>
-                        <div class="standards-support">
-                            <span class="standard">FHIR</span>
-                            <span class="standard">HL7</span>
-                            <span class="standard">SNOMED CT</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        
-            <div class="features-grid">
-                <div class="feature-tile">
-                    <h4>Real-Time Processing</h4>
-                    <div class="processing-stats">
-                        <div class="stat">
-                            <span class="stat-value">30-42K</span>
-                            <span class="stat-label">Tokens/Second</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-value">100%</span>
-                            <span class="stat-label">Local Processing</span>
-                        </div>
-                    </div>
-                </div>
-        
-                <div class="feature-tile">
-                    <h4>Security Standards</h4>
-                    <div class="security-features">
-                        <span class="feature">End-to-End Encryption</span>
-                        <span class="feature">Zero-Trust Architecture</span>
-                        <span class="feature">Access Control</span>
-                    </div>
-                </div>
-        
-                <div class="feature-tile">
-                    <h4>Clinical Integration</h4>
-                    <div class="integration-features">
-                        <span class="feature">EHR Systems</span>
-                        <span class="feature">Clinical Workflows</span>
-                        <span class="feature">Healthcare APIs</span>
-                    </div>
-                </div>
-            </div>
-        
-            <div class="workflow-showcase">
-                <h3>Real-Time Clinical Workflow</h3>
-                <div class="workflow-steps">
-                    <!-- Dynamic workflow visualization will be handled by JS -->
                 </div>
             </div>
         </section>
 
-        <div class="interop-showcase">
-            <h2 class="mega-title">Industrial-Grade Interoperability</h2>
-            
-            <div class="systems-demo">
-                <div class="system-node ehr">
-                    <div class="node-icon">🏥</div>
-                    <div class="node-label">Electronic Health Record</div>
-                    <div class="node-pulse"></div>
-                </div>
-                
-                <div class="data-stream">
-                    <div class="data-packet" data-content="Patient Data">
-                        <span class="packet-dot"></span>
+        <!-- How It Works Section -->
+        <section id="how-it-works">
+            <div class="container">
+                <h2>Seamless Integration & Control</h2>
+                <div class="how-it-works-steps">
+                    <div class="step-card">
+                        <div class="step-number">01</div>
+                        <h4>Deploy On-Premise</h4>
+                        <p>Install securely within your existing infrastructure for complete control.</p>
                     </div>
-                    <div class="data-packet" data-content="Vitals">
-                        <span class="packet-dot"></span>
+                     <div class="step-card">
+                        <div class="step-number">02</div>
+                        <h4>Configure Zero Trust</h4>
+                        <p>Implement granular access policies and continuous verification.</p>
                     </div>
-                    <div class="data-packet" data-content="Labs">
-                        <span class="packet-dot"></span>
+                     <div class="step-card">
+                        <div class="step-number">03</div>
+                        <h4>Automate Workflows</h4>
+                        <p>Deploy autonomous agents for specific healthcare tasks.</p>
                     </div>
-                </div>
-        
-                <div class="system-node ai">
-                    <div class="node-icon">🧠</div>
-                    <div class="node-label">CliniRAG Process</div>
-                    <!--<div class="processing-indicator">
-                        <div class="processing-ring"></div>
-                    </div>-->
-                </div>
-                <div class="systems-list">
-                    
-                    <span>Llama</span>
-                    <span>Other models</span>
-                </div>
-        
-                <div class="data-stream outbound">
-                    <div class="data-packet structured" data-content="FHIR">
-                        <span class="packet-dot"></span>
-                    </div>
-                    <div class="data-packet structured" data-content="HL7">
-                        <span class="packet-dot"></span>
-                    </div>
-                    <div class="data-packet structured" data-content="SNOMED">
-                        <span class="packet-dot"></span>
-                    </div>
-                </div>
-        
-                <div class="system-node target">
-                    <div class="node-icon">🎯</div>
-                    <div class="node-label">Target Systems</div>
-                    <div class="systems-list">
-                        <span>PACS</span>
-                        <span>LIS</span>
-                        <span>PIS</span>
+                     <div class="step-card">
+                        <div class="step-number">04</div>
+                        <h4>Monitor & Optimize</h4>
+                        <p>Manage performance, security, and compliance via integrated tooling.</p>
                     </div>
                 </div>
             </div>
-        
-            <div class="interop-stats">
-                <div class="stat-card">
-                    <div class="stat-value">Real-Time</div>
-                    <div class="stat-label">Processing</div>
-                    <div class="stat-detail">Immediate data transformation and routing</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-value">Universal</div>
-                    <div class="stat-label">Standards</div>
-                    <div class="stat-detail">FHIR, HL7, DICOM, SNOMED CT</div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-value">Seamless</div>
-                    <div class="stat-label">Integration</div>
-                    <div class="stat-detail">Zero-friction system interconnectivity</div>
-                </div>
-            </div>
-            
-        <div class="use-case-example">
-            
-            <div class="timeline-wheel">
-                <div class="wheel-controls">
-                    <button class="rotate-btn prev">←</button>
-                    <button class="rotate-btn next">→</button>
-                </div>
+        </section>
 
-                <!-- This will be populated by JavaScript -->
-                <div class="example-timeline current">
-                    <div class="scenario-header">
-                        <div class="scenario-icon"></div>
-                        <h4></h4>
-                        <div class="scenario-tag"></div>
-                    </div>
-                    <div class="timeline-steps">
-                        <!-- Steps will be inserted here by JavaScript -->
-                    </div>
-                    <div class="scenario-stats">
-                        <!-- Stats will be inserted here by JavaScript -->
-                    </div>
+         <!-- Use Case Teasers -->
+        <section id="use-case-teasers">
+            <div class="container">
+                <h2>Applications Across Healthcare</h2>
+                 <p style="text-align: center; max-width: 700px; margin: -20px auto 50px auto; color: #555;">Discover how ASKLEPIC can streamline operations, enhance security, and unlock value in various healthcare domains.</p>
+                 <p style="text-align: center;">[Placeholder: Cards/Grid for Clinical Documentation, RCM, Research Support, Compliance Automation...]</p>
+                 <div style="text-align: center; margin-top: 40px;">
+                     <a href="#use-cases" class="cta-button" style="background-color: #4682B4;">Explore Applications</a>
+                 </div>
+            </div>
+        </section>
+
+        <section id="trust-signals" style="padding-bottom: 60px;">
+            <div class="container">
+                <h2 style="font-size: 1.8em; margin-bottom: 40px; color: #555;">Trusted by Leading Healthcare Innovators (Placeholder)</h2>
+                <div class="trust-logos">
                 </div>
             </div>
-        </div>
+        </section>
 
-            
-            
-    </div>
+    </main> <!-- End Homepage -->
 
-    <section class="industry-section">
-        <h2 class="industry-title">Industry Solutions</h2>
-        
-        <div class="healthcare-grid">
-            <div class="healthcare-card">
-                <div class="healthcare-header">
-                    <span class="healthcare-icon">🏥</span>
-                    <h3 class="healthcare-title">Healthcare - CliniRAG</h3>
-                </div>
-                <p class="healthcare-desc">Comprehensive medical AI solutions built on decades of medical expertise, powered by Llama models.</p>
-                
-                <div class="healthcare-features">
-                    <div class="healthcare-feature">
-                        <div class="feature-header">
-                            <span class="feature-icon">🔍</span>
-                            <h4 class="feature-title">Clinical Understanding</h4>
-                        </div>
-                        <p class="feature-desc">Advanced NLP for medical documentation with specialized medical knowledge</p>
-                    </div>
-                    
-                    <div class="healthcare-feature">
-                        <div class="feature-header">
-                            <span class="feature-icon">🧬</span>
-                            <h4 class="feature-title">Diagnostic Support</h4>
-                        </div>
-                        <p class="feature-desc">AI-powered analysis of clinical data, imaging, and lab results</p>
-                    </div>
-                    
-                    <div class="healthcare-feature">
-                        <div class="feature-header">
-                            <span class="feature-icon">📋</span>
-                            <h4 class="feature-title">Automated Coding</h4>
-                        </div>
-                        <p class="feature-desc">ICD-10 and SNOMED CT coding with human-level accuracy</p>
-                    </div>
-                    
-                    <div class="healthcare-feature">
-                        <div class="feature-header">
-                            <span class="feature-icon">📈</span>
-                            <h4 class="feature-title">Predictive Analytics</h4>
-                        </div>
-                        <p class="feature-desc">Advanced risk assessment and outcome prediction</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    
-        <div class="other-industries">
-            <div class="industry-grid">
-                <div class="industry-card">
-                    <h3 class="industry-title">Automotive</h3>
-                    <p class="industry-desc">Medical-grade precision applied to vehicle systems and manufacturing.</p>
-                    <ul class="industry-list">
-                        <li>Predictive maintenance with 99.9% accuracy using sensor data analysis</li>
-                        <li>Real-time quality control automation for production lines</li>
-                        <li>Supply chain optimization with predictive inventory management</li>
-                        <li>Component failure prediction and prevention</li>
-                        <li>Automated quality inspection using computer vision</li>
+
+    <!-- === SECURITY PAGE CONTENT (Enhanced Stub) === -->
+    <main id="security-page" style="display: none;">
+         <section id="security-details">
+            <div class="container">
+                <h2>Uncompromising Security for Healthcare Data</h2>
+                <div class="security-content">
+                    <blockquote style="font-size: 1.3em; font-style: italic; border-left: 4px solid #2CA58D; padding: 15px 25px; margin: 40px 0; background-color: #F8F9FA;">
+                        "We believe patient data can't afford excuses. No anonymization. No pseudoanonymization. The data never leaves your institution. Period."
+                    </blockquote>
+
+                    <h3>Zero Trust Architecture: Security from the Core</h3>
+                    <p>Our platform fundamentally rejects outdated perimeter-based security. We operate on a "Never Trust, Always Verify" principle, mandating strict verification for every user, device, and process attempting to access resources. This granular approach dramatically minimizes the attack surface and contains potential breaches effectively, crucial for sensitive PHI.</p>
+
+                    <h3>On-Premise Deployment: Your Data, Your Control</h3>
+                    <p>ASKLEPIC systems reside entirely within your infrastructure. This guarantees complete data sovereignty – your patient data never leaves your control or gets processed by third-party cloud vendors. This simplifies HIPAA compliance, ensures regulatory alignment, provides predictable performance independent of external factors, and eliminates cloud-associated security risks for PHI.</p>
+
+                    <h3>Key Security Capabilities</h3>
+                    <ul class="feature-list">
+                        <li>End-to-End Encryption (Data in Transit & At Rest using modern standards)</li>
+                        <li>Strict, Granular Role-Based Access Control (RBAC)</li>
+                        <li>Multi-Factor Authentication (MFA) Integration</li>
+                        <li>Continuous Security Monitoring, Threat Detection, and Alerting</li>
+                        <li>Comprehensive Audit Logging for Compliance and Forensics</li>
+                        <li>Immutable Data Storage and Versioning Options</li>
+                        <li>Secure Agent Communication and Runtime Environments</li>
+                        <li>Regular Security Audits and Penetration Testing (Internal/Third-Party)</li>
                     </ul>
-                </div>
 
-                <div class="industry-card">
-                    <h3 class="industry-title">Insurance</h3>
-                    <p class="industry-desc">Advanced risk assessment and claim processing powered by medical AI expertise.</p>
-                    <ul class="industry-list">
-                        <li>Automated medical claim processing with ICD validation</li>
-                        <li>Risk assessment using comprehensive health data analysis</li>
-                        <li>Fraud detection with pattern recognition algorithms</li>
-                        <li>Automated underwriting with multi-factor analysis</li>
-                        <li>Predictive modeling for risk stratification</li>
-                        <li>Real-time policy customization</li>
-                    </ul>
-                </div>
-
-                <div class="industry-card">
-                    <h3 class="industry-title">Manufacturing</h3>
-                    <p class="industry-desc">Healthcare-inspired precision for manufacturing excellence.</p>
-                    <ul class="industry-list">
-                        <li>Process optimization using medical-grade statistical models</li>
-                        <li>Automated quality assurance with machine vision</li>
-                        <li>Predictive maintenance scheduling</li>
-                        <li>Supply chain optimization and inventory forecasting</li>
-                        <li>Real-time production monitoring and adjustment</li>
-                        <li>Energy optimization and sustainability analysis</li>
-                    </ul>
-                </div>
+                     <h3>Built for Compliance</h3>
+                     <p>Meeting and exceeding HIPAA technical safeguard requirements is integral to our design. We provide the tools and architecture to support your organization's comprehensive compliance strategy.</p>
+                 </div>
             </div>
+        </section>
+    </main> <!-- End Security Page -->
+
+    <!-- === Footer === -->
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="#privacy">Privacy Policy</a> |
+                <a href="#terms">Terms of Service</a> |
+                <a href="#contact">Contact</a> |
+                <a href="#careers">Careers (Optional)</a>
+            </div>
+            <p class="copyright">© 2024 ASKLEPIC. All Rights Reserved. | Secure and reliable autonomy.</p>
         </div>
-    </section>    
-    <script src="script.js"></script>
-    <script src="secure-ai-integration.js"></script>
+    </footer>
+
+    <!-- Consider adding JavaScript file link here -->
+
 </body>
 </html>
