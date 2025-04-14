@@ -3,542 +3,182 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ASKLEPIC - Secure and reliable autonomy</title>
+    <!-- Updated Title -->
+    <title>ASKLEPIC - Coming Soon</title>
     <style>
-        /* --- Enhanced Basic Styling --- */
+        /* --- Basic Reset & Font --- */
         body {
-            font-family: 'Inter', sans-serif; /* Example font */
+            font-family: 'Inter', sans-serif;
             margin: 0;
             padding: 0;
-            color: #333; /* Slightly softer dark gray */
-            background-color: #FFFFFF;
-            line-height: 1.7; /* Increased for readability */
+            color: #EAEAEA; /* Light text for dark background */
+            background-color: #0A2342; /* Deep Blue Background */
+            line-height: 1.7;
+            display: flex; /* Enable Flexbox for centering */
+            flex-direction: column; /* Stack content vertically */
+            min-height: 100vh; /* Ensure body takes full viewport height */
+            text-align: center; /* Center text by default */
         }
 
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 25px; /* Slightly increased padding */
-        }
-
-        /* --- Navigation --- */
-        nav {
-            background-color: #FFFFFF;
-            padding: 15px 0;
-            border-bottom: 1px solid #EAEAEA; /* Lighter border */
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05); /* Subtle shadow */
-        }
-        nav .container {
+        /* --- Centering Container --- */
+        .content-wrapper {
+            flex-grow: 1; /* Allow this container to grow and push footer down */
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        /* Updated Logo Style */
-        nav .logo {
-            font-size: 1.8em; /* Slightly larger */
-            font-weight: 700; /* Bold */
-            color: #0A2342; /* Deep Blue */
-            text-decoration: none;
-            letter-spacing: 0.5px; /* Slight spacing */
-        }
-        nav ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            display: flex;
-            align-items: center; /* Align items vertically */
-        }
-        nav ul li {
-            margin-left: 30px; /* Increased spacing */
-        }
-        nav ul li a {
-            text-decoration: none;
-            color: #333;
-            font-weight: 500;
-            transition: color 0.3s ease;
-            padding-bottom: 5px; /* Space for potential underline effect */
-        }
-        nav ul li a:hover {
-            color: #2CA58D; /* Teal Accent */
-            /* Add subtle underline or border-bottom effect on hover */
-        }
-        .cta-nav-button {
-            background-color: #2CA58D;
-            color: #FFFFFF;
-            padding: 10px 18px; /* Slightly larger padding */
-            border-radius: 6px; /* Slightly more rounded */
-            text-decoration: none;
-            font-weight: 500;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-        }
-        .cta-nav-button:hover {
-            background-color: #1f7966;
-            transform: translateY(-1px); /* Subtle lift effect */
+            justify-content: center; /* Center horizontally */
+            align-items: center; /* Center vertically */
+            padding: 40px 25px; /* Padding around the content */
         }
 
-        /* --- Hero Section --- */
-        .hero-section {
-            background-color: #0A2342;
-            color: #FFFFFF;
-            text-align: center;
-            padding: 120px 20px 140px 20px; /* Increased padding */
-            background-image: url('[Placeholder: Subtle, Abstract Secure Network/Nodes Background]');
-            background-size: cover;
-            background-position: center;
+        .coming-soon-content {
+            max-width: 650px; /* Limit content width */
         }
-        .hero-section h1 {
-            font-size: 3.2em; /* Slightly larger */
-            margin-bottom: 20px;
+
+        /* --- Logo/Brand Name --- */
+        .logo {
+            font-size: 2.5em; /* Larger logo size */
+            font-weight: 700;
+            color: #FFFFFF; /* White logo */
+            text-decoration: none;
+            letter-spacing: 0.5px;
+            margin-bottom: 20px; /* Space below logo */
+            display: block; /* Make it a block element for margin */
+        }
+
+        /* --- Main Message --- */
+        h1 {
+            font-size: 2.8em; /* Prominent "Coming Soon" */
+            margin-bottom: 15px;
             font-weight: 700;
             line-height: 1.2;
+            color: #FFFFFF;
         }
-        .hero-section .tagline { /* Specific class for tagline */
-            font-size: 1.3em;
-            max-width: 750px;
-            margin: 0 auto 35px auto;
+
+        /* --- Tagline/Description --- */
+        .tagline {
+            font-size: 1.2em;
+            margin-bottom: 30px;
             opacity: 0.9;
             font-weight: 400;
+            color: #BDCADB; /* Lighter shade of blue/gray */
         }
-        .cta-button {
-            background-color: #2CA58D;
+
+        /* --- Optional Email Signup --- */
+        .signup-form {
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap; /* Allow wrapping on small screens */
+            gap: 10px;
+        }
+        .signup-form input[type="email"] {
+            padding: 12px 18px;
+            border: 1px solid #465F7A; /* Subtle border */
+            border-radius: 6px;
+            font-size: 1em;
+            min-width: 250px; /* Minimum width */
+            background-color: #1E3A5F; /* Darker input background */
             color: #FFFFFF;
-            padding: 16px 35px; /* Larger padding */
-            font-size: 1.15em; /* Slightly larger font */
+        }
+         .signup-form input[type="email"]::placeholder {
+             color: #8B9DB3; /* Lighter placeholder text */
+         }
+
+        .cta-button {
+            background-color: #2CA58D; /* Teal Accent */
+            color: #FFFFFF;
+            padding: 12px 25px;
+            font-size: 1em;
             border: none;
             border-radius: 6px;
             text-decoration: none;
             cursor: pointer;
             transition: background-color 0.3s ease, transform 0.2s ease;
-            display: inline-block; /* Ensure proper spacing/alignment */
             font-weight: 500;
         }
         .cta-button:hover {
-            background-color: #1f7966;
-            transform: translateY(-2px); /* Slightly larger lift */
+            background-color: #1f7966; /* Darker Teal */
+            transform: translateY(-1px);
         }
 
-        /* --- General Section Styling --- */
-        section {
-            padding: 90px 0; /* Increased section padding */
-        }
-        section:nth-child(even) { /* Subtle alternating background */
-             background-color: #F8F9FA; /* Very light gray */
-        }
-        section h2 {
-            text-align: center;
-            font-size: 2.8em; /* Larger section titles */
-            margin-bottom: 60px; /* Increased spacing */
-            color: #0A2342;
-            font-weight: 700;
-        }
-        section h3 {
-            font-size: 1.6em;
-            margin-bottom: 15px;
-            color: #0A2342;
-            font-weight: 600;
-         }
-
-        /* --- Commitment Section --- */
-        /* --- MAX CONTRAST Commitment Section Styling --- */
-        /* --- UPDATED MAX CONTRAST Commitment Section Styling with Background Image --- */
-        .commitment-section {
-            /* Existing Padding */
-            padding: 90px 0;
-        
-            /* --- NEW Background Image Styles --- */
-            background-color: #111111; /* Fallback color */
-            background-image: url('assets/fundo-commitment.jpg'); 
-            background-size: cover;
-            background-position: center center;
-            background-repeat: no-repeat;
-            position: relative; /* Needed for the overlay */
-            z-index: 0;
-        
-            /* --- Keep High Contrast Text Color --- */
-            color: #FFFFFF; /* Default text color for the section */
-        }
-        
-        /* --- Strong Dark Overlay for Readability --- */
-        .commitment-section::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            /* Near-black overlay, adjust opacity (0.8 is quite strong) */
-            background-color: rgba(10, 10, 10, 0.8);
-            z-index: 1; /* Overlay above background image */
-        }
-        
-        /* --- Ensure Commitment Content is Above Overlay --- */
-        .commitment-section .container { /* Target the container within this section */
-            position: relative; /* Position relative to its normal flow */
-            z-index: 2; /* Place content above the overlay */
-        }
-        
-        
-        /* --- Styles for content within the section (maintain high contrast) --- */
-        .commitment-section h2 {
-            color: #FFFFFF;
-            text-align: center;
-            font-size: 2.8em;
-            margin-bottom: 60px;
-            font-weight: 700;
-        }
-        .commitment-section blockquote {
-            font-size: 1.4em;
-            font-style: italic;
-            max-width: 800px;
-            margin: 30px auto;
-            padding: 20px 30px;
-            /* Keep accent border, make it slightly brighter if needed */
-            border-left: 5px solid #34D3B3; /* Brighter teal for visibility */
-            line-height: 1.6;
-            text-align: center;
-            color: #FFFFFF;
-            font-weight: 400;
-        }
-        .commitment-section p {
-             max-width: 800px;
-             margin: 20px auto;
-             text-align: center;
-             font-size: 1.1em;
-             color: #FFFFFF; /* Ensure paragraphs are also white */
-             font-weight: 400;
-             line-height: 1.7;
-        }
-        .commitment-section a {
-            color: #5DCAB3; /* Light Teal for links */
-            text-decoration: underline;
-            font-weight: 500;
-        }
-        .commitment-section a:hover {
-            color: #88E0CC; /* Brighter teal on hover */
-        }
-
-        /* --- Pillars Section --- */
-        .pillars-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Slightly larger min width */
-            gap: 45px; /* Increased gap */
-            text-align: left; /* Align text left within cards */
-        }
-        .pillar-card {
-            background-color: #FFFFFF; /* White cards */
-            padding: 35px; /* Increased padding */
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.08); /* Slightly enhanced shadow */
-            display: flex; /* Use flex for icon alignment */
-            flex-direction: column; /* Stack content vertically */
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-         .pillar-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-         }
-        .pillar-card .icon {
-            font-size: 2.8em; /* Slightly smaller icon */
-            margin-bottom: 20px; /* Increased space */
-            color: #2CA58D;
-            line-height: 1; /* Ensure icon aligns well */
-            /* Placeholder: Use actual SVG icons */
-        }
-         .pillar-card h3 {
-            margin-bottom: 15px; /* Increased space */
-         }
-         .pillar-card p {
-             margin-bottom: 0; /* Remove default bottom margin */
-             flex-grow: 1; /* Allow text to fill space */
-             color: #555; /* Slightly lighter text */
-         }
-
-        /* --- How It Works Section --- */
-        .how-it-works-steps {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
-            text-align: center;
-        }
-        .step-card {
-            /* Basic styling for steps */
-            padding: 20px;
-        }
-        .step-card .step-number {
-            font-size: 1.5em;
-            font-weight: bold;
-            color: #2CA58D;
-            margin-bottom: 10px;
-            /* Add visual element like circle later */
-        }
-        .step-card h4 {
-            font-size: 1.2em;
-            margin-bottom: 10px;
-            color: #0A2342;
-        }
-
-        /* --- Trust Signals --- */
-        .trust-logos {
-            text-align: center;
-            /* Add grid/flex layout for logos */
-        }
-        .trust-logos img { /* Placeholder style */
-             height: 50px; /* Example height */
-             margin: 15px;
-             opacity: 0.7;
-             filter: grayscale(100%); /* Make them uniform initially */
-             transition: opacity 0.3s ease, filter 0.3s ease;
-        }
-        .trust-logos img:hover {
-             opacity: 1;
-             filter: grayscale(0%);
-        }
-
-
-        /* --- Security Page Specific --- */
-        .security-content {
-            max-width: 850px; /* Slightly wider content area */
-            margin: 0 auto;
-        }
-        .security-content h3 {
-            margin-top: 40px; /* Space between sections */
-            border-bottom: 2px solid #EAEAEA; /* Subtle separator */
-            padding-bottom: 10px;
-        }
-        .feature-list {
-            list-style: none;
-            padding-left: 0;
-            margin-top: 20px; /* Space above list */
-        }
-        .feature-list li {
-            margin-bottom: 18px; /* Increased spacing */
-            padding-left: 30px; /* Indent more */
-            position: relative;
-            font-size: 1.05em; /* Slightly larger list text */
-        }
-        .feature-list li::before {
-            content: '✓'; /* Keep simple check */
-            color: #2CA58D;
-            font-weight: bold;
-            position: absolute;
-            left: 0;
-            top: 2px; /* Adjust vertical alignment */
-            font-size: 1.2em;
-        }
-
-        /* --- Footer --- */
+        /* --- Minimal Footer --- */
         footer {
-            background-color: #111111; /* Darker footer */
-            color: #A0A0A0; /* Lighter gray */
-            padding: 50px 0; /* Increased padding */
+            background-color: rgba(0, 0, 0, 0.2); /* Slightly darker transparent background */
+            color: #A0A0A0;
+            padding: 20px 0;
             text-align: center;
-            font-size: 0.95em;
+            font-size: 0.9em;
+            width: 100%; /* Ensure footer spans width */
         }
-        footer .footer-links {
-            margin-bottom: 15px;
-        }
-        footer .footer-links a {
+        footer a {
             color: #A0A0A0;
             text-decoration: none;
-            margin: 0 12px;
+            margin: 0 10px;
             transition: color 0.3s ease;
         }
-        footer .footer-links a:hover {
+        footer a:hover {
             color: #FFFFFF;
-        }
-        footer .copyright {
-            font-size: 0.9em;
         }
 
         /* --- Basic Responsiveness --- */
-        @media (max-width: 992px) {
-             .hero-section h1 { font-size: 2.8em; }
-             section h2 { font-size: 2.4em; }
-        }
         @media (max-width: 768px) {
-            nav ul { display: none; } /* Needs proper mobile menu implementation */
-            .hero-section h1 { font-size: 2.2em; }
-            .hero-section .tagline { font-size: 1.1em; }
-            section { padding: 60px 0; }
-            section h2 { font-size: 2em; margin-bottom: 40px; }
-            .pillars-grid { grid-template-columns: 1fr; gap: 30px;} /* Stack pillars */
-            .commitment-section blockquote { font-size: 1.2em; }
+            .logo { font-size: 2em; }
+            h1 { font-size: 2.2em; }
+            .tagline { font-size: 1.1em; }
+            .signup-form input[type="email"] {
+                min-width: auto; /* Allow input to shrink */
+                width: 80%; /* Take more width */
+            }
+            .cta-button {
+                 width: 80%; /* Take more width */
+                 margin-top: 5px; /* Add space when wrapped */
+            }
         }
 
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Link Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <!-- === Navigation Bar === -->
-    <nav>
-        <div class="container">
-            <a href="#homepage" class="logo">ASKLEPIC</a> 
-            <ul>
-                <li><a href="#homepage">Home</a></li>
-                <li><a href="#platform">Platform</a></li>
-                <li><a href="#security">Security</a></li>
-                <li><a href="#use-cases">Use Cases</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">
-                    <span class="cta-nav-button">Request Demo</span>
-                </a></li>
-            </ul>
-            <!-- Implement Mobile Menu Button Here -->
+    <!-- Centering Wrapper -->
+    <div class="content-wrapper">
+        <div class="coming-soon-content">
+            <!-- Logo/Brand Name -->
+            <div class="logo">ASKLEPIC</div>
+
+            <!-- Main Message -->
+            <h1>Launching Soon</h1>
+            <!-- Or use: <h1>Under Maintenance</h1> -->
+
+            <!-- Tagline -->
+            <p class="tagline">
+                Secure, reliable autonomy for healthcare is preparing for launch. <br>
+                We're working hard to bring you advanced automation with Zero Trust security.
+            </p>
+
+            <!-- Optional: Email Signup Form -->
+            <div class="signup-form">
+                <input type="email" placeholder="Enter your email for updates" name="email">
+                <button type="submit" class="cta-button">Notify Me</button>
+                <!-- Note: This form needs backend handling to be functional -->
+            </div>
+
+             <!-- Optional: Contact Link -->
+             <p style="margin-top: 30px; font-size: 0.9em;">
+                Need to reach us sooner? <a href="mailto:contact@asklepic.placeholder" style="color: #5DCAB3;">Contact Us</a>
+             </p>
+
         </div>
-    </nav>
+    </div>
 
-    <!-- === HOMEPAGE CONTENT === -->
-    <main id="homepage">
-
-        <!-- Hero Section -->
-        <section class="hero-section">
-            <div class="container">
-                <h1>Secure, Reliable Autonomy for Healthcare.</h1>
-                <h1>Advanced automation with Zero Trust security, operating entirely within your control</h1> 
-                <p class="tagline">We provide advanced agentic systems delivering intelligent automation with uncompromising security, built on Zero Trust principles and deployed exclusively within your institution.</p>
-                <a href="#contact" class="cta-button">Request a Demo</a>
-            </div>
-        </section>
-
-        <section id="commitment" class="commitment-section">
-            <div class="container">
-                <h2>Our Uncompromising Commitment</h2>
-                <blockquote>
-                    Patient data can't afford excuses. No compromises. No shortcuts. Their data never leaves the institution they trust. Period.
-                </blockquote>
-                <p>At ASKLEPIC, data privacy isn't an afterthought—it's the foundation. We reject models that require anonymization or pseudo-anonymization because true security means absolute control. Our systems operate entirely within your perimeter, ensuring complete data sovereignty and peace of mind.</p>
-            </div>
-        </section>
-
-        <!-- Core Pillars Section -->
-        <section id="pillars">
-            <div class="container">
-                <h2>Secure. Reliable. Autonomous.</h2>
-                <div class="pillars-grid">
-                    <div class="pillar-card">
-                        <div class="icon">[🛡️]</div> 
-                        <h3>Secure by Design</h3>
-                        <p>Built on Zero Trust principles and deployed on-premise. We ensure granular control, continuous verification, and complete data sovereignty, eliminating external data exposure risks.</p>
-                    </div>
-                    <div class="pillar-card">
-                        <div class="icon">[⚙️]</div> 
-                        <h3>Consistently Reliable</h3>
-                        <p>Engineered for dependable, predictable performance in critical healthcare environments. Count on consistent outputs and stable operations for your essential workflows.</p>
-                    </div>
-                    <div class="pillar-card">
-                        <div class="icon">[🤖]</div> 
-                        <h3>Intelligent Autonomy</h3>
-                        <p>Advanced agentic systems automate complex tasks, analyze data securely within your walls, and surface critical insights to enhance decision-making and operational efficiency.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- How It Works Section -->
-        <section id="how-it-works">
-            <div class="container">
-                <h2>Seamless Integration & Control</h2>
-                <div class="how-it-works-steps">
-                    <div class="step-card">
-                        <div class="step-number">01</div>
-                        <h4>Deploy On-Premise</h4>
-                        <p>Install securely within your existing infrastructure for complete control.</p>
-                    </div>
-                     <div class="step-card">
-                        <div class="step-number">02</div>
-                        <h4>Configure Zero Trust</h4>
-                        <p>Implement granular access policies and continuous verification.</p>
-                    </div>
-                     <div class="step-card">
-                        <div class="step-number">03</div>
-                        <h4>Automate Workflows</h4>
-                        <p>Deploy autonomous agents for specific healthcare tasks.</p>
-                    </div>
-                     <div class="step-card">
-                        <div class="step-number">04</div>
-                        <h4>Monitor & Optimize</h4>
-                        <p>Manage performance, security, and compliance via integrated tooling.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-         <!-- Use Case Teasers -->
-        <section id="use-case-teasers">
-            <div class="container">
-                <h2>Applications Across Healthcare</h2>
-                 <p style="text-align: center; max-width: 700px; margin: -20px auto 50px auto; color: #555;">Discover how ASKLEPIC can streamline operations, enhance security, and unlock value in various healthcare domains.</p>
-                 <p style="text-align: center;">[Placeholder: Cards/Grid for Clinical Documentation, RCM, Research Support, Compliance Automation...]</p>
-                 <div style="text-align: center; margin-top: 40px;">
-                     <a href="#use-cases" class="cta-button" style="background-color: #4682B4;">Explore Applications</a>
-                 </div>
-            </div>
-        </section>
-
-        <section id="trust-signals" style="padding-bottom: 60px;">
-            <div class="container">
-                <h2 style="font-size: 1.8em; margin-bottom: 40px; color: #555;">Trusted by Leading Healthcare Innovators (Placeholder)</h2>
-                <div class="trust-logos">
-                </div>
-            </div>
-        </section>
-
-    </main> <!-- End Homepage -->
-
-
-    <!-- === SECURITY PAGE CONTENT (Enhanced Stub) === -->
-    <main id="security-page" style="display: none;">
-         <section id="security-details">
-            <div class="container">
-                <h2>Uncompromising Security for Healthcare Data</h2>
-                <div class="security-content">
-                    <blockquote style="font-size: 1.3em; font-style: italic; border-left: 4px solid #2CA58D; padding: 15px 25px; margin: 40px 0; background-color: #F8F9FA;">
-                        "We believe patient data can't afford excuses. No anonymization. No pseudoanonymization. The data never leaves your institution. Period."
-                    </blockquote>
-
-                    <h3>Zero Trust Architecture: Security from the Core</h3>
-                    <p>Our platform fundamentally rejects outdated perimeter-based security. We operate on a "Never Trust, Always Verify" principle, mandating strict verification for every user, device, and process attempting to access resources. This granular approach dramatically minimizes the attack surface and contains potential breaches effectively, crucial for sensitive PHI.</p>
-
-                    <h3>On-Premise Deployment: Your Data, Your Control</h3>
-                    <p>ASKLEPIC systems reside entirely within your infrastructure. This guarantees complete data sovereignty – your patient data never leaves your control or gets processed by third-party cloud vendors. This simplifies HIPAA compliance, ensures regulatory alignment, provides predictable performance independent of external factors, and eliminates cloud-associated security risks for PHI.</p>
-
-                    <h3>Key Security Capabilities</h3>
-                    <ul class="feature-list">
-                        <li>End-to-End Encryption (Data in Transit & At Rest using modern standards)</li>
-                        <li>Strict, Granular Role-Based Access Control (RBAC)</li>
-                        <li>Multi-Factor Authentication (MFA) Integration</li>
-                        <li>Continuous Security Monitoring, Threat Detection, and Alerting</li>
-                        <li>Comprehensive Audit Logging for Compliance and Forensics</li>
-                        <li>Immutable Data Storage and Versioning Options</li>
-                        <li>Secure Agent Communication and Runtime Environments</li>
-                        <li>Regular Security Audits and Penetration Testing (Internal/Third-Party)</li>
-                    </ul>
-
-                     <h3>Built for Compliance</h3>
-                     <p>Meeting and exceeding HIPAA technical safeguard requirements is integral to our design. We provide the tools and architecture to support your organization's comprehensive compliance strategy.</p>
-                 </div>
-            </div>
-        </section>
-    </main> <!-- End Security Page -->
-
-    <!-- === Footer === -->
+    <!-- Minimal Footer -->
     <footer>
         <div class="container">
-            <div class="footer-links">
-                <a href="#privacy">Privacy Policy</a> |
-                <a href="#terms">Terms of Service</a> |
-                <a href="#contact">Contact</a> |
-                <a href="#careers">Careers (Optional)</a>
-            </div>
-            <p class="copyright">© 2024 ASKLEPIC. All Rights Reserved. | Secure and reliable autonomy.</p>
+            <p class="copyright">© 2024 ASKLEPIC. All Rights Reserved.</p>
+            <!-- Optional: Add minimal links if needed -->
+            <!-- <a href="#privacy">Privacy</a> | <a href="#terms">Terms</a> -->
         </div>
     </footer>
-
-    <!-- Consider adding JavaScript file link here -->
 
 </body>
 </html>
