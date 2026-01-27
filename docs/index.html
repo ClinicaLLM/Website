@@ -3,176 +3,1416 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- Updated Title -->
-    <title>ASKLEPIC - Coming Soon</title>
+    <title>ASKLEPIC — Secure AI Infrastructure for Healthcare</title>
+    <meta name="description" content="ASKLEPIC delivers enterprise-grade AI infrastructure for healthcare. Zero Trust security, seamless EHR integration, and clinical AI that healthcare teams can trust.">
+    <meta name="keywords" content="healthcare AI, clinical AI, EHR integration, HIPAA compliant AI, medical AI, healthcare automation">
+    <meta property="og:title" content="ASKLEPIC — Secure AI Infrastructure for Healthcare">
+    <meta property="og:description" content="Enterprise-grade AI infrastructure built for healthcare. Zero Trust security meets clinical intelligence.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://asklepic.com">
+    <link rel="canonical" href="https://asklepic.com">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    
     <style>
-        /* --- Basic Reset & Font --- */
-        body {
-            font-family: 'Inter', sans-serif;
+        :root {
+            --bg-primary: #0a0f1a;
+            --bg-secondary: #0d1424;
+            --bg-tertiary: #111a2e;
+            --bg-card: rgba(17, 26, 46, 0.7);
+            --bg-card-hover: rgba(23, 35, 60, 0.8);
+            
+            --text-primary: #f0f4f8;
+            --text-secondary: #94a3b8;
+            --text-muted: #64748b;
+            
+            --accent-primary: #22d3ee;
+            --accent-secondary: #06b6d4;
+            --accent-glow: rgba(34, 211, 238, 0.15);
+            --accent-gradient: linear-gradient(135deg, #22d3ee 0%, #0891b2 100%);
+            
+            --success: #10b981;
+            --warning: #f59e0b;
+            
+            --border-subtle: rgba(148, 163, 184, 0.1);
+            --border-accent: rgba(34, 211, 238, 0.3);
+            
+            --radius-sm: 8px;
+            --radius-md: 12px;
+            --radius-lg: 20px;
+            --radius-xl: 32px;
+            
+            --shadow-glow: 0 0 60px rgba(34, 211, 238, 0.1);
+            --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.3);
+            
+            --transition-fast: 150ms ease;
+            --transition-normal: 250ms ease;
+            --transition-slow: 400ms ease;
+        }
+
+        *, *::before, *::after {
             margin: 0;
             padding: 0;
-            color: #EAEAEA; /* Light text for dark background */
-            background-color: #0A2342; /* Deep Blue Background */
-            line-height: 1.7;
-            display: flex; /* Enable Flexbox for centering */
-            flex-direction: column; /* Stack content vertically */
-            min-height: 100vh; /* Ensure body takes full viewport height */
-            text-align: center; /* Center text by default */
+            box-sizing: border-box;
         }
 
-        /* --- Centering Container --- */
-        .content-wrapper {
-            flex-grow: 1; /* Allow this container to grow and push footer down */
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Background Effects */
+        .bg-grid {
+            position: fixed;
+            inset: 0;
+            background-image: 
+                linear-gradient(rgba(34, 211, 238, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(34, 211, 238, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .bg-gradient-orb {
+            position: fixed;
+            width: 800px;
+            height: 800px;
+            border-radius: 50%;
+            filter: blur(120px);
+            opacity: 0.4;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .bg-gradient-orb.orb-1 {
+            top: -300px;
+            right: -200px;
+            background: radial-gradient(circle, rgba(34, 211, 238, 0.15) 0%, transparent 70%);
+        }
+
+        .bg-gradient-orb.orb-2 {
+            bottom: -400px;
+            left: -300px;
+            background: radial-gradient(circle, rgba(6, 182, 212, 0.1) 0%, transparent 70%);
+        }
+
+        /* Container */
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Navigation */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 16px 0;
+            background: rgba(10, 15, 26, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border-subtle);
+            transition: var(--transition-normal);
+        }
+
+        .nav.scrolled {
+            background: rgba(10, 15, 26, 0.95);
+        }
+
+        .nav-inner {
             display: flex;
-            justify-content: center; /* Center horizontally */
-            align-items: center; /* Center vertically */
-            padding: 40px 25px; /* Padding around the content */
+            align-items: center;
+            justify-content: space-between;
         }
 
-        .coming-soon-content {
-            max-width: 650px; /* Limit content width */
-        }
-
-        /* --- Logo/Brand Name --- */
-        .logo {
-            font-size: 2.5em; /* Larger logo size */
-            font-weight: 700;
-            color: #FFFFFF; /* White logo */
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
             text-decoration: none;
-            letter-spacing: 0.5px;
-            margin-bottom: 20px; /* Space below logo */
-            display: block; /* Make it a block element for margin */
         }
 
-        /* --- Main Message --- */
-        h1 {
-            font-size: 2.8em; /* Prominent "Coming Soon" */
-            margin-bottom: 15px;
+        .nav-logo img {
+            height: 40px;
+            width: auto;
+        }
+
+        .nav-logo-text {
+            font-size: 1.5rem;
             font-weight: 700;
+            color: var(--text-primary);
+            letter-spacing: -0.02em;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 32px;
+        }
+
+        .nav-link {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: var(--transition-fast);
+        }
+
+        .nav-link:hover {
+            color: var(--accent-primary);
+        }
+
+        .nav-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: var(--accent-gradient);
+            color: var(--bg-primary);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            border-radius: var(--radius-md);
+            transition: var(--transition-normal);
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(34, 211, 238, 0.3);
+        }
+
+        .nav-mobile-toggle {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--text-primary);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 120px 0 80px;
+            position: relative;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: center;
+        }
+
+        .hero-text {
+            max-width: 600px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: var(--accent-glow);
+            border: 1px solid var(--border-accent);
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--accent-primary);
+            margin-bottom: 24px;
+        }
+
+        .hero-badge-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--success);
+            border-radius: 50%;
+            animation: pulse-dot 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.6; transform: scale(0.9); }
+        }
+
+        .hero-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 800;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            margin-bottom: 24px;
+        }
+
+        .hero-title .gradient-text {
+            background: var(--accent-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-description {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 40px;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 14px 28px;
+            font-size: 1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: var(--radius-md);
+            transition: var(--transition-normal);
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background: var(--accent-gradient);
+            color: var(--bg-primary);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 32px rgba(34, 211, 238, 0.35);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--border-subtle);
+        }
+
+        .btn-secondary:hover {
+            background: var(--bg-card);
+            border-color: var(--border-accent);
+        }
+
+        .hero-visual {
+            position: relative;
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+            border-radius: var(--radius-xl);
+            overflow: hidden;
+            box-shadow: var(--shadow-glow);
+        }
+
+        .hero-image-wrapper::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(34, 211, 238, 0.1) 0%, transparent 50%);
+            z-index: 1;
+        }
+
+        .hero-image {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: var(--radius-xl);
+        }
+
+        .hero-floating-card {
+            position: absolute;
+            background: var(--bg-card);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-md);
+            padding: 16px 20px;
+            box-shadow: var(--shadow-card);
+        }
+
+        .hero-floating-card.card-1 {
+            top: 20%;
+            left: -40px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero-floating-card.card-2 {
+            bottom: 20%;
+            right: -40px;
+            animation: float 6s ease-in-out infinite 3s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .floating-card-icon {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+        }
+
+        .floating-card-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .floating-card-value {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--accent-primary);
+        }
+
+        /* Logos Section */
+        .logos-section {
+            padding: 60px 0;
+            border-top: 1px solid var(--border-subtle);
+            border-bottom: 1px solid var(--border-subtle);
+            background: var(--bg-secondary);
+        }
+
+        .logos-label {
+            text-align: center;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 32px;
+        }
+
+        .logos-grid {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 48px;
+            flex-wrap: wrap;
+        }
+
+        .logo-item {
+            height: 48px;
+            opacity: 0.6;
+            filter: grayscale(100%);
+            transition: var(--transition-normal);
+        }
+
+        .logo-item:hover {
+            opacity: 1;
+            filter: grayscale(0%);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 120px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 64px;
+        }
+
+        .section-label {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--accent-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 16px;
+        }
+
+        .section-title {
+            font-size: clamp(2rem, 4vw, 3rem);
+            font-weight: 800;
             line-height: 1.2;
-            color: #FFFFFF;
+            letter-spacing: -0.02em;
+            margin-bottom: 20px;
         }
 
-        /* --- Tagline/Description --- */
-        .tagline {
-            font-size: 1.2em;
-            margin-bottom: 30px;
-            opacity: 0.9;
-            font-weight: 400;
-            color: #BDCADB; /* Lighter shade of blue/gray */
+        .section-description {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
         }
 
-        /* --- Optional Email Signup --- */
-        .signup-form {
-            margin-top: 30px;
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            transition: var(--transition-normal);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--accent-gradient);
+            opacity: 0;
+            transition: var(--transition-normal);
+        }
+
+        .feature-card:hover {
+            background: var(--bg-card-hover);
+            border-color: var(--border-accent);
+            transform: translateY(-4px);
+        }
+
+        .feature-card:hover::before {
+            opacity: 1;
+        }
+
+        .feature-icon {
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--accent-glow);
+            border: 1px solid var(--border-accent);
+            border-radius: var(--radius-md);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .feature-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            letter-spacing: -0.01em;
+        }
+
+        .feature-description {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* Capabilities Section */
+        .capabilities {
+            padding: 120px 0;
+            background: var(--bg-secondary);
+        }
+
+        .capabilities-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: center;
+        }
+
+        .capabilities-visual {
+            position: relative;
+        }
+
+        .code-window {
+            background: var(--bg-tertiary);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-card);
+        }
+
+        .code-header {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 16px 20px;
+            background: rgba(0, 0, 0, 0.3);
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .code-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+
+        .code-dot.red { background: #ff5f56; }
+        .code-dot.yellow { background: #ffbd2e; }
+        .code-dot.green { background: #27ca40; }
+
+        .code-title {
+            margin-left: 12px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-family: 'JetBrains Mono', monospace;
+        }
+
+        .code-body {
+            padding: 24px;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            line-height: 1.8;
+            overflow-x: auto;
+        }
+
+        .code-line {
+            display: flex;
+            gap: 16px;
+        }
+
+        .code-line-number {
+            color: var(--text-muted);
+            user-select: none;
+            min-width: 24px;
+        }
+
+        .code-keyword { color: #c792ea; }
+        .code-function { color: #82aaff; }
+        .code-string { color: #c3e88d; }
+        .code-comment { color: #546e7a; font-style: italic; }
+        .code-variable { color: #f78c6c; }
+        .code-property { color: #89ddff; }
+
+        .capabilities-text h3 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            letter-spacing: -0.02em;
+            margin-bottom: 24px;
+        }
+
+        .capabilities-text p {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+            line-height: 1.7;
+        }
+
+        .capability-list {
+            display: flex;
+            flex-direction: column;
+            gap: 16px;
+        }
+
+        .capability-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+        }
+
+        .capability-check {
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(16, 185, 129, 0.15);
+            border-radius: 50%;
+            color: var(--success);
+            font-size: 0.75rem;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .capability-item-text {
+            font-size: 1rem;
+            color: var(--text-secondary);
+        }
+
+        .capability-item-text strong {
+            color: var(--text-primary);
+        }
+
+        /* Use Cases Section */
+        .use-cases {
+            padding: 120px 0;
+        }
+
+        .use-cases-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 24px;
+        }
+
+        .use-case-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            transition: var(--transition-normal);
+        }
+
+        .use-case-card:hover {
+            border-color: var(--border-accent);
+            transform: translateY(-4px);
+        }
+
+        .use-case-icon {
+            font-size: 3rem;
+            margin-bottom: 24px;
+        }
+
+        .use-case-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            letter-spacing: -0.01em;
+        }
+
+        .use-case-description {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 24px;
+        }
+
+        .use-case-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .use-case-tag {
+            padding: 6px 12px;
+            background: var(--accent-glow);
+            border: 1px solid var(--border-accent);
+            border-radius: 100px;
+            font-size: 0.8rem;
+            color: var(--accent-primary);
+        }
+
+        /* Team Section */
+        .team {
+            padding: 120px 0;
+            background: var(--bg-secondary);
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 48px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .team-card {
+            display: flex;
+            gap: 24px;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: var(--radius-lg);
+            padding: 32px;
+            transition: var(--transition-normal);
+        }
+
+        .team-card:hover {
+            border-color: var(--border-accent);
+        }
+
+        .team-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: var(--radius-md);
+            object-fit: cover;
+            flex-shrink: 0;
+        }
+
+        .team-info h4 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .team-role {
+            font-size: 0.9rem;
+            color: var(--accent-primary);
+            margin-bottom: 12px;
+        }
+
+        .team-bio {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 120px 0;
+        }
+
+        .cta-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-accent);
+            border-radius: var(--radius-xl);
+            padding: 80px 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 300px;
+            background: radial-gradient(ellipse, rgba(34, 211, 238, 0.15) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        .cta-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+            position: relative;
+        }
+
+        .cta-description {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            max-width: 500px;
+            margin: 0 auto 40px;
+            line-height: 1.7;
+            position: relative;
+        }
+
+        .cta-actions {
             display: flex;
             justify-content: center;
-            flex-wrap: wrap; /* Allow wrapping on small screens */
-            gap: 10px;
+            gap: 16px;
+            position: relative;
         }
-        .signup-form input[type="email"] {
-            padding: 12px 18px;
-            border: 1px solid #465F7A; /* Subtle border */
-            border-radius: 6px;
-            font-size: 1em;
-            min-width: 250px; /* Minimum width */
-            background-color: #1E3A5F; /* Darker input background */
-            color: #FFFFFF;
-        }
-         .signup-form input[type="email"]::placeholder {
-             color: #8B9DB3; /* Lighter placeholder text */
-         }
 
-        .cta-button {
-            background-color: #2CA58D; /* Teal Accent */
-            color: #FFFFFF;
-            padding: 12px 25px;
-            font-size: 1em;
-            border: none;
-            border-radius: 6px;
+        /* Footer */
+        .footer {
+            padding: 60px 0 40px;
+            border-top: 1px solid var(--border-subtle);
+            background: var(--bg-secondary);
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 24px;
+        }
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .footer-logo img {
+            height: 32px;
+        }
+
+        .footer-logo-text {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 32px;
+        }
+
+        .footer-link {
+            color: var(--text-secondary);
             text-decoration: none;
-            cursor: pointer;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            font-weight: 500;
-        }
-        .cta-button:hover {
-            background-color: #1f7966; /* Darker Teal */
-            transform: translateY(-1px);
+            font-size: 0.9rem;
+            transition: var(--transition-fast);
         }
 
-        /* --- Minimal Footer --- */
-        footer {
-            background-color: rgba(0, 0, 0, 0.2); /* Slightly darker transparent background */
-            color: #A0A0A0;
-            padding: 20px 0;
+        .footer-link:hover {
+            color: var(--accent-primary);
+        }
+
+        .footer-bottom {
+            margin-top: 40px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border-subtle);
             text-align: center;
-            font-size: 0.9em;
-            width: 100%; /* Ensure footer spans width */
-        }
-        footer a {
-            color: #A0A0A0;
-            text-decoration: none;
-            margin: 0 10px;
-            transition: color 0.3s ease;
-        }
-        footer a:hover {
-            color: #FFFFFF;
         }
 
-        /* --- Basic Responsiveness --- */
+        .footer-copyright {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+
+            .hero-visual {
+                order: -1;
+            }
+
+            .hero-floating-card {
+                display: none;
+            }
+
+            .features-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .capabilities-content {
+                grid-template-columns: 1fr;
+                gap: 48px;
+            }
+
+            .capabilities-visual {
+                order: 1;
+            }
+        }
+
         @media (max-width: 768px) {
-            .logo { font-size: 2em; }
-            h1 { font-size: 2.2em; }
-            .tagline { font-size: 1.1em; }
-            .signup-form input[type="email"] {
-                min-width: auto; /* Allow input to shrink */
-                width: 80%; /* Take more width */
+            .nav-links {
+                display: none;
             }
-            .cta-button {
-                 width: 80%; /* Take more width */
-                 margin-top: 5px; /* Add space when wrapped */
+
+            .nav-mobile-toggle {
+                display: block;
+            }
+
+            .hero {
+                padding: 100px 0 60px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .use-cases-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .team-card {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .team-avatar {
+                margin: 0 auto;
+            }
+
+            .cta-card {
+                padding: 48px 24px;
+            }
+
+            .cta-title {
+                font-size: 1.75rem;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer-links {
+                flex-wrap: wrap;
+                justify-content: center;
             }
         }
-
     </style>
-    <!-- Link Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Background Effects -->
+    <div class="bg-grid"></div>
+    <div class="bg-gradient-orb orb-1"></div>
+    <div class="bg-gradient-orb orb-2"></div>
 
-    <!-- Centering Wrapper -->
-    <div class="content-wrapper">
-        <div class="coming-soon-content">
-            <!-- Logo/Brand Name -->
-            <div class="logo">ASKLEPIC</div>
-
-            <!-- Main Message -->
-            <h1>Launching Soon</h1>
-            <!-- Or use: <h1>Under Maintenance</h1> -->
-
-            <!-- Tagline -->
-            <p class="tagline">
-                Secure, reliable autonomy for healthcare is preparing for launch. <br>
-                We're working hard to bring you advanced automation with Zero Trust security.
-            </p>
-
-             <!-- Optional: Contact Link -->
-             <p style="margin-top: 30px; font-size: 0.9em;">
-                Need to reach us sooner? <a href="mailto:rui.cunha@asklepic.com" style="color: #5DCAB3;">Contact Us</a>
-             </p>
-
-        </div>
-    </div>
-
-    <!-- Minimal Footer -->
-    <footer>
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
         <div class="container">
-            <!-- Updated Copyright Year -->
-            <p class="copyright">© 2025 ASKLEPIC. All Rights Reserved.</p>
-            <!-- Optional: Add minimal links if needed -->
-            <!-- <a href="#privacy">Privacy</a> | <a href="#terms">Terms</a> -->
+            <div class="nav-inner">
+                <a href="#" class="nav-logo">
+                    <img src="assets/logo.png" alt="ASKLEPIC Logo">
+                    <span class="nav-logo-text">ASKLEPIC</span>
+                </a>
+                <div class="nav-links">
+                    <a href="#features" class="nav-link">Features</a>
+                    <a href="#capabilities" class="nav-link">Capabilities</a>
+                    <a href="#use-cases" class="nav-link">Use Cases</a>
+                    <a href="#team" class="nav-link">Team</a>
+                    <a href="mailto:rui.cunha@asklepic.com" class="nav-cta">
+                        Contact Us
+                        <span>→</span>
+                    </a>
+                </div>
+                <button class="nav-mobile-toggle" id="navToggle">☰</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <div class="hero-badge">
+                        <span class="hero-badge-dot"></span>
+                        Launching Soon
+                    </div>
+                    <h1 class="hero-title">
+                        Secure AI<br>
+                        <span class="gradient-text">Infrastructure</span><br>
+                        for Healthcare
+                    </h1>
+                    <p class="hero-description">
+                        Enterprise-grade AI that integrates seamlessly with your clinical workflows. 
+                        Zero Trust security, complete auditability, and the reliability healthcare demands.
+                    </p>
+                    <div class="hero-actions">
+                        <a href="mailto:rui.cunha@asklepic.com" class="btn btn-primary">
+                            Get Early Access
+                            <span>→</span>
+                        </a>
+                        <a href="#features" class="btn btn-secondary">
+                            Learn More
+                        </a>
+                    </div>
+                </div>
+                <div class="hero-visual">
+                    <div class="hero-image-wrapper">
+                        <img src="assets/background-no-humans.png" alt="ASKLEPIC Platform" class="hero-image">
+                    </div>
+                    <div class="hero-floating-card card-1">
+                        <div class="floating-card-icon">🔒</div>
+                        <div class="floating-card-label">Security</div>
+                        <div class="floating-card-value">Zero Trust</div>
+                    </div>
+                    <div class="hero-floating-card card-2">
+                        <div class="floating-card-icon">⚡</div>
+                        <div class="floating-card-label">Performance</div>
+                        <div class="floating-card-value">40K tok/s</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Logos Section -->
+    <section class="logos-section">
+        <div class="container">
+            <div class="logos-label">Trusted by Leading Healthcare Organizations</div>
+            <div class="logos-grid">
+                <img src="assets/uls-coimbra.png" alt="ULS Coimbra" class="logo-item">
+                <img src="assets/logo-medis.png" alt="Medis" class="logo-item">
+                <img src="assets/logo-hewlett-packard.png" alt="HP" class="logo-item">
+                <img src="assets/opvance.png" alt="Opvance" class="logo-item">
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features" id="features">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">
+                    <span>✦</span> Core Features
+                </div>
+                <h2 class="section-title">Built for Healthcare, Designed for Security</h2>
+                <p class="section-description">
+                    Every component of ASKLEPIC is engineered with healthcare's unique requirements 
+                    for security, reliability, and compliance.
+                </p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🛡️</div>
+                    <h3 class="feature-title">Zero Trust Architecture</h3>
+                    <p class="feature-description">
+                        Every request is verified, every action is logged. Our security model assumes no implicit trust, 
+                        protecting patient data at every layer.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔗</div>
+                    <h3 class="feature-title">EHR Integration</h3>
+                    <p class="feature-description">
+                        Native FHIR and HL7 support enables seamless integration with existing healthcare systems. 
+                        Connect to Epic, Cerner, and other major platforms.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📋</div>
+                    <h3 class="feature-title">Full Auditability</h3>
+                    <p class="feature-description">
+                        Complete audit trails for every AI decision. Meet regulatory requirements with 
+                        immutable logs and detailed provenance tracking.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🧠</div>
+                    <h3 class="feature-title">Clinical AI Models</h3>
+                    <p class="feature-description">
+                        Purpose-built models trained on clinical data, optimized for healthcare terminology, 
+                        medical reasoning, and clinical workflows.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3 class="feature-title">Real-time Processing</h3>
+                    <p class="feature-description">
+                        Sub-second response times for critical clinical workflows. Process lab results, 
+                        alerts, and documentation in real-time.
+                    </p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔐</div>
+                    <h3 class="feature-title">Privacy by Design</h3>
+                    <p class="feature-description">
+                        Built-in PII detection and redaction. Data never leaves your infrastructure, 
+                        with optional on-premise deployment.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Capabilities Section -->
+    <section class="capabilities" id="capabilities">
+        <div class="container">
+            <div class="capabilities-content">
+                <div class="capabilities-visual">
+                    <div class="code-window">
+                        <div class="code-header">
+                            <span class="code-dot red"></span>
+                            <span class="code-dot yellow"></span>
+                            <span class="code-dot green"></span>
+                            <span class="code-title">clinical_api.py</span>
+                        </div>
+                        <div class="code-body">
+                            <div class="code-line">
+                                <span class="code-line-number">1</span>
+                                <span><span class="code-comment"># Secure clinical AI integration</span></span>
+                            </div>
+                            <div class="code-line">
+                                <span class="code-line-number">2</span>
+                                <span><span class="code-keyword">from</span> asklepic <span class="code-keyword">import</span> ClinicalAI</span>
+                            </div>
+                            <div class="code-line">
+                                <span class="code-line-number">3</span>
+                                <span></span>
+                            </div>
+                            <div class="code-line">
+                                <span class="code-line-number">4</span>
+                                <span>client = <span class="code-function">ClinicalAI</span>(</span>
+                            </div>
+                            <div class="code-line">
+                                <span class="code-line-number">5</span>
+                                <span>&nbsp;&nbsp;audit=<span class="code-variable">True</span>,</span>
+                            </div>
+                            <div class="code-line">
+                                <span class="code-line-number">6</span>
+                                <span>&nbsp;&nbsp;pii_filter=<span class="code-variable">True</span></span>
+                            </div>
+                            <div class="code-line">
+                                <span class="code-line-number">7</span>
+                                <span>)</span>
+                            </div>
+                            <div class="code-line">
+                                <span class="code-line-number">8</span>
+                                <span></span>
+                            </div>
+                            <div class="code-line">
+                                <span class="code-line-number">9</span>
+                                <span>summary = client.<span class="code-function">summarize</span>(</span>
+                            </div>
+                            <div class="code-line">
+                                <span class="code-line-number">10</span>
+                                <span>&nbsp;&nbsp;patient_record,</span>
+                            </div>
+                            <div class="code-line">
+                                <span class="code-line-number">11</span>
+                                <span>&nbsp;&nbsp;format=<span class="code-string">"discharge"</span></span>
+                            </div>
+                            <div class="code-line">
+                                <span class="code-line-number">12</span>
+                                <span>)</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="capabilities-text">
+                    <h3>Developer-First Clinical AI</h3>
+                    <p>
+                        Simple APIs that abstract complexity. Build clinical AI applications 
+                        in hours, not months—with enterprise security built in.
+                    </p>
+                    <div class="capability-list">
+                        <div class="capability-item">
+                            <div class="capability-check">✓</div>
+                            <div class="capability-item-text">
+                                <strong>RESTful APIs</strong> with comprehensive SDKs for Python, TypeScript, and Java
+                            </div>
+                        </div>
+                        <div class="capability-item">
+                            <div class="capability-check">✓</div>
+                            <div class="capability-item-text">
+                                <strong>Automatic PII handling</strong> with configurable redaction and audit policies
+                            </div>
+                        </div>
+                        <div class="capability-item">
+                            <div class="capability-check">✓</div>
+                            <div class="capability-item-text">
+                                <strong>FHIR-native</strong> data structures that integrate directly with EHR systems
+                            </div>
+                        </div>
+                        <div class="capability-item">
+                            <div class="capability-check">✓</div>
+                            <div class="capability-item-text">
+                                <strong>Streaming responses</strong> for real-time clinical decision support
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Use Cases Section -->
+    <section class="use-cases" id="use-cases">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">
+                    <span>✦</span> Use Cases
+                </div>
+                <h2 class="section-title">Transforming Clinical Workflows</h2>
+                <p class="section-description">
+                    From documentation to decision support, ASKLEPIC powers the next generation 
+                    of clinical AI applications.
+                </p>
+            </div>
+            <div class="use-cases-grid">
+                <div class="use-case-card">
+                    <div class="use-case-icon">📝</div>
+                    <h3 class="use-case-title">Clinical Documentation</h3>
+                    <p class="use-case-description">
+                        Automate progress notes, discharge summaries, and referral letters. 
+                        Reduce documentation time while maintaining clinical accuracy.
+                    </p>
+                    <div class="use-case-features">
+                        <span class="use-case-tag">Auto-coding</span>
+                        <span class="use-case-tag">ICD-10/11</span>
+                        <span class="use-case-tag">Templates</span>
+                    </div>
+                </div>
+                <div class="use-case-card">
+                    <div class="use-case-icon">🔬</div>
+                    <h3 class="use-case-title">Lab Result Analysis</h3>
+                    <p class="use-case-description">
+                        Intelligent interpretation of lab results with automatic flagging 
+                        of critical values and trend analysis.
+                    </p>
+                    <div class="use-case-features">
+                        <span class="use-case-tag">Critical Alerts</span>
+                        <span class="use-case-tag">Trending</span>
+                        <span class="use-case-tag">Context</span>
+                    </div>
+                </div>
+                <div class="use-case-card">
+                    <div class="use-case-icon">💊</div>
+                    <h3 class="use-case-title">Medication Reconciliation</h3>
+                    <p class="use-case-description">
+                        Comprehensive drug interaction checking and automated reconciliation 
+                        across care transitions.
+                    </p>
+                    <div class="use-case-features">
+                        <span class="use-case-tag">Interactions</span>
+                        <span class="use-case-tag">Allergies</span>
+                        <span class="use-case-tag">Dosing</span>
+                    </div>
+                </div>
+                <div class="use-case-card">
+                    <div class="use-case-icon">🎯</div>
+                    <h3 class="use-case-title">Clinical Decision Support</h3>
+                    <p class="use-case-description">
+                        Evidence-based recommendations integrated into clinical workflows. 
+                        Powered by the latest clinical guidelines.
+                    </p>
+                    <div class="use-case-features">
+                        <span class="use-case-tag">Guidelines</span>
+                        <span class="use-case-tag">Protocols</span>
+                        <span class="use-case-tag">Alerts</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Team Section -->
+    <section class="team" id="team">
+        <div class="container">
+            <div class="section-header">
+                <div class="section-label">
+                    <span>✦</span> Leadership
+                </div>
+                <h2 class="section-title">Meet the Team</h2>
+                <p class="section-description">
+                    Built by healthcare and AI veterans with decades of combined experience 
+                    in clinical systems and machine learning.
+                </p>
+            </div>
+            <div class="team-grid">
+                <div class="team-card">
+                    <img src="assets/rui.jpg" alt="Rui Cunha" class="team-avatar">
+                    <div class="team-info">
+                        <h4>Rui Cunha</h4>
+                        <div class="team-role">Co-Founder & CEO</div>
+                        <p class="team-bio">
+                            Software engineer with deep expertise in healthcare systems, 
+                            AI infrastructure, and clinical workflow automation.
+                        </p>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <img src="assets/tiago.png" alt="Tiago Santos" class="team-avatar">
+                    <div class="team-info">
+                        <h4>Tiago Santos</h4>
+                        <div class="team-role">Co-Founder & CTO</div>
+                        <p class="team-bio">
+                            Machine learning engineer specializing in clinical NLP, 
+                            medical AI models, and healthcare data systems.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <div class="cta-card">
+                <h2 class="cta-title">Ready to Transform Your Clinical Workflows?</h2>
+                <p class="cta-description">
+                    Join leading healthcare organizations already using ASKLEPIC to build 
+                    secure, compliant AI applications.
+                </p>
+                <div class="cta-actions">
+                    <a href="mailto:rui.cunha@asklepic.com" class="btn btn-primary">
+                        Get Early Access
+                        <span>→</span>
+                    </a>
+                    <a href="mailto:rui.cunha@asklepic.com" class="btn btn-secondary">
+                        Schedule a Demo
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="assets/logo.png" alt="ASKLEPIC">
+                    <span class="footer-logo-text">ASKLEPIC</span>
+                </div>
+                <div class="footer-links">
+                    <a href="#features" class="footer-link">Features</a>
+                    <a href="#capabilities" class="footer-link">Capabilities</a>
+                    <a href="#use-cases" class="footer-link">Use Cases</a>
+                    <a href="mailto:rui.cunha@asklepic.com" class="footer-link">Contact</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="footer-copyright">© 2026 ASKLEPIC. All rights reserved.</p>
+            </div>
         </div>
     </footer>
 
+    <script>
+        // Navbar scroll effect
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Add fade-in animation to cards
+        document.querySelectorAll('.feature-card, .use-case-card, .team-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>
