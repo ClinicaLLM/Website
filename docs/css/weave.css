@@ -1,0 +1,473 @@
+/* ===========================================
+   WEAVE PAGE - Complete Styling
+   =========================================== */
+
+/* Reset and Base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    font-size: 16px;
+}
+
+/* CSS Variables */
+:root {
+    /* Weave Theme Colors */
+    --accent-theme: #06B6D4;
+    --color-weave-cyan: #06b6d4;
+    --color-weave-sky: #38bdf8;
+    --color-weave-dark-blue: #0b132b;
+    --color-weave-slate-bg: #1e293b;
+    --color-weave-slate-border: #374151;
+    --color-weave-light-text: #e0f2fe;
+    --color-weave-subtle-text: #a8b2d1;
+    --color-weave-cyan-rgb: 6, 182, 212;
+    --color-weave-sky-rgb: 56, 189, 248;
+
+    /* Light Theme Colors */
+    --bg-main: #F8FAFC;
+    --bg-secondary: #F1F5F9;
+    --bg-surface: #FFFFFF;
+    --text-primary: #0F172A;
+    --text-secondary: #475569;
+    --text-muted: #64748B;
+    --text-on-dark: #FFFFFF;
+    --border-light: #E2E8F0;
+    --border-strong: #CBD5E1;
+
+    /* Shadows */
+    --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.02), 0 2px 4px -1px rgba(0, 0, 0, 0.02), 0 0 0 1px rgba(0, 0, 0, 0.03);
+    --shadow-strong: 0 20px 25px -5px rgba(0, 0, 0, 0.05), 0 10px 10px -5px rgba(0, 0, 0, 0.02), 0 0 0 1px rgba(0, 0, 0, 0.03);
+
+    /* Fonts */
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-heading: 'Space Grotesk', 'Inter', sans-serif;
+
+    /* Spacing */
+    --container-width: 1280px;
+}
+
+body.theme-weave {
+    font-family: var(--font-body);
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    line-height: 1.6;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    color: var(--text-primary);
+    line-height: 1.1;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+}
+
+/* Container */
+.container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+/* Utilities */
+.text-center { text-align: center; }
+.text-highlight { color: var(--accent-theme); }
+
+/* ===========================================
+   NAVIGATION
+   =========================================== */
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(226, 232, 240, 0.6);
+    padding: 20px 0;
+    transition: all 0.3s ease;
+}
+
+nav .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.5rem;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+}
+
+nav ul {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    list-style: none;
+}
+
+nav a {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+nav a:hover {
+    color: var(--accent-theme);
+}
+
+/* ===========================================
+   BUTTONS
+   =========================================== */
+.cta-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 18px 48px;
+    background: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+    color: var(--text-on-dark);
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: 6px;
+    transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+    border: 1px solid transparent;
+    box-shadow: 0 4px 12px rgba(15, 23, 42, 0.2);
+    letter-spacing: 0.02em;
+    cursor: pointer;
+}
+
+.cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 24px -8px rgba(15, 23, 42, 0.4);
+    color: var(--text-on-dark);
+}
+
+/* ===========================================
+   CARDS
+   =========================================== */
+.card-base {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-light);
+    padding: 32px;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: var(--shadow-soft);
+    border-radius: 16px;
+}
+
+.depth-card {
+    background: var(--bg-surface);
+    border-radius: 20px;
+    padding: 32px;
+    position: relative;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transform-style: preserve-3d;
+}
+
+.depth-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.12), 0 0 40px rgba(6, 182, 212, 0.1);
+}
+
+.icon-box {
+    color: var(--accent-theme);
+    margin-bottom: 24px;
+    background: rgba(6, 182, 212, 0.1);
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+}
+
+/* ===========================================
+   CODE BLOCKS
+   =========================================== */
+.code-block {
+    background: #0f172a;
+    padding: 2rem;
+    border-radius: 12px;
+    border: 1px solid var(--border-light);
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.9rem;
+    color: #e2e8f0;
+    overflow-x: auto;
+    box-shadow: var(--shadow-strong);
+    text-align: left;
+}
+
+/* ===========================================
+   HERO SECTION
+   =========================================== */
+.page-banner {
+    min-height: 50vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    padding-top: 80px;
+}
+
+.hero-animated {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+}
+
+.page-banner-content {
+    position: relative;
+    z-index: 2;
+}
+
+/* Particle Background */
+.particle-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+/* Orbit Animation */
+.orbit-container {
+    position: relative;
+}
+
+.orbit-ring {
+    position: absolute;
+    border: 1px dashed var(--border-light);
+    border-radius: 50%;
+    animation: orbit-rotate 30s linear infinite;
+    width: 100%;
+    height: 100%;
+}
+
+.hero-floating-element {
+    position: absolute;
+    animation: float 8s ease-in-out infinite;
+}
+
+/* ===========================================
+   SECTION STYLES
+   =========================================== */
+.commitment-section {
+    padding: 120px 0;
+    border-top: 1px solid var(--border-light);
+    background: var(--bg-surface);
+}
+
+.commitment-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.section-header h2 {
+    font-size: 3rem;
+    margin-bottom: 16px;
+}
+
+.section-intro {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+}
+
+/* ===========================================
+   WEAVE PATTERN
+   =========================================== */
+.weave-pattern {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0.1;
+}
+
+.weave-line {
+    stroke: var(--accent-theme);
+    stroke-width: 2;
+    fill: none;
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: weave-draw 3s ease forwards;
+}
+
+/* ===========================================
+   FOOTER
+   =========================================== */
+footer {
+    padding: 100px 0 40px;
+    background: #0B1120;
+    color: var(--text-on-dark);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    margin-bottom: 80px;
+}
+
+.brand-name {
+    font-size: 2rem;
+    font-weight: 600;
+    display: block;
+    margin-bottom: 16px;
+    color: var(--text-on-dark);
+    letter-spacing: -0.02em;
+}
+
+.footer-links a {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: white;
+}
+
+.copyright {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* ===========================================
+   ANIMATIONS
+   =========================================== */
+@keyframes float {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(2deg); }
+}
+
+@keyframes orbit-rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes glow-pulse {
+    0%, 100% { box-shadow: 0 0 20px rgba(6, 182, 212, 0.3); }
+    50% { box-shadow: 0 0 40px rgba(6, 182, 212, 0.6); }
+}
+
+@keyframes pipeline-particle-move {
+    0% { left: 0; opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { left: 100%; opacity: 0; }
+}
+
+@keyframes weave-draw {
+    to { stroke-dashoffset: 0; }
+}
+
+/* ===========================================
+   RESPONSIVE STYLES
+   =========================================== */
+@media (max-width: 1024px) {
+    .container {
+        padding: 0 24px;
+    }
+
+    .commitment-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .hero-animated .container > div {
+        grid-template-columns: 1fr !important;
+        text-align: center;
+    }
+
+    .hero-animated .page-banner-content {
+        align-items: center;
+    }
+
+    .hero-animated .page-banner-content p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}
+
+@media (max-width: 768px) {
+    :root {
+        font-size: 14px;
+    }
+
+    .container {
+        padding: 0 16px;
+    }
+
+    h1 {
+        font-size: 2.5rem !important;
+    }
+
+    h2 {
+        font-size: 2rem !important;
+    }
+
+    .cta-button {
+        padding: 14px 32px;
+        font-size: 0.95rem;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        text-align: center;
+    }
+
+    nav ul {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 0 12px;
+    }
+
+    h1 {
+        font-size: 2rem !important;
+    }
+
+    .cta-button {
+        padding: 12px 24px;
+        width: 100%;
+        text-align: center;
+    }
+}

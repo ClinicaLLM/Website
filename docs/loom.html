@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loom Platform - ASKLEPIC</title>
+    <link rel="icon" type="image/png" href="assets/logo.png">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/loom.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
+</head>
+<body>
+    <div id="tsparticles-bg"></div>
+    <div id="navbar-placeholder"></div>
+
+    <main id="loom-content" class="product-page">
+        <section id="product-loom-intro" class="product-section loom-section scroll-snap-section">
+            <div class="container">
+                <div class="product-logo-container">
+                     <img src="assets/logo.png" alt="Loom Platform Logo" class="product-logo">
+                </div>
+                <h2 class="gradient-text-loom">Loom: The Secure Agentic Platform</h2>
+                <p class="section-intro">Loom provides the robust foundation for deploying, managing, and monitoring sophisticated AI agents entirely within your trusted environment, ensuring unparalleled security and control.</p>
+            </div>
+        </section>
+
+        <section id="loom-core-engine" class="loom-section alt-bg scroll-snap-section">
+            <div class="container">
+                <div class="section-content-split">
+                    <div class="text-content">
+                        <h3 class="section-heading">Execute with Confidence, On-Premise</h3>
+                        <p>Loom operates exclusively within your infrastructure. No external data transfers, no cloud dependencies for core operations. Your sensitive data remains under your governance, processed by agents running securely inside your perimeter.</p>
+                        <ul>
+                            <li>Complete data sovereignty.</li>
+                            <li>Reduced attack surface.</li>
+                            <li>Compliance alignment (HIPAA, GDPR).</li>
+                        </ul>
+                    </div>
+                    <div class="visual-content">
+                         <div class="visual-placeholder core-visual">
+                             <svg xmlns="http://www.w3.org/2000/svg" class="icon-display" width="80" height="80" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M3 21h18" /><path d="M5 21v-14l8 -4v18" /><path d="M19 21v-10l-6 -4" /><path d="M9 9v.01" /><path d="M9 12v.01" /><path d="M9 15v.01" /><path d="M9 18v.01" /></svg>
+                             <p>Secure Execution Environment</p>
+                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="loom-zero-trust" class="loom-section scroll-snap-section">
+            <div class="container">
+                 <h3 class="section-heading text-center">Built on Zero Trust Principles</h3>
+                 <p class="section-subtitle text-center">Security isn't an add-on; it's inherent. Loom enforces strict security measures at every stage of agent operation.</p>
+                <div class="three-col-grid">
+                    <div class="feature-card zt-card">
+                         <div class="card-icon">🛡️</div>
+                        <h4>Continuous Verification</h4>
+                        <p>Every agent action and data access request is authenticated and authorized based on granular policies. Trust is never assumed.</p>
+                    </div>
+                    <div class="feature-card zt-card">
+                         <div class="card-icon">🔒</div>
+                        <h4>Least Privilege Access</h4>
+                        <p>Agents operate with the minimum permissions necessary to perform their tasks, minimizing potential impact from any single component.</p>
+                    </div>
+                    <div class="feature-card zt-card">
+                         <div class="card-icon">📝</div>
+                        <h4>Comprehensive Auditing</h4>
+                        <p>All agent activities, decisions, and interactions are logged immutably, providing full transparency and traceability for compliance and analysis.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="loom-integration" class="loom-section alt-bg scroll-snap-section">
+            <div class="container">
+                <div class="section-content-split reverse-layout">
+                     <div class="visual-content">
+                         <div class="visual-placeholder integration-visual">
+                            <div class="integration-icons">
+                                <span>LLMs</span> <span>APIs</span> <span>Databases</span> <span>Tools</span>
+                            </div>
+                             <p>Connect Your Ecosystem</p>
+                         </div>
+                    </div>
+                    <div class="text-content">
+                        <h3 class="section-heading">Integrate Your Ecosystem</h3>
+                        <p>Loom is designed for flexibility. Connect your agents to a wide range of Large Language Models (LLMs), internal and external APIs, databases, and proprietary tools without vendor lock-in. Leverage your existing technology investments.</p>
+                         <a href="#" class="text-link">Learn more about supported integrations →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="loom-management" class="loom-section scroll-snap-section">
+            <div class="container">
+                <h3 class="section-heading text-center">Deploy, Monitor, and Manage</h3>
+                 <p class="section-subtitle text-center">Oversee the entire lifecycle of your autonomous agents from a centralized, secure control plane.</p>
+                <div class="visual-placeholder management-dashboard">
+                     <p>[Conceptual Dashboard Visual: Agent Status, Performance Metrics, Audit Logs Access]</p>
+                </div>
+                 <ul class="management-features">
+                     <li><span class="checkmark">✔</span> Easy deployment via Weave definitions</li>
+                     <li><span class="checkmark">✔</span> Real-time performance monitoring</li>
+                     <li><span class="checkmark">✔</span> Granular activity auditing & reporting</li>
+                     <li><span class="checkmark">✔</span> Secure updates and version control</li>
+                 </ul>
+            </div>
+        </section>
+
+        <section id="loom-weave-link" class="loom-section alt-bg scroll-snap-section">
+             <div class="container">
+                 <div class="related-product-link weave-focus">
+                     <img src="assets/logo.png" alt="Weave Logo" class="related-logo">
+                     <h4>Precision Defined by Weave</h4>
+                     <p>Loom brings Weave definitions to life, executing agent behaviors, constraints, and tool usage exactly as specified in the declarative YAML standard.</p>
+                     <a href="weave.html" class="cta-button-secondary">Explore Weave Definitions</a>
+                 </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+       <div class="container">
+            <div class="footer-links">
+                <a href="mailto:general@asklepic.com">Contact</a>
+            </div>
+            <p class="copyright">© 2025 ASKLEPIC. All Rights Reserved. | Secure and reliable autonomy.</p>
+        </div>
+    </footer>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+        document.addEventListener("DOMContentLoaded", () => {
+            const tl = gsap.timeline({ defaults: { ease: "power3.out", duration: 0.8 } });
+            tl.to(".product-logo", { opacity: 1, y: 0, scale: 1, duration: 1.0, delay: 0.2 })
+              .to(".gradient-text-loom", { opacity: 1, y: 0, stagger: 0.1, delay: -0.6 })
+              .to("#product-loom-intro .section-intro", { opacity: 1, y: 0, duration: 0.7, delay: -0.5 });
+            const animateFadeUp = (selector, triggerElement, delay = 0, stagger = 0) => {
+                gsap.from(selector, {
+                    scrollTrigger: { trigger: triggerElement || selector, start: "top 85%", toggleActions: "play none none none" },
+                    opacity: 0, y: 30, duration: 0.8, ease: 'power2.out', delay, stagger
+                });
+            };
+            animateFadeUp("#loom-core-engine .text-content", "#loom-core-engine");
+            animateFadeUp("#loom-core-engine .visual-content", "#loom-core-engine", 0.2);
+            animateFadeUp(["#loom-zero-trust .section-heading", "#loom-zero-trust .section-subtitle"], "#loom-zero-trust");
+            animateFadeUp("#loom-zero-trust .zt-card", "#loom-zero-trust .three-col-grid", 0.2, 0.15);
+            animateFadeUp("#loom-integration .text-content", "#loom-integration");
+            animateFadeUp("#loom-integration .visual-content", "#loom-integration", 0.2);
+            animateFadeUp(["#loom-management .section-heading", "#loom-management .section-subtitle"], "#loom-management");
+            animateFadeUp("#loom-management .management-dashboard", "#loom-management .management-dashboard", 0.2);
+            animateFadeUp("#loom-management .management-features li", "#loom-management .management-features", 0.3, 0.1);
+            animateFadeUp("#loom-weave-link .related-logo", "#loom-weave-link", 0);
+            animateFadeUp("#loom-weave-link h4", "#loom-weave-link", 0.1);
+            animateFadeUp("#loom-weave-link p", "#loom-weave-link", 0.2);
+            animateFadeUp("#loom-weave-link .cta-button-secondary", "#loom-weave-link", 0.3);
+        });
+    </script>
+    <script src="js/animations.js"></script>
+    <script src="js/main.js"></script>
+    <script> loadNavbar('loom'); </script>
+</body>
+</html>
+
+
