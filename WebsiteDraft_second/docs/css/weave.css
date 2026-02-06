@@ -1,0 +1,808 @@
+/* Add Weave-specific color variables */
+:root {
+    --color-weave-cyan: #06b6d4; /* Primary Cyan from original gradient */
+    --color-weave-sky: #38bdf8;  /* Secondary Sky Blue from original gradient */
+    --color-weave-dark-blue: #0b132b; /* Existing Dark Background */
+    --color-weave-slate-bg: #1e293b; /* Existing Slate Background */
+    --color-weave-slate-border: #374151; /* Existing Slate Border */
+    --color-weave-light-text: #e0f2fe; /* Existing Light Text */
+    --color-weave-subtle-text: #a8b2d1; /* Existing Subtle Text */
+    --color-weave-cyan-rgb: 6, 182, 212;
+    --color-weave-sky-rgb: 56, 189, 248;
+}
+
+@keyframes float-weave {
+  0% {
+    transform: translateY(0px) rotate(-2deg); /* Add slight rotation */
+  }
+  50% {
+    transform: translateY(-8px) rotate(2deg); /* Increased float and opposite rotation */
+  }
+  100% {
+    transform: translateY(0px) rotate(-2deg);
+  }
+}
+
+/* Weave logo specific glow */
+@keyframes pulse-glow-weave {
+  0% {
+    filter: drop-shadow(0 4px 12px rgba(var(--color-weave-cyan-rgb), 0.3));
+  }
+  50% {
+    filter: drop-shadow(0 6px 25px rgba(var(--color-weave-sky-rgb), 0.45)); /* Use both colors */
+  }
+  100% {
+    filter: drop-shadow(0 4px 12px rgba(var(--color-weave-cyan-rgb), 0.3));
+  }
+}
+
+/* Position tsParticles container */
+#tsparticles {
+    position: fixed; /* Or absolute, depending on scroll behavior needed */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Send it behind everything */
+}
+
+/* Reuse or define gradient shift */
+@keyframes subtle-gradient-shift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* --- Weave Page Specific Styles --- */
+
+/* Main section styling - Add animated lines/grid effect */
+#product-weave {
+    /* Add shifting gradient background */
+    background: linear-gradient(135deg, var(--color-weave-dark-blue) 0%, rgba(var(--color-weave-cyan-rgb), 0.04) 50%, var(--color-weave-dark-blue) 100%);
+    background-size: 200% 200%;
+    animation: subtle-gradient-shift 28s ease infinite; /* Slightly different timing */
+    border-top: 2px solid var(--color-weave-cyan); /* Use Weave cyan */
+    border-bottom: 1px solid rgba(var(--color-weave-cyan-rgb), 0.3); /* Subtle cyan border */
+    padding-top: 100px; /* Increased padding */
+    padding-bottom: 100px; /* Increased padding */
+    position: relative; /* Needed for pseudo-elements */
+    overflow: hidden; /* Hide overflowing pseudo-elements */
+}
+
+/* Animated background grid lines */
+#product-weave::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image:
+        linear-gradient(rgba(var(--color-weave-cyan-rgb), 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(var(--color-weave-cyan-rgb), 0.08) 1px, transparent 1px);
+    background-size: 40px 40px; /* Size of the grid */
+    animation: move-grid 25s linear infinite; /* Adjusted speed */
+    opacity: 0.4; /* Make it even more subtle */
+    z-index: 0;
+}
+
+@keyframes move-grid {
+    from { background-position: 0 0; }
+    to { background-position: 120px 80px; } /* Move diagonally further */
+}
+
+
+#product-weave > .container {
+     position: relative; /* Ensure content stays above pseudo-elements AND the new gradient */
+     z-index: 1; /* Keep this at 1 or higher */
+}
+
+
+/* Container for the product logo */
+.product-logo-container {
+    text-align: center;
+    margin-bottom: 10px; /* Slightly more space */
+    position: relative;
+    z-index: 2;
+}
+.product-logo {
+    max-height: 320px; /* << Increased Size Further */
+    width: auto;
+    /* Combine weave float and pulse */
+    animation:
+        float-weave 5s ease-in-out infinite, /* Use weave-specific float */
+        pulse-glow-weave 3.5s ease-in-out infinite alternate; /* Use weave-specific pulse */
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+.product-logo:hover {
+     /* Make hover slightly more reactive */
+     transform: scale(1.06) rotate(0deg) !important; /* Override rotation, scale up */
+     filter: drop-shadow(0 8px 28px rgba(var(--color-weave-sky-rgb), 0.6));
+     animation-play-state: paused; /* Pause animations on hover */
+}
+
+/* Enhanced Gradient Text for Weave H2 - Focus on Cyan/Sky Blue */
+.gradient-text-weave {
+    background: linear-gradient(90deg, var(--color-weave-cyan) 30%, var(--color-weave-sky) 70%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    display: inline-block;
+    padding-bottom: 8px;
+    margin-top: 5px;
+    margin-bottom: 40px; /* More space below heading */
+    font-size: 3.1em; /* Larger */
+    font-weight: 700;
+    text-align: center;
+    width: 100%;
+    text-shadow: 0 2px 10px rgba(var(--color-weave-cyan-rgb), 0.2);
+    /* REMOVE text-focus-in animation - Handled by GSAP */
+    /* animation: text-focus-in 1s cubic-bezier(0.550, 0.085, 0.680, 0.530) both; */
+}
+
+/* Section Intro Text */
+#product-weave .section-intro {
+    font-size: 1.2em; /* Slightly larger */
+    max-width: 900px; /* Wider allowed */
+    margin: 0 auto 70px auto; /* Adjust margin */
+    color: var(--color-weave-subtle-text);
+    line-height: 1.75; /* Improve readability */
+    text-align: center;
+    position: relative; /* Ensure it's above background effects */
+    z-index: 1;
+}
+
+/* Showcase Layout - Single column, focus on benefits */
+.weave-showcase {
+    display: block;
+    margin: 60px 0 80px; /* Adjusted margin */
+    padding: 0; /* Remove side padding, handled by container */
+    position: relative; /* Ensure it's above background effects */
+    z-index: 1;
+}
+
+/* Benefits List - Centered and Styled */
+.weave-benefits {
+    max-width: 850px; /* Slightly wider */
+    margin: 0 auto;
+    perspective: 1000px; /* Add perspective for 3D transforms */
+}
+
+.weave-benefits h3 {
+    font-size: 2.1em; /* Larger */
+    color: var(--color-weave-light-text);
+    margin-bottom: 40px; /* Increased space */
+    text-align: center;
+    /* Use Weave sky blue for underline */
+    border-bottom: 2px solid var(--color-weave-sky);
+    padding-bottom: 15px;
+    display: inline-block;
+    width: auto;
+    position: relative;
+    z-index: 1;
+}
+/* Add small cyan indicator to h3 */
+.weave-benefits h3::after {
+    content: '';
+    position: absolute;
+    bottom: -4px; /* Position below the border */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 15px;
+    height: 4px;
+    background-color: var(--color-weave-cyan);
+    border-radius: 2px;
+}
+
+
+/* Individual Benefit Block - Refined Style & Hover */
+.benefit-block {
+    display: flex;
+    gap: 35px;
+    background-color: var(--color-weave-slate-bg);
+    padding: 35px 40px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    border: 1px solid var(--color-weave-slate-border);
+    box-shadow: 0 6px 20px rgba(var(--color-weave-cyan-rgb), 0.1);
+    /* Update transition */
+    transition: transform 0.35s ease, box-shadow 0.4s ease, background 0.5s ease; /* Adjusted timings */
+    position: relative;
+    overflow: hidden;
+    transform-style: preserve-3d; /* Ensure children respect 3D transforms */
+}
+
+/* NEW Hover Effect - Added 3D Tilt */
+/* Remove shimmer keyframes - No longer needed */
+/*
+@keyframes shimmer-background {
+    0%   { background-position: 0% 50%; }
+    50%  { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+*/
+
+.benefit-block:hover {
+    /* Subtle scale and 3D tilt */
+    transform: scale(1.03) rotateX(5deg) rotateY(-3deg); /* Kept 3D tilt, removed skew */
+    /* More dynamic shadow */
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25),
+                0 0 25px rgba(var(--color-weave-cyan-rgb), 0.3);
+    /* REMOVE Animated gradient background - Replaced by particles/GSAP */
+    /* background: linear-gradient(...) */
+    /* background-size: 250% 250%; */
+    /* REMOVE shimmer animation */
+    /* animation: shimmer-background 4s ease infinite; */
+    /* Keep icon animation play state if desired */
+    /* animation-play-state: running; /* This refers to the shimmer, remove or apply to icon if needed */
+}
+
+/* RE-ADD Alternate layout for even blocks */
+.benefit-block:nth-child(even) {
+    flex-direction: row-reverse;
+}
+/* Ensure text stays above pseudo elements */
+.benefit-block > * {
+    position: relative;
+    z-index: 1;
+}
+
+.benefit-content {
+    flex: 1 1 55%;
+    display: flex;
+    align-items: flex-start;
+}
+
+/* Keyframes for icon pulse/rotate */
+@keyframes icon-pulse-rotate {
+    0% { transform: scale(1) rotate(0deg); filter: brightness(1); }
+    50% { transform: scale(1.25) rotate(10deg); filter: brightness(1.5); }
+    100% { transform: scale(1) rotate(0deg); filter: brightness(1); }
+}
+
+.benefit-content .icon {
+    font-size: 2em;
+    color: var(--color-weave-cyan);
+    margin-right: 25px;
+    margin-top: 4px;
+    flex-shrink: 0;
+    line-height: 1;
+    width: 35px;
+    text-align: center;
+    /* Add animation property, initially paused - Increased duration */
+    animation: icon-pulse-rotate 1.8s ease-in-out infinite paused; /* Slower animation */
+}
+
+.benefit-block:hover .icon {
+    /* Play the animation on hover */
+    animation-play-state: running;
+}
+
+.benefit-text h4 {
+    font-size: 1.25em; /* Slightly larger */
+    color: var(--color-weave-light-text);
+    margin-top: 0;
+    margin-bottom: 10px; /* Slightly more space */
+    font-weight: 600;
+    margin-left: 0; /* Remove previous indent */
+}
+
+.benefit-text p {
+    margin: 0;
+    color: var(--color-weave-subtle-text);
+    line-height: 1.65; /* Better line height */
+    font-size: 1em; /* Increase base size */
+}
+
+/* Enhanced Benefit Visual Placeholder */
+.benefit-visual {
+    flex: 1 1 45%; /* Adjust flex basis */
+    min-height: 180px; /* Increased minimum height */
+    /* Subtle gradient background */
+    background: linear-gradient(145deg, rgba(var(--color-weave-cyan-rgb), 0.05), rgba(var(--color-weave-sky-rgb), 0.1));
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-weave-subtle-text);
+    font-style: normal; /* Remove italic */
+    font-size: 0.9em;
+    border: 1px dashed rgba(var(--color-weave-cyan-rgb), 0.3); /* Dashed border */
+    transition: border-color 0.3s ease, background 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+/* Animated Noise Effect for Visual Placeholder */
+@keyframes animated-noise {
+  0% { transform: translate(0,0); }
+  10% { transform: translate(-5%,-5%); }
+  20% { transform: translate(-10%,5%); }
+  30% { transform: translate(5%,-10%); }
+  40% { transform: translate(-5%,15%); }
+  50% { transform: translate(-10%,5%); }
+  60% { transform: translate(15%,0); }
+  70% { transform: translate(0,10%); }
+  80% { transform: translate(-15%,0); }
+  90% { transform: translate(10%,5%); }
+  100% { transform: translate(5%,0); }
+}
+
+.benefit-visual::before {
+    /* Remove text content */
+    content: '';
+    /* Style for noise pattern */
+    position: absolute;
+    top: -50%; left: -50%;
+    width: 200%; height: 200%;
+    background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIj48ZmlsdGVyIGlkPSJub2lzZSI+PGZlVHVyYnVsZW5jZSB0eXBlPSJmcmFjdGFsTm9pc2UiIGJhc2VGcmVxdWVuY3k9IjAuOCIgbnVtT2N0YXZlcz0iMyIgc3RpdGNoVGlsZXM9InN0aXRjaCIvPjwvZmlsdGVyPjxyZWN0IHdpZHRoPSIzMDAiIGhlaWdodD0iMzAwIiBmaWx0ZXI9InVybCgjbmlpbnNlKSIgb3BhY2l0eT0iMC4xNSIvPjwvc3ZnPg==');
+    opacity: 0.5;
+    animation: animated-noise 1s steps(2) infinite; /* Use steps for jerky movement */
+    z-index: 0; /* Behind potential future content */
+    transition: opacity 0.3s ease; /* Add transition for hover */
+    /* font-family: 'Roboto Mono', monospace; */
+}
+
+/* Make noise slightly more visible on block hover */
+.benefit-block:hover .benefit-visual::before {
+    opacity: 0.7;
+}
+
+/* Remove radial gradient effect */
+.benefit-visual::after {
+   /* content: ''; */ /* Keep if needed for other effects, otherwise remove */
+   /* position: absolute; */
+   /* top: -50%; left: -50%; */
+   /* width: 200%; height: 200%; */
+   /* background: radial-gradient(circle, rgba(var(--color-weave-sky-rgb), 0.1) 0%, transparent 40%); */
+   /* opacity: 0; */
+   /* transition: opacity 0.5s ease; */
+   /* animation: rotate-visual-bg 15s linear infinite paused; */
+   display: none; /* Hide this effect */
+}
+
+/* Link to Related Product - Enhanced Style */
+.related-product-link {
+    text-align: center;
+    margin: 90px auto 0 auto; /* Increased margin */
+    padding: 45px; /* Increased padding */
+    background-color: var(--color-weave-slate-bg);
+    border-radius: 12px;
+    max-width: 800px; /* Slightly wider */
+    border: 1px solid var(--color-weave-slate-border);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    /* Use cyan top border */
+    border-top: 3px solid var(--color-weave-cyan);
+    position: relative; /* Ensure it's above background effects */
+    z-index: 1;
+}
+.related-product-link p {
+    margin-top: 0;
+    margin-bottom: 30px; /* Increased space */
+    color: var(--color-weave-light-text);
+    font-size: 1.2em; /* Slightly larger */
+}
+/* Style secondary button for Weave theme */
+.related-product-link .cta-button-secondary {
+    /* Use Weave colors */
+    color: var(--color-weave-sky);
+    border: 2px solid var(--color-weave-sky);
+    font-size: 1.05em;
+    padding: 12px 28px;
+    /* Enhance transition for smoother feel */
+    transition: background-color 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), color 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    text-decoration: none !important;
+    font-weight: 600;
+    border-radius: 6px;
+    background-color: transparent; /* Ensure transparent background */
+}
+.related-product-link .cta-button-secondary:hover {
+     background-color: var(--color-weave-sky);
+     color: var(--color-weave-dark-blue); /* Dark text on hover */
+     text-decoration: none !important;
+     transform: translateY(-3px);
+     /* Use Weave sky blue for shadow */
+     box-shadow: 0 6px 15px rgba(var(--color-weave-sky-rgb), 0.3);
+ }
+
+
+/* --- Weave Responsive --- */
+@media (max-width: 992px) {
+     .gradient-text-weave { font-size: 2.6em; }
+     .product-logo { max-height: 230px; /* Adjusted responsive size */ }
+     .weave-benefits h3 { font-size: 1.9em; }
+     .benefit-visual { min-height: 160px; } /* Adjust min height */
+}
+
+@media (max-width: 768px) {
+     #product-weave {
+        padding-top: 80px;
+        padding-bottom: 80px;
+         /* Simplify grid for mobile */
+        background-size: 60px 60px;
+    }
+    /* Hide grid animation on mobile if too distracting */
+    /* #product-weave::before { animation: none; } */
+
+    .gradient-text-weave { font-size: 2.2em; margin-bottom: 30px;}
+     .product-logo { max-height: 180px; /* Adjusted responsive size */ }
+    #product-weave .section-intro { font-size: 1.1em; margin-bottom: 60px; }
+    .weave-benefits h3 { font-size: 1.7em; margin-bottom: 35px; padding-bottom: 12px; }
+    .benefit-block {
+        padding: 25px 30px; /* Adjust padding */
+        flex-direction: column !important; /* Force column and override nth-child */
+        gap: 25px;
+    }
+    /* Reset alternating direction for mobile stacking - redundant if forced above */
+    /* .benefit-block:nth-child(even) { flex-direction: column; } */
+
+    /* Adjust visual for stacked layout */
+    .benefit-visual {
+        width: 100%;
+        margin-top: 10px; /* Reduce top margin */
+        min-height: 140px; /* Smaller min-height on mobile */
+        flex-basis: auto; /* Reset flex basis */
+    }
+    .benefit-content { flex-basis: auto; /* Reset flex basis */ }
+    .benefit-content .icon { font-size: 1.8em; margin-right: 20px; width: 30px; }
+    .benefit-text h4 { font-size: 1.2em; }
+    .benefit-text p { font-size: 0.95em; }
+    .related-product-link { margin-top: 70px; padding: 35px; }
+    .related-product-link p { font-size: 1.15em; }
+
+    /* Disable complex hover effects on mobile? */
+    .benefit-block:hover::before {
+        /* opacity: 0; */
+        /* animation-play-state: paused; */
+    }
+    .benefit-block:hover {
+        /* Simplify hover */
+        transform: translateY(-3px);
+    }
+    .benefit-block:hover .benefit-visual::after {
+        /* opacity: 0; */
+        /* animation-play-state: paused; */
+    }
+}
+
+/* Remove redundant/commented out styles */
+/* REMOVED YAML Example Styling */
+/* REMOVED empty ruleset for button */
+/* REMOVED commented out grid styles */
+/* REMOVED commented out YAML responsive styles */
+
+/* === General Weave Section Styling (for new structure) === */
+
+.weave-section {
+    /* Inherits base padding/min-height from main.css .scroll-snap-section */
+    position: relative;
+    overflow: hidden;
+    display: flex; /* Already set by scroll-snap-section, but reinforce */
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* Center content horizontally by default */
+    text-align: center; /* Center text by default */
+    padding-top: 100px; /* Add more vertical padding */
+    padding-bottom: 100px;
+}
+
+/* Add subtle background patterns and side lines */
+.weave-section::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    /* Fainter, larger grid */
+    background-image:
+        linear-gradient(rgba(var(--color-weave-cyan-rgb), 0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(var(--color-weave-cyan-rgb), 0.04) 1px, transparent 1px);
+    background-size: 60px 60px;
+    opacity: 0.6;
+    z-index: 0;
+    pointer-events: none; /* Allow clicks through */
+}
+/* Add decorative side lines */
+.weave-section::after {
+    content: '';
+    position: absolute;
+    top: 15%; bottom: 15%; /* Vertical positioning */
+    left: 5%; /* Position on the left */
+    width: 2px;
+    background: linear-gradient(to bottom, transparent, rgba(var(--color-weave-cyan-rgb), 0.3), transparent);
+    z-index: 1;
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.5s ease-out;
+    pointer-events: none;
+}
+/* Add another line on the right */
+.weave-section > div::after { /* Attach to the container div to avoid conflict */
+    content: '';
+    position: absolute;
+    top: 25%; bottom: 25%;
+    right: 5%; /* Position on the right */
+    width: 1px;
+    background: linear-gradient(to bottom, transparent, rgba(var(--color-weave-sky-rgb), 0.25), transparent);
+    z-index: 1;
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.5s ease-out 0.2s; /* Delayed transition */
+    pointer-events: none;
+}
+
+/* Show side lines when section is active/viewed (requires JS/ScrollTrigger, but set base state) */
+/* We'll assume GSAP adds an 'is-active' class or similar */
+.weave-section.is-active::after,
+.weave-section.is-active > div::after {
+    opacity: 1;
+}
+
+
+/* Apply alternating background like loom.css */
+.weave-section.alt-bg {
+    background-color: rgba(var(--color-weave-slate-bg-rgb, 30, 41, 59), 0.5); /* Darker slate with some transparency */
+}
+/* Add slightly different pattern for alt sections */
+.weave-section.alt-bg::before {
+     /* Dotted pattern */
+     background-image: radial-gradient(rgba(var(--color-weave-sky-rgb), 0.07) 1px, transparent 1px);
+     background-size: 20px 20px;
+     opacity: 0.5;
+}
+
+
+.feature-container {
+    max-width: 900px; /* Constrain feature content width */
+    width: 90%; /* Adjusted width */
+    padding: 40px 30px; /* Add internal padding */
+    position: relative; /* Ensure it's above pseudo-elements */
+    z-index: 2; /* Above section pseudo-elements */
+    background-color: rgba(var(--color-bg-secondary-rgb, 15, 23, 42), 0.7); /* More transparent secondary bg */
+    border: 1px solid rgba(var(--color-weave-cyan-rgb), 0.15);
+    border-radius: var(--border-radius-large, 12px); /* Use larger radius */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(5px); /* Frosted glass effect */
+    opacity: 0.95; /* Slightly transparent container */
+    transition: transform 0.4s ease-out, box-shadow 0.4s ease-out, opacity 0.4s ease-out;
+}
+
+.feature-container:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25), 0 0 20px rgba(var(--color-weave-cyan-rgb), 0.1);
+    opacity: 1; /* Fully opaque on hover */
+}
+
+.feature-icon {
+    font-size: 4em; /* Even Larger icon */
+    color: var(--color-weave-cyan); /* Use Weave cyan */
+    margin-bottom: 30px;
+    display: inline-block; /* Allow margin */
+    filter: drop-shadow(0 0 15px rgba(var(--color-weave-cyan-rgb), 0.5));
+    transition: transform 0.3s ease;
+}
+.feature-container:hover .feature-icon {
+    transform: scale(1.1) rotate(-5deg);
+}
+
+
+.feature-heading {
+    font-size: 2.8em; /* Larger heading */
+    color: var(--color-text-primary); /* Keep text fully opaque */
+    margin-bottom: 20px;
+    font-weight: 700; /* Bolder */
+    text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+}
+
+.feature-description {
+    font-size: 1.2em; /* Larger description */
+    color: var(--color-text-secondary); /* Keep text fully opaque */
+    line-height: 1.75;
+    max-width: 750px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 45px; /* More space before visual */
+}
+
+/* Visual Placeholders for Weave Features */
+.code-snippet-placeholder,
+.visual-placeholder {
+    background: rgba(var(--color-weave-dark-blue-rgb, 11, 19, 43), 0.7); /* Darker, more transparent */
+    border: 1px solid rgba(var(--color-weave-sky-rgb), 0.2); /* Sky blue border */
+    border-radius: var(--border-radius);
+    padding: 30px 35px; /* More padding */
+    margin-top: 35px; /* More margin */
+    max-width: 700px; /* Wider visual */
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: inset 0 2px 10px rgba(0,0,0,0.2), 0 5px 15px rgba(0,0,0,0.1);
+    text-align: left; /* Align text left in visuals */
+    color: var(--color-text-secondary); /* Keep text opaque */
+    position: relative; /* For potential pseudo elements */
+    overflow: hidden;
+}
+
+/* Add subtle glow effect */
+.code-snippet-placeholder::before,
+.visual-placeholder::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: radial-gradient(circle at top left, rgba(var(--color-weave-cyan-rgb), 0.1), transparent 40%);
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    z-index: 0;
+     pointer-events: none;
+}
+.feature-container:hover .code-snippet-placeholder::before,
+.feature-container:hover .visual-placeholder::before {
+    opacity: 1;
+}
+
+
+.code-snippet-placeholder pre {
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto Mono', monospace;
+    font-size: 0.95em; /* Slightly larger code */
+    color: #c3e88d; /* Example syntax highlighting color */
+    white-space: pre-wrap; /* Wrap long lines */
+    word-wrap: break-word;
+    position: relative; /* Ensure text is above potential pseudo-elements */
+    z-index: 1;
+}
+
+.visual-placeholder.integration-visual .integration-icons span {
+    /* Reuse styles from loom.css if applicable, or redefine */
+    background: rgba(var(--color-weave-sky-rgb), 0.15); /* Sky blue bg */
+    border: 1px solid rgba(var(--color-weave-sky-rgb), 0.4);
+    color: var(--color-weave-sky); /* Sky blue text */
+    padding: 8px 15px; /* More padding */
+    border-radius: 18px; /* Rounder */
+    font-size: 0.9em; /* Slightly larger */
+    display: inline-block;
+    margin: 6px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    position: relative; z-index: 1;
+}
+.visual-placeholder.integration-visual .integration-icons span:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(var(--color-weave-sky-rgb), 0.2);
+}
+
+.visual-placeholder.integration-visual p {
+    margin-bottom: 20px; /* More space */
+    text-align: center;
+    color: var(--color-text-primary);
+    position: relative; z-index: 1;
+}
+
+.visual-placeholder.security-visual p {
+    font-family: monospace;
+    font-size: 1.05em; /* Larger */
+    text-align: center;
+    color: #ff9c9c; /* Example color for security notice */
+    position: relative; z-index: 1;
+    text-shadow: 0 0 5px rgba(255, 156, 156, 0.5);
+}
+.visual-placeholder.security-visual strong {
+    color: #ff6b6b;
+    font-weight: bold;
+}
+
+.visual-placeholder.git-visual p {
+    font-family: monospace;
+    font-size: 1.05em; /* Larger */
+    text-align: center;
+    color: #89ddff;
+    position: relative; z-index: 1;
+    text-shadow: 0 0 5px rgba(137, 221, 255, 0.5);
+}
+
+/* Section 7: Link to Loom */
+#weave-loom-link .related-product-link.loom-focus {
+    /* Reuse styles from loom.css or main.css if defined there */
+    /* Ensure it's styled appropriately */
+    padding: 60px 50px; /* Increased padding */
+    background: rgba(var(--color-loom-bg-card), 0.8); /* Slightly less transparent */
+    backdrop-filter: blur(10px); /* Stronger blur */
+    border: 1px solid var(--color-loom-border);
+    border-top: 4px solid var(--color-loom-accent); /* Thicker top border */
+    border-radius: 15px; /* Rounder */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 750px; /* Wider */
+    margin: 0 auto; /* Center the link box */
+    box-shadow: 0 12px 35px rgba(0,0,0,0.2);
+    position: relative; /* Ensure z-index works */
+    z-index: 2; /* Above section backgrounds */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+#weave-loom-link .related-product-link.loom-focus:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 45px rgba(0,0,0,0.25), 0 0 20px var(--color-loom-glow);
+}
+
+#weave-loom-link .related-logo {
+    max-height: 270px; /* Slightly larger logo -> Way larger logo */
+    margin-bottom: 30px; /* More space */
+}
+
+#weave-loom-link h4 {
+    font-size: 1.7em; /* Larger */
+    color: var(--color-loom-text-primary);
+    margin-bottom: 18px;
+}
+
+#weave-loom-link p {
+    font-size: 1.15em; /* Slightly larger */
+    max-width: 600px;
+    color: var(--color-loom-text-secondary);
+    text-align: center;
+    line-height: 1.7; /* Improved readability */
+}
+
+#weave-loom-link .cta-button-secondary {
+    margin-top: 35px; /* More space */
+    /* Style based on Loom accent */
+    color: var(--color-loom-accent-lighter);
+    border-color: var(--color-loom-accent);
+    font-size: 1.1em; /* Larger button text */
+    padding: 14px 32px; /* Larger button padding */
+    border-width: 2px;
+}
+
+#weave-loom-link .cta-button-secondary:hover {
+     background-color: var(--color-loom-accent);
+     color: #FFFFFF;
+     border-color: var(--color-loom-accent);
+     box-shadow: 0 8px 22px var(--color-loom-glow); /* Enhanced glow */
+     transform: translateY(-3px); /* Add lift on hover */
+}
+
+/* Responsive adjustments for Weave sections */
+@media (max-width: 992px) {
+    .feature-container {
+        width: 85%;
+    }
+    .feature-heading { font-size: 2.4em; }
+    .feature-description { font-size: 1.1em; }
+    .visual-placeholder, .code-snippet-placeholder { max-width: 600px; }
+}
+
+
+@media (max-width: 768px) {
+    .weave-section {
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+    /* Hide side lines on mobile */
+    .weave-section::after,
+    .weave-section > div::after {
+        display: none;
+    }
+    .feature-container {
+        width: 90%;
+        padding: 30px 20px;
+        opacity: 1; /* Remove transparency on mobile */
+        backdrop-filter: none; /* Remove blur on mobile if performance is concern */
+    }
+    .feature-icon { font-size: 3.5em; margin-bottom: 25px; }
+    .feature-heading { font-size: 2.1em; }
+    .feature-description { font-size: 1.05em; }
+    .code-snippet-placeholder pre { font-size: 0.8em; }
+    .visual-placeholder, .code-snippet-placeholder { padding: 20px; }
+
+    #weave-loom-link .related-product-link.loom-focus {
+        padding: 40px 25px;
+        max-width: 90%;
+    }
+    #weave-loom-link h4 { font-size: 1.4em; }
+    #weave-loom-link p { font-size: 1em; }
+}
+
+/* --- Cleanup Old Weave Styles --- */
+.weave-showcase, /* Remove old wrapper */
+.weave-benefits, /* Remove old benefits container */
+.benefit-block, /* Remove old benefit block style */
+#product-weave .related-product-link /* Remove old related link style if not handled by merge */
+{
+    /* display: none; */ /* Or reset properties */
+    /* Optional: Be explicit if needed */
+    /* background: none; border: none; padding: 0; margin: 0; box-shadow: none; */
+}
