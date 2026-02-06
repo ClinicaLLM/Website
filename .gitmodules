@@ -1,4 +1,4 @@
-[submodule "WebsiteDraft_first"]
-	path = WebsiteDraft_first
+[submodule "WebsiteDraft"]
+	path = WebsiteDraft
 	url = https://github.com/ClinicaLLM/WebsiteDraft
 	branch = main
