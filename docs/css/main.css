@@ -1994,7 +1994,14 @@ footer::before {
         gap: 0;
         padding: 80px 24px 40px;
         z-index: 1001;
-        overflow-y: hidden;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+    }
+
+    nav ul.nav-menu::-webkit-scrollbar {
+        display: none;
     }
 
     nav ul.nav-menu.is-open {
