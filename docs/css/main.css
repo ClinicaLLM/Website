@@ -1966,6 +1966,11 @@ footer::before {
 /* Tablets and large phones */
 @media (max-width: 900px) {
 
+    /* Scale down base font for mobile */
+    html {
+        font-size: 16px;
+    }
+
     /* Show mobile menu toggle, hide desktop menu */
     .mobile-menu-toggle {
         display: flex;
@@ -1989,7 +1994,7 @@ footer::before {
         gap: 0;
         padding: 80px 24px 40px;
         z-index: 1001;
-        overflow-y: auto;
+        overflow-y: hidden;
     }
 
     nav ul.nav-menu.is-open {
@@ -1998,25 +2003,42 @@ footer::before {
 
     nav ul.nav-menu li {
         width: 100%;
-        max-width: 300px;
+        max-width: 280px;
         text-align: center;
         border-bottom: 1px solid var(--border-light);
     }
 
     nav ul.nav-menu li:last-child {
         border-bottom: none;
-        margin-top: 16px;
+        margin-top: 12px;
     }
 
     nav ul.nav-menu a {
         display: block;
-        padding: 16px;
-        font-size: 1.1rem;
+        padding: 14px;
+        font-size: 1rem;
     }
 
     nav ul.nav-menu .cta-button-nav {
         display: inline-block;
         margin-top: 8px;
+    }
+
+    /* About page hero: stack columns */
+    .page-banner .container > div[style*="grid-template-columns: 1fr 1fr"] {
+        grid-template-columns: 1fr !important;
+        gap: 40px !important;
+    }
+
+    /* Hide about page orbit visual on tablet */
+    .page-banner .container > div > div:last-child[style*="min-height: 450px"] {
+        display: none !important;
+    }
+
+    /* Inline section grids to single column */
+    div[style*="grid-template-columns: 1fr 1fr"] {
+        grid-template-columns: 1fr !important;
+        gap: 40px !important;
     }
 
     /* Mobile dropdown handling */
@@ -2092,12 +2114,131 @@ footer::before {
     #pipeline>.container>div>div[style*="flex-direction: column"] {
         margin-bottom: 0 !important;
     }
+
+    /* Weave page hero grid */
+    div[style*="min-height: 70vh"] {
+        min-height: auto !important;
+    }
+
+    /* Weave hero h1 override */
+    h1[style*="font-size: 4rem"] {
+        font-size: 2.5rem !important;
+    }
+
+    /* About hero h1 override */
+    h1[style*="font-size: 3.15rem"] {
+        font-size: 2rem !important;
+    }
+
+    /* About page banner min-height override */
+    .page-banner[style*="min-height: 85vh"],
+    div[style*="min-height: 85vh"] {
+        min-height: auto !important;
+    }
+
+    /* Section padding reduction */
+    section[style*="padding: 120px"] {
+        padding: 80px 0 !important;
+    }
+
+    /* Section header margins */
+    div[style*="margin-bottom: 80px"] {
+        margin-bottom: 48px !important;
+    }
+
+    div[style*="margin-bottom: 120px"] {
+        margin-bottom: 60px !important;
+    }
+
+    /* Gap reductions */
+    div[style*="gap: 80px"] {
+        gap: 40px !important;
+    }
+
+    /* Large inline paragraph font sizes */
+    p[style*="font-size: 1.25rem"] {
+        font-size: 1.05rem !important;
+    }
+
+    p[style*="font-size: 1.15rem"] {
+        font-size: 1rem !important;
+    }
+
+    p[style*="font-size: 1.2rem"] {
+        font-size: 1rem !important;
+    }
+
+    /* Inline heading size overrides */
+    h3[style*="font-size: 2.5rem"] {
+        font-size: 1.8rem !important;
+    }
+
+    h3[style*="font-size: 2.8rem"] {
+        font-size: 2rem !important;
+    }
+
+    h2[style*="font-size: 3rem"] {
+        font-size: 2rem !important;
+    }
+
+    h2[style*="font-size: 2.5rem"] {
+        font-size: 1.8rem !important;
+    }
+
+    /* Feature number overlays */
+    div[style*="font-size: 8rem"] {
+        font-size: 5rem !important;
+    }
+
+    /* Weave hero section */
+    div[style*="min-height: 90vh"] {
+        min-height: auto !important;
+    }
+
+    /* Sections with heavy padding */
+    section[style*="padding: 140px"] {
+        padding: 80px 0 !important;
+    }
+
+    /* Weave interactive demo card padding */
+    div[style*="padding: 50px"] {
+        padding: 32px !important;
+    }
+
+    /* Stat flex container on Weave hero */
+    div[style*="gap: 40px"][style*="margin-top: 50px"] {
+        gap: 24px !important;
+        flex-wrap: wrap !important;
+        margin-top: 30px !important;
+    }
+
+    /* Weave code demo */
+    div[style*="padding: 24px"][style*="font-family"] {
+        padding: 16px !important;
+        font-size: 0.7rem !important;
+    }
+
+    /* Scroll-to-explore on weave */
+    div[style*="bottom: 40px"][style*="transform: translateX"] {
+        display: none !important;
+    }
+
+    /* Pipeline horizontal steps on weave */
+    div[style*="display: flex"][style*="justify-content: center"][style*="gap: 0"][style*="max-width: 900px"] {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 16px !important;
+    }
 }
 
 /* Mobile phones */
 @media (max-width: 768px) {
     :root {
-        --section-padding: 80px 0;
+        --section-padding: 60px 0;
+    }
+
+    html {
+        font-size: 15px;
     }
 
     .container {
@@ -2106,34 +2247,42 @@ footer::before {
 
     /* Typography scaling */
     .hero-title {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
 
     .hero-subtitle {
         font-size: 0.95rem;
+        max-width: 100%;
     }
 
     h2 {
-        font-size: 1.8rem !important;
+        font-size: 1.5rem !important;
     }
 
     h3 {
-        font-size: 1.2rem !important;
+        font-size: 1.15rem !important;
     }
 
     /* Hero section */
     .hero-section {
-        padding-top: 100px;
+        padding-top: 90px;
         min-height: auto;
-        padding-bottom: 60px;
+        padding-bottom: 50px;
     }
 
     .hero-grid {
-        gap: 40px;
+        grid-template-columns: 1fr !important;
+        gap: 30px;
     }
 
     .hero-content {
         text-align: center;
+    }
+
+    .hero-content > div:first-child {
+        justify-content: center;
+        margin-left: auto;
+        margin-right: auto;
     }
 
     .hero-cta {
@@ -2147,41 +2296,41 @@ footer::before {
 
     /* Commitment section */
     .commitment-section {
-        padding: 80px 0;
+        padding: 60px 0;
     }
 
     .commitment-grid {
         grid-template-columns: 1fr;
-        gap: 40px;
+        gap: 30px;
     }
 
     .commitment-text h2 {
-        font-size: 2rem;
+        font-size: 1.5rem;
         text-align: center;
     }
 
     .commitment-quote blockquote {
-        font-size: 1.25rem;
-        padding-left: 20px;
+        font-size: 1.1rem;
+        padding-left: 16px;
     }
 
     /* Pillars/Foundation section */
     #pillars {
-        padding: 80px 0 !important;
+        padding: 60px 0 !important;
     }
 
     #pillars .section-header {
-        margin-bottom: 60px !important;
+        margin-bottom: 40px !important;
     }
 
     #pillars .section-header h2 {
-        font-size: 2.25rem !important;
+        font-size: 1.5rem !important;
     }
 
     #pillars>.container>div[style*="grid-template-columns"] {
         grid-template-columns: 1fr !important;
-        gap: 40px !important;
-        margin-bottom: 60px !important;
+        gap: 30px !important;
+        margin-bottom: 40px !important;
     }
 
     #pillars>.container>div[style*="grid-template-columns"]>div[style*="order"] {
@@ -2190,93 +2339,110 @@ footer::before {
 
     /* Feature section number overlays */
     div[style*="font-size: 8rem"] {
-        font-size: 4rem !important;
+        font-size: 3rem !important;
         top: 10px !important;
         right: 10px !important;
     }
 
+    /* Inline feature heading sizes */
+    h3[style*="font-size: 2.5rem"] {
+        font-size: 1.5rem !important;
+    }
+
+    h3[style*="font-size: 2.8rem"] {
+        font-size: 1.5rem !important;
+    }
+
+    h2[style*="font-size: 3rem"] {
+        font-size: 1.5rem !important;
+    }
+
+    h2[style*="font-size: 2.5rem"] {
+        font-size: 1.4rem !important;
+    }
+
     /* Frameworks section */
     #platform-overview {
-        padding: 80px 0 !important;
+        padding: 60px 0 !important;
     }
 
     #platform-overview .section-header {
-        margin-bottom: 60px !important;
+        margin-bottom: 40px !important;
     }
 
     #platform-overview>.container>div[style*="grid-template-columns"] {
         grid-template-columns: 1fr !important;
-        gap: 24px !important;
+        gap: 20px !important;
     }
 
     /* Platform cards */
     .platform-card {
         min-height: auto;
-        padding: 32px;
+        padding: 24px;
     }
 
     .platform-card h3 {
-        font-size: 2rem !important;
+        font-size: 1.5rem !important;
     }
 
     /* Solutions section */
     .solutions-section-new {
-        padding: 80px 0;
+        padding: 60px 0;
     }
 
     .solution-item {
-        padding: 24px;
+        padding: 20px;
     }
 
     .solution-item-icon {
-        width: 48px;
-        height: 48px;
+        width: 44px;
+        height: 44px;
     }
 
     .solution-item-icon svg {
-        width: 24px;
-        height: 24px;
+        width: 22px;
+        height: 22px;
     }
 
     /* Partners section */
     .partnerships-section {
-        padding: 60px 0;
+        padding: 50px 0;
     }
 
     .partner-logos-grid {
         grid-template-columns: 1fr;
-        gap: 20px;
+        gap: 16px;
     }
 
     .partner-card {
-        padding: 30px 24px;
+        padding: 24px 20px;
     }
 
     .partner-description {
-        font-size: 1rem;
+        font-size: 0.95rem;
     }
 
     /* Footer */
     footer {
-        padding: 60px 0 30px;
+        padding: 50px 0 24px;
     }
 
     footer::before {
-        top: -40px;
-        height: 40px;
+        top: -30px;
+        height: 30px;
     }
 
     .footer-content {
         grid-template-columns: 1fr;
-        gap: 32px;
+        gap: 24px;
         text-align: center;
-        margin-bottom: 32px;
+        margin-bottom: 24px;
     }
 
     .footer-nav {
         justify-content: center;
         flex-wrap: wrap;
-        gap: 20px;
+        gap: 16px;
     }
 
     .footer-links {
@@ -2285,40 +2451,53 @@ footer::before {
 
     .footer-bottom {
         flex-direction: column;
-        gap: 12px;
+        gap: 10px;
         text-align: center;
     }
 
     .brand-name {
-        font-size: 1.5rem;
+        font-size: 1.3rem;
     }
 
     /* Page banners */
     .page-banner {
         height: auto;
-        min-height: 50vh;
-        padding-top: 100px;
-        padding-bottom: 60px;
+        min-height: auto !important;
+        padding-top: 90px;
+        padding-bottom: 40px;
     }
 
     .page-banner h1 {
-        font-size: 2rem;
+        font-size: 1.6rem;
+    }
+
+    .page-banner h1[style*="font-size"] {
+        font-size: 1.6rem !important;
     }
 
     .page-banner p {
-        font-size: 0.95rem;
+        font-size: 0.9rem;
+    }
+
+    .page-banner-content {
+        max-width: 100% !important;
     }
 
     /* CTA buttons */
     .cta-button {
-        padding: 14px 32px;
-        font-size: 0.95rem;
+        padding: 12px 28px;
+        font-size: 0.9rem;
+    }
+
+    .cta-button-outline {
+        padding: 12px 28px !important;
+        font-size: 0.9rem !important;
     }
 
     /* Bento grid mobile */
     .bento-grid {
         grid-template-columns: 1fr;
-        gap: 16px;
+        gap: 14px;
     }
 
     .bento-card-lg,
@@ -2331,16 +2510,16 @@ footer::before {
     }
 
     .bento-card {
-        padding: 24px;
+        padding: 20px;
     }
 
     .bento-card-lg {
-        padding: 28px;
+        padding: 24px;
     }
 
     .bento-card-lg[style*="grid-template-columns"] {
         grid-template-columns: 1fr !important;
-        gap: 24px !important;
+        gap: 20px !important;
     }
 
     .bento-card-lg>div[style*="flex: 0 0 280px"] {
@@ -2348,40 +2527,46 @@ footer::before {
     }
 
     .bento-card .bento-number {
-        font-size: 3rem;
+        font-size: 2.5rem;
+    }
+
+    /* Animated shield visual in bento - smaller */
+    .bento-card div[style*="width: 200px"][style*="height: 200px"] {
+        width: 140px !important;
+        height: 140px !important;
     }
 
     /* Pipeline visualization */
     .pipeline-container {
         flex-direction: column;
-        gap: 40px;
+        gap: 30px;
     }
 
     .pipeline-connector {
         width: 4px;
-        height: 60px;
-        margin: -20px auto;
+        height: 40px;
+        margin: -15px auto;
     }
 
     /* Team grid */
     .team-grid {
         grid-template-columns: 1fr;
-        gap: 24px;
+        gap: 20px;
     }
 
     .team-card {
-        padding: 32px 24px;
+        padding: 24px 20px;
     }
 
     .founder-img {
-        width: 120px;
-        height: 120px;
+        width: 100px;
+        height: 100px;
     }
 
     /* Code blocks */
     .code-block {
-        padding: 1.25rem;
-        font-size: 0.8rem;
+        padding: 1rem;
+        font-size: 0.75rem;
     }
 
     /* Cards general */
@@ -2390,28 +2575,249 @@ footer::before {
     .step-item,
     .platform-card,
     .solution-card {
-        padding: 28px;
+        padding: 24px;
     }
 
     /* Glass cards */
     .glass-card {
-        padding: 20px;
+        padding: 16px;
     }
 
     /* Depth cards */
     .depth-card {
-        padding: 24px;
+        padding: 20px;
+    }
+
+    /* Section headers - tighten spacing */
+    .section-header {
+        margin-bottom: 40px !important;
+    }
+
+    /* Leadership cards */
+    .leadership-cards {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+    }
+
+    /* Inline font sizes that are too large */
+    p[style*="font-size: 1.25rem"] {
+        font-size: 1rem !important;
+    }
+
+    p[style*="font-size: 1.15rem"] {
+        font-size: 0.95rem !important;
+    }
+
+    p[style*="font-size: 1.2rem"] {
+        font-size: 0.95rem !important;
+    }
+
+    span[style*="font-size: 1.8rem"] {
+        font-size: 1.3rem !important;
+    }
+
+    span[style*="font-size: 1.4rem"] {
+        font-size: 1.1rem !important;
+    }
+
+    /* Weave hero h1 - even smaller on phone */
+    h1[style*="font-size: 4rem"] {
+        font-size: 2rem !important;
+    }
+
+    /* About hero h1 */
+    h1[style*="font-size: 3.15rem"] {
+        font-size: 1.6rem !important;
+    }
+
+    /* Section padding overrides */
+    section[style*="padding: 120px"] {
+        padding: 60px 0 !important;
+    }
+
+    section[style*="padding: 140px"] {
+        padding: 60px 0 !important;
+    }
+
+    section[style*="padding: 100px"] {
+        padding: 50px 0 !important;
+    }
+
+    /* Gap overrides */
+    div[style*="gap: 80px"] {
+        gap: 30px !important;
+    }
+
+    div[style*="gap: 60px"] {
+        gap: 24px !important;
+    }
+
+    div[style*="gap: 48px"] {
+        gap: 20px !important;
+    }
+
+    /* Margin-bottom overrides */
+    div[style*="margin-bottom: 120px"] {
+        margin-bottom: 40px !important;
+    }
+
+    div[style*="margin-bottom: 80px"] {
+        margin-bottom: 32px !important;
+    }
+
+    div[style*="margin-top: 120px"] {
+        margin-top: 40px !important;
+    }
+
+    /* Feature card padding */
+    div[style*="padding: 48px"] {
+        padding: 24px !important;
+    }
+
+    div[style*="padding: 36px"] {
+        padding: 20px !important;
+    }
+
+    div[style*="padding: 50px"] {
+        padding: 24px !important;
+    }
+
+    /* Weave hero min-height */
+    div[style*="min-height: 90vh"] {
+        min-height: auto !important;
+    }
+
+    div[style*="min-height: 85vh"] {
+        min-height: auto !important;
+    }
+
+    div[style*="min-height: 70vh"] {
+        min-height: auto !important;
+    }
+
+    /* Weave hero padding-top */
+    section[style*="min-height: 90vh"] {
+        min-height: auto !important;
+        padding-top: 80px !important;
+        padding-bottom: 40px !important;
+    }
+
+    /* Weave scroll-to-explore */
+    div[style*="bottom: 40px"][style*="transform: translateX"] {
+        display: none !important;
+    }
+
+    /* Weave code editor demo */
+    div[style*="padding: 24px"][style*="font-family: 'Roboto Mono'"] {
+        padding: 12px !important;
+        font-size: 0.65rem !important;
+        line-height: 1.6 !important;
+    }
+
+    /* Weave stat numbers */
+    div[style*="gap: 40px"][style*="margin-top: 50px"] {
+        gap: 16px !important;
+        flex-wrap: wrap !important;
+        margin-top: 24px !important;
+        padding-top: 20px !important;
+    }
+
+    /* Template cards wrapping */
+    .template-card {
+        padding: 14px !important;
+    }
+
+    /* CTA section inner */
+    .cta-section {
+        padding: 60px 0 !important;
+    }
+
+    .cta-section h2 {
+        font-size: 1.5rem !important;
+    }
+
+    .cta-section p {
+        font-size: 0.9rem !important;
+    }
+
+    /* Inline text-align center for sections */
+    .text-center h2 {
+        text-align: center !important;
+    }
+
+    /* Weave pipeline steps - force vertical on phone */
+    div[style*="display: flex"][style*="justify-content: center"][style*="gap: 0"] {
+        flex-direction: column !important;
+        align-items: center !important;
+        gap: 12px !important;
+    }
+
+    /* Pipeline connectors - hide on mobile */
+    div[style*="flex: 1"][style*="height: 4px"][style*="margin: 0 -20px"] {
+        display: none !important;
+    }
+
+    /* Pipeline stages - adjust spacing */
+    div[style*="width: 80px"][style*="height: 80px"][style*="border-radius: 50%"] {
+        width: 64px !important;
+        height: 64px !important;
+    }
+
+    div[style*="width: 80px"][style*="height: 80px"][style*="border-radius: 50%"] svg {
+        width: 24px !important;
+        height: 24px !important;
+    }
+
+    /* Weave hero SVG pattern background on mobile */
+    .weave-line {
+        opacity: 0.3;
+    }
+
+    /* Stat display sections */
+    div[style*="font-size: 2.5rem"] {
+        font-size: 1.6rem !important;
+    }
+
+    div[style*="font-size: 2rem"] {
+        font-size: 1.4rem !important;
+    }
+
+    /* Hide forced <br> in headings on mobile */
+    h1 br,
+    h2 br {
+        display: none;
+    }
+
+    /* Ensure body doesn't overflow horizontally */
+    body {
+        overflow-x: hidden;
+    }
+
+    /* Ensure all images scale down */
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    /* SVG visuals that are too wide */
+    svg[viewBox] {
+        max-width: 100%;
+        height: auto;
     }
 }
 
 /* Small phones */
 @media (max-width: 480px) {
+    html {
+        font-size: 14px;
+    }
+
     .container {
         padding: 0 16px;
     }
 
     .hero-title {
-        font-size: 1.8rem;
+        font-size: 1.75rem;
     }
 
     .hero-subtitle {
@@ -2419,16 +2825,31 @@ footer::before {
     }
 
     h2 {
-        font-size: 1.5rem !important;
+        font-size: 1.35rem !important;
+    }
+
+    h3 {
+        font-size: 1.1rem !important;
     }
 
     .page-banner h1 {
-        font-size: 1.65rem;
+        font-size: 1.4rem;
+    }
+
+    .page-banner h1[style*="font-size"] {
+        font-size: 1.4rem !important;
     }
 
     .cta-button {
         padding: 12px 24px;
-        font-size: 0.9rem;
+        font-size: 0.85rem;
+        width: 100%;
+        text-align: center;
+    }
+
+    .cta-button-outline {
+        padding: 12px 24px !important;
+        font-size: 0.85rem !important;
         width: 100%;
         text-align: center;
     }
@@ -2436,6 +2857,7 @@ footer::before {
     /* About page hero buttons */
     .page-banner-content div[style*="display: flex"][style*="gap: 16px"] {
         flex-direction: column !important;
+        gap: 10px !important;
     }
 
     .page-banner-content div[style*="display: flex"][style*="gap: 16px"] a {
@@ -2459,23 +2881,87 @@ footer::before {
 
     /* Partner cards */
     .partner-card {
-        padding: 24px 20px;
+        padding: 20px 16px;
+    }
+
+    .partner-description {
+        font-size: 0.9rem;
     }
 
     /* Bento cards */
     .bento-card {
+        padding: 16px;
+    }
+
+    .bento-card-lg {
         padding: 20px;
     }
 
     .bento-icon {
-        width: 48px;
-        height: 48px;
+        width: 44px;
+        height: 44px;
     }
 
     /* Leadership cards on about page */
     div[style*="display: grid"][style*="repeat(2, 1fr)"] {
         grid-template-columns: 1fr !important;
+        gap: 16px !important;
+    }
+
+    .leadership-cards > div {
+        padding: 24px 20px !important;
+    }
+
+    /* Founder card images */
+    div[style*="width: 88px"][style*="height: 88px"] {
+        width: 64px !important;
+        height: 64px !important;
+    }
+
+    /* Stat boxes in bento */
+    div[style*="display: flex"][style*="gap: 20px"] {
+        gap: 12px !important;
+    }
+
+    /* Nav menu on small phones */
+    nav ul.nav-menu {
+        padding: 70px 20px 30px;
+    }
+
+    nav ul.nav-menu a {
+        padding: 12px;
+        font-size: 0.95rem;
+    }
+
+    /* Section padding tighter */
+    section[style*="padding: 120px"] {
+        padding: 50px 0 !important;
+    }
+
+    section[style*="padding: 100px"] {
+        padding: 50px 0 !important;
+    }
+
+    /* Inline gap overrides */
+    div[style*="gap: 80px"] {
+        gap: 30px !important;
+    }
+
+    div[style*="gap: 60px"] {
+        gap: 24px !important;
+    }
+
+    div[style*="gap: 48px"] {
         gap: 20px !important;
+    }
+
+    /* Feature card padding */
+    div[style*="padding: 48px"] {
+        padding: 24px !important;
+    }
+
+    div[style*="padding: 36px"] {
+        padding: 20px !important;
     }
 }
 
