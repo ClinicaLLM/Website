@@ -244,16 +244,16 @@
 
 @media (max-width: 768px) {
     .about-page .about-section {
-        padding: 80px 0;
+        padding: 60px 0;
     }
     .about-page h1, .about-page h2 {
-        font-size: 2.2em;
+        font-size: 1.6em;
     }
     #about-hero h1 {
-        font-size: 3em;
+        font-size: 2em;
     }
     #about-hero .section-intro {
-        font-size: 1.15em;
+        font-size: 1em;
     }
     .about-page .section-intro {
         font-size: 1.1em;
@@ -373,7 +373,7 @@
 
 @media (max-width: 480px) {
     #about-page .page-banner h1 {
-        font-size: 1.85rem !important;
+        font-size: 1.4rem !important;
     }
     
     /* CTA buttons stacked */

@@ -768,8 +768,8 @@
 
 @media (max-width: 768px) {
     .weave-section {
-        padding-top: 80px;
-        padding-bottom: 80px;
+        padding-top: 60px;
+        padding-bottom: 60px;
     }
     /* Hide side lines on mobile */
     .weave-section::after,
@@ -777,23 +777,43 @@
         display: none;
     }
     .feature-container {
-        width: 90%;
-        padding: 30px 20px;
-        opacity: 1; /* Remove transparency on mobile */
-        backdrop-filter: none; /* Remove blur on mobile if performance is concern */
+        width: 95%;
+        padding: 24px 16px;
+        opacity: 1;
+        backdrop-filter: none;
     }
-    .feature-icon { font-size: 3.5em; margin-bottom: 25px; }
-    .feature-heading { font-size: 2.1em; }
-    .feature-description { font-size: 1.05em; }
-    .code-snippet-placeholder pre { font-size: 0.8em; }
-    .visual-placeholder, .code-snippet-placeholder { padding: 20px; }
+    .feature-container:hover {
+        transform: none;
+    }
+    .feature-icon { font-size: 2.5em; margin-bottom: 20px; }
+    .feature-heading { font-size: 1.6em; }
+    .feature-description { font-size: 0.95em; margin-bottom: 30px; }
+    .code-snippet-placeholder pre { font-size: 0.75em; }
+    .visual-placeholder, .code-snippet-placeholder { padding: 16px; max-width: 100%; }
 
     #weave-loom-link .related-product-link.loom-focus {
-        padding: 40px 25px;
-        max-width: 90%;
+        padding: 30px 20px;
+        max-width: 95%;
     }
-    #weave-loom-link h4 { font-size: 1.4em; }
-    #weave-loom-link p { font-size: 1em; }
+    #weave-loom-link h4 { font-size: 1.2em; }
+    #weave-loom-link p { font-size: 0.95em; }
+    #weave-loom-link .related-logo { max-height: 160px; }
+}
+
+@media (max-width: 480px) {
+    .gradient-text-weave { font-size: 1.6em; margin-bottom: 20px; }
+    .product-logo { max-height: 120px; }
+    #product-weave .section-intro { font-size: 0.95em; margin-bottom: 40px; }
+    .weave-benefits h3 { font-size: 1.3em; margin-bottom: 24px; }
+    .benefit-block { padding: 20px; gap: 16px; }
+    .benefit-content .icon { font-size: 1.5em; margin-right: 12px; }
+    .benefit-text h4 { font-size: 1.05em; }
+    .benefit-text p { font-size: 0.9em; }
+    .related-product-link { margin-top: 50px; padding: 24px 16px; }
+    .related-product-link p { font-size: 1em; }
+    .feature-heading { font-size: 1.3em; }
+    .feature-description { font-size: 0.9em; }
+    .feature-icon { font-size: 2em; }
 }
 
 /* --- Cleanup Old Weave Styles --- */
