@@ -1,115 +1,292 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ASKLEPIC - Healthcare</title>
+    <title>Healthcare Solutions - ASKLEPIC</title>
     <link rel="icon" type="image/png" href="assets/logo.png">
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
     <link rel="stylesheet" href="css/main.css">
-    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.9.3/tsparticles.bundle.min.js"></script>
+
+    <!-- Libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/SplitText.min.js"></script>
 </head>
+
 <body>
-    <div id="tsparticles-bg"></div>
+    <!-- Navigation -->
     <div id="navbar-placeholder"></div>
 
     <main id="healthcare-page">
-        <section class="hero-section scroll-snap-section">
+        <!-- Page Banner -->
+        <section class="page-banner">
             <div class="container">
-                <h1>Secure, Reliable Autonomy in Healthcare.</h1>
-                <h1>Advanced automation with Zero Trust security, dedicated to patient data protection.</h1>
-                <p class="tagline">We provide specialized agentic systems for healthcare, delivering intelligent automation built on Zero Trust principles and deployed exclusively within your institution to ensure absolute data sovereignty.</p>
+                <div class="page-banner-content">
+                    <span
+                        style="color: var(--accent-highlight); font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; display: block; margin-bottom: 16px;">Industry
+                        Focus</span>
+                    <h1>GenAI Healthcare Solutions</h1>
+                    <p>Zero Trust, privacy-first GenAI with <strong>100% on-premise</strong> patient data processing.
+                        Your
+                        data never leaves your infrastructure.
+                    </p>
+                </div>
             </div>
         </section>
 
-        <section id="commitment" class="commitment-section scroll-snap-section">
-             <div class="container">
-                <h2>Our Commitment to Patient-Centric Data Governance</h2>
-                <blockquote>
-                    Every patient deserves confidence in how their data is managed. We prioritize robust governance and security to honor that trust.
-                </blockquote>
-                <p>At ASKLEPIC, responsible data governance is paramount for safeguarding patient interests. Our Zero Trust architecture establishes a secure foundation for AI operations. We prioritize on-premise deployments for maximum institutional control, yet our cloud-friendly platform offers flexible solutions tailored to your specific governance needs. This ensures patient data is handled with the utmost care and security, regardless of its location.</p>
+        <!-- Specialized Capabilities - Bento Grid -->
+        <section style="padding: 120px 0; background: var(--bg-secondary);">
+            <div class="container">
+                <div class="section-header text-center" style="margin-bottom: 60px;">
+                    <h2>Specialized Capabilities</h2>
+                    <p style="color: var(--text-secondary); font-size: 1.2rem; max-width: 700px; margin: 16px auto 0;">
+                        All patient data processing runs <strong>100% on-premise</strong>—no external calls, no cloud
+                        dependencies.
+                    </p>
+                </div>
+
+                <div class="bento-grid">
+                    <!-- Large Feature Card: De-Identification -->
+                    <div class="bento-card bento-card-lg bento-card-accent glow-effect"
+                        style="display: flex; gap: 40px; align-items: center;">
+                        <div style="flex: 1;">
+                            <div class="bento-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
+                                    stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round"
+                                    stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <path
+                                        d="M12 3a12 12 0 0 0 8.5 3a12 12 0 0 1 -8.5 15a12 12 0 0 1 -8.5 -15a12 12 0 0 0 8.5 -3" />
+                                </svg>
+                            </div>
+                            <h3 style="font-size: 1.75rem; margin-bottom: 16px;">Secure De-Identification</h3>
+                            <p
+                                style="color: var(--text-secondary); font-size: 1.1rem; line-height: 1.7; margin-bottom: 24px;">
+                                Automatically identify and redact sensitive PI/PHI from text documents with high
+                                precision, ensuring complete privacy compliance.
+                            </p>
+                            <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                                <span
+                                    style="background: rgba(59, 130, 246, 0.1); color: var(--accent-highlight); padding: 6px 14px; border-radius: 100px; font-size: 0.85rem; font-weight: 500;">HIPAA
+                                    Compliant</span>
+                                <span
+                                    style="background: rgba(59, 130, 246, 0.1); color: var(--accent-highlight); padding: 6px 14px; border-radius: 100px; font-size: 0.85rem; font-weight: 500;">On-Premise</span>
+                                <span
+                                    style="background: rgba(59, 130, 246, 0.1); color: var(--accent-highlight); padding: 6px 14px; border-radius: 100px; font-size: 0.85rem; font-weight: 500;">High
+                                    Accuracy</span>
+                            </div>
+                        </div>
+                        <div style="flex: 0 0 280px;">
+                            <!-- Visual Demo -->
+                            <div class="glass-card"
+                                style="padding: 24px; font-family: 'Roboto Mono', monospace; font-size: 0.8rem; line-height: 1.8;">
+                                <p style="color: var(--text-secondary);">Patient: <span
+                                        style="background: #0F172A; color: #0F172A; border-radius: 3px; padding: 0 4px;">John
+                                        Smith</span></p>
+                                <p style="color: var(--text-secondary);">DOB: <span
+                                        style="background: #0F172A; color: #0F172A; border-radius: 3px; padding: 0 4px;">03/15/1985</span>
+                                </p>
+                                <p style="color: var(--text-secondary);">SSN: <span
+                                        style="background: #0F172A; color: #0F172A; border-radius: 3px; padding: 0 4px;">***-**-4521</span>
+                                </p>
+                                <div
+                                    style="margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border-light);">
+                                    <span
+                                        style="background: #10B981; color: white; padding: 4px 10px; border-radius: 100px; font-size: 0.7rem; font-weight: 600;">5
+                                        PHI FIELDS REDACTED</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Medium Card: Archive OCR -->
+                    <div class="bento-card bento-card-md depth-card">
+                        <span class="bento-number">01</span>
+                        <div class="bento-icon" style="background: rgba(16, 185, 129, 0.1); color: #10B981;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
+                                stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path d="M4 8v-2a2 2 0 0 1 2 -2h2" />
+                                <path d="M4 16v2a2 2 0 0 0 2 2h2" />
+                                <path d="M16 4h2a2 2 0 0 1 2 2v2" />
+                                <path d="M16 20h2a2 2 0 0 0 2 -2v-2" />
+                                <path d="M5 12l14 0" />
+                            </svg>
+                        </div>
+                        <h3 style="font-size: 1.4rem; margin-bottom: 12px;">Archive OCR & Digitization</h3>
+                        <p style="color: var(--text-secondary); margin-bottom: 20px;">Transform physical archives into
+                            searchable, structured digital assets.</p>
+                        <ul style="list-style: none; padding: 0; color: var(--text-secondary); font-size: 0.9rem;">
+                            <li style="padding: 8px 0; display: flex; align-items: center; gap: 8px;">
+                                <span style="color: #10B981;">✓</span> Complex document layouts
+                            </li>
+                            <li style="padding: 8px 0; display: flex; align-items: center; gap: 8px;">
+                                <span style="color: #10B981;">✓</span> Handwriting recognition
+                            </li>
+                            <li style="padding: 8px 0; display: flex; align-items: center; gap: 8px;">
+                                <span style="color: #10B981;">✓</span> Metadata extraction
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Small Accent Card: Quick Stat -->
+                    <div class="bento-card bento-card-sm bento-card-dark"
+                        style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"
+                            stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round"
+                            stroke-linejoin="round" style="color: var(--accent-highlight); margin-bottom: 16px;">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M9 12l2 2l4 -4" />
+                            <path
+                                d="M12 3a12 12 0 0 0 8.5 3a12 12 0 0 1 -8.5 15a12 12 0 0 1 -8.5 -15a12 12 0 0 0 8.5 -3" />
+                        </svg>
+                        <h4 style="font-size: 1.1rem; margin-bottom: 4px;">Zero Trust</h4>
+                        <p style="font-size: 0.85rem; opacity: 0.7;">Architecture</p>
+                    </div>
+
+                    <!-- Medium Card: Medical Coding -->
+                    <div class="bento-card bento-card-md depth-card">
+                        <span class="bento-number">02</span>
+                        <div class="bento-icon" style="background: rgba(139, 92, 246, 0.1); color: #8B5CF6;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
+                                stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path d="M14 3v4a1 1 0 0 0 1 1h4" />
+                                <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z" />
+                                <path d="M9 9h1" />
+                                <path d="M9 13h6" />
+                                <path d="M9 17h6" />
+                            </svg>
+                        </div>
+                        <h3 style="font-size: 1.4rem; margin-bottom: 12px;">Medical Coding Automation</h3>
+                        <p style="color: var(--text-secondary); margin-bottom: 20px;">Transform clinical documentation
+                            into accurate ICD-10 and CPT codes instantly.</p>
+                        <ul style="list-style: none; padding: 0; color: var(--text-secondary); font-size: 0.9rem;">
+                            <li style="padding: 8px 0; display: flex; align-items: center; gap: 8px;">
+                                <span style="color: #8B5CF6;">✓</span> Real-time coding
+                            </li>
+                            <li style="padding: 8px 0; display: flex; align-items: center; gap: 8px;">
+                                <span style="color: #8B5CF6;">✓</span> Full audit trails
+                            </li>
+                            <li style="padding: 8px 0; display: flex; align-items: center; gap: 8px;">
+                                <span style="color: #8B5CF6;">✓</span> EHR integration
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Small Card: Clinical Documentation -->
+                    <div class="bento-card bento-card-sm" style="display: flex; align-items: center; gap: 20px;">
+                        <div class="bento-icon" style="margin-bottom: 0; flex-shrink: 0;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path
+                                    d="M9 5h-2a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-12a2 2 0 0 0 -2 -2h-2" />
+                                <path
+                                    d="M9 3m0 2a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v0a2 2 0 0 1 -2 2h-2a2 2 0 0 1 -2 -2z" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 style="font-size: 1.1rem; margin-bottom: 4px;">Clinical Documentation</h4>
+                            <p style="color: var(--text-secondary); font-size: 0.9rem; margin: 0;">Streamlined note
+                                generation & structuring</p>
+                        </div>
+                    </div>
+
+                    <!-- Small Accent Card: On-Premise -->
+                    <div class="bento-card bento-card-sm bento-card-accent"
+                        style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24"
+                            stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round"
+                            stroke-linejoin="round" style="color: var(--accent-highlight); margin-bottom: 12px;">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M3 21l18 0" />
+                            <path d="M5 21v-14l8 -4v18" />
+                            <path d="M19 21v-10l-6 -4" />
+                            <path d="M9 9l0 .01" />
+                            <path d="M9 12l0 .01" />
+                            <path d="M9 15l0 .01" />
+                            <path d="M9 18l0 .01" />
+                        </svg>
+                        <h4 style="font-size: 1rem; margin-bottom: 4px; color: var(--text-primary);">100% On-Premise
+                        </h4>
+                        <p style="font-size: 0.8rem; color: var(--text-secondary); margin: 0;">Patient Data Never Leaves
+                        </p>
+                    </div>
+
+                    <!-- Small Card: Audio Transcription -->
+                    <div class="bento-card bento-card-sm" style="display: flex; align-items: center; gap: 20px;">
+                        <div class="bento-icon"
+                            style="margin-bottom: 0; flex-shrink: 0; background: rgba(245, 158, 11, 0.1); color: #F59E0B;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path d="M12 2a3 3 0 0 0 -3 3v4a3 3 0 0 0 6 0v-4a3 3 0 0 0 -3 -3z" />
+                                <path d="M19 10v1a7 7 0 0 1 -14 0v-1" />
+                                <path d="M12 18v4" />
+                                <path d="M8 22h8" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 style="font-size: 1.1rem; margin-bottom: 4px;">Audio Transcription</h4>
+                            <p style="color: var(--text-secondary); font-size: 0.9rem; margin: 0;">Medical dictation &
+                                meeting transcription</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section id="capabilities" class="scroll-snap-section">
-            <div class="container">
-                <h2>Capabilities</h2>
-                <p class="section-intro">Leverage secure, on‑premise AI to automate critical healthcare workflows, reduce administrative burden, and improve patient outcomes—all while ensuring data remains securely within your control.</p>
+        <!-- CTA -->
+        <section class="partnerships-section" style="border-top: 1px solid var(--border-light); padding: 100px 0;">
+            <div class="container text-center">
+                <h2 style="margin-bottom: 24px;">Transform Your Data Operations</h2>
+                <p class="section-intro"
+                    style="margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto;">Contact us to
+                    discuss how our healthcare solutions can be deployed in your environment.</p>
+                <a href="mailto:general@asklepic.com" class="cta-button">Get in Touch</a>
             </div>
-            <!-- Content intentionally simplified -->
         </section>
+
     </main>
 
     <footer>
-       <div class="container">
-            <div class="footer-links">
-                <a href="mailto:general@asklepic.com">Contact</a>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="brand-name">ASKLEPIC</span>
+                    <p style="color: var(--text-secondary);">Secure and reliable autonomy.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="mailto:general@asklepic.com">Contact</a>
+                </div>
             </div>
-            <p class="copyright">© 2025 ASKLEPIC. All Rights Reserved. | Secure and reliable autonomy in healthcare.</p>
+            <div class="footer-bottom">
+                <p class="copyright">© 2026 ASKLEPIC. All Rights Reserved.</p>
+            </div>
         </div>
     </footer>
 
-    <script>
-        tsParticles.load("tsparticles-bg", {
-            fpsLimit: 60,
-            particles: {
-                number: { value: 40, density: { enable: true, value_area: 800 }},
-                color: { value: ["#3A86FF", "#4ECDC4", "#ffffff"] },
-                shape: { type: "circle" },
-                opacity: { value: { min: 0.1, max: 0.3 }, random: true, animation: { enable: true, speed: 0.5, minimumValue: 0.05, sync: false }},
-                size: { value: { min: 1, max: 2.5 }, random: true, animation: { enable: false }},
-                links: { enable: true, distance: 150, color: "#ffffff", opacity: 0.15, width: 1 },
-                move: { enable: true, speed: 0.8, direction: "none", random: true, straight: false, outModes: { default: "out" }, attract: { enable: false }}
-             },
-            interactivity: {
-                detectsOn: "window",
-                events: { onHover: { enable: true, mode: "bubble" }, onClick: { enable: false }, resize: true },
-                modes: { bubble: { distance: 150, size: 3, duration: 2, opacity: 0.8 } }
-            },
-            detectRetina: true,
-            background: { color: 'transparent' }
-        });
-
-        document.addEventListener("DOMContentLoaded", () => {
-            try { gsap.registerPlugin(ScrollTrigger, SplitText); } catch (e) {}
-            const heroHeadings = gsap.utils.toArray('.hero-section h1');
-            const heroTagline = document.querySelector('.hero-section .tagline');
-            if (heroHeadings.length > 0) {
-                try {
-                    const splitHeadings = heroHeadings.map(h => new SplitText(h, { type: "words, chars" }));
-                    let allChars = [];
-                    splitHeadings.forEach(split => allChars.push(...split.chars));
-                    gsap.from(allChars, { duration: 0.9, opacity: 0, y: 60, rotationX: -45, stagger: 0.025, ease: "power3.out", delay: 0.5 });
-                } catch (e) {}
-            }
-            if (heroTagline) {
-                gsap.from(heroTagline, { duration: 1.2, opacity: 0, y: 30, ease: "power3.out", delay: 1.0 });
-            }
-            const animateFadeIn = (selector, options = {}) => {
-                const elements = gsap.utils.toArray(selector);
-                elements.forEach(el => {
-                    gsap.from(el, {
-                        scrollTrigger: { trigger: el, start: "top 85%", toggleActions: "play none none none" },
-                        opacity: 0, y: options.y || 40, duration: options.duration || 0.8, ease: options.ease || "power3.out", delay: options.delay || 0
-                    });
-                });
-            };
-            const animateStaggerIn = () => {};
-            animateFadeIn('#commitment blockquote');
-            animateFadeIn('#commitment p', { delay: 0.1 });
-            // Removed dynamic healthcare solutions injection
-        });
-    </script>
-    <script src="js/animations.js"></script>
+    <!-- Scripts -->
     <script src="js/main.js"></script>
-    <!-- Removed: js/healthcare-solutions-fragment.js -->
-    <script> loadNavbar('healthcare'); </script>
+    <script src="js/animations.js"></script>
+    <script src="js/init.js"></script>
+    <script>
+        loadNavbar('healthcare'); 
+    </script>
 </body>
-</html>
 
+</html>

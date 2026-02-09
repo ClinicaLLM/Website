@@ -1,117 +1,579 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>About ASKLEPIC - Autonomous Systems for Modern Industries</title>
+    <title>About ASKLEPIC - GenAI Infrastructure for Healthcare</title>
     <link rel="icon" type="image/png" href="assets/logo.png">
+
+    <!-- Social Media Meta Tags -->
+    <meta property="og:title" content="About ASKLEPIC - GenAI Infrastructure for Healthcare">
+    <meta property="og:description"
+        content="Pioneering Trustworthy GenAI for Healthcare. We develop the applications and infrastructure that enable our partners to focus entirely on delivering clinical excellence.">
+    <meta property="og:image" content="https://asklepic.com/assets/about-preview.png">
+    <meta property="og:url" content="https://asklepic.com/about.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://asklepic.com/assets/about-preview.png">
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+
     <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/about.css">
+
+    <!-- Libraries -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.5/SplitText.min.js"></script>
 </head>
+
 <body>
-    <div id="tsparticles-bg"></div>
+    <!-- Navigation -->
     <div id="navbar-placeholder"></div>
 
-    <main id="about-page" class="about-page">
-        <section id="about-hero" class="about-section scroll-snap-section">
-            <div class="container animate-on-scroll fade-in-up">
-                <h1>Pioneering Trustworthy Autonomy</h1>
-                <p class="section-intro">ASKLEPIC develops secure, reliable, and autonomous agentic systems. While our roots and primary focus lie in addressing the unique demands of healthcare, our adaptable solutions bring efficiency and control to diverse industries.</p>
+    <main id="about-page">
+        <!-- Animated Hero Banner -->
+        <section class="page-banner"
+            style="position: relative; overflow: hidden; min-height: 80vh; display: flex; align-items: center;">
+            <!-- Animated Background -->
+            <div style="position: absolute; inset: 0; overflow: hidden; pointer-events: none;">
+                <!-- Gradient mesh background -->
+                <div
+                    style="position: absolute; inset: 0; background: radial-gradient(ellipse 80% 50% at 50% -20%, rgba(59, 130, 246, 0.15), transparent);">
+                </div>
+
+                <!-- Floating grid pattern -->
+                <svg style="position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0.03;"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <pattern id="grid-pattern" width="60" height="60" patternUnits="userSpaceOnUse">
+                            <path d="M 60 0 L 0 0 0 60" fill="none" stroke="currentColor" stroke-width="1" />
+                        </pattern>
+                    </defs>
+                    <rect width="100%" height="100%" fill="url(#grid-pattern)" />
+                </svg>
+
+                <!-- Animated orbs -->
+                <div
+                    style="position: absolute; top: 20%; right: 15%; width: 300px; height: 300px; background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%); border-radius: 50%; animation: float 8s ease-in-out infinite;">
+                </div>
+                <div
+                    style="position: absolute; bottom: 20%; left: 10%; width: 200px; height: 200px; background: radial-gradient(circle, rgba(16, 185, 129, 0.08) 0%, transparent 70%); border-radius: 50%; animation: float 10s ease-in-out infinite 2s;">
+                </div>
+                <div
+                    style="position: absolute; top: 40%; right: 30%; width: 150px; height: 150px; background: radial-gradient(circle, rgba(139, 92, 246, 0.08) 0%, transparent 70%); border-radius: 50%; animation: float 12s ease-in-out infinite 4s;">
+                </div>
+
+                <!-- Connecting lines -->
+                <svg style="position: absolute; inset: 0; width: 100%; height: 100%;"
+                    xmlns="http://www.w3.org/2000/svg">
+                    <line x1="10%" y1="30%" x2="40%" y2="60%" stroke="rgba(59, 130, 246, 0.1)" stroke-width="1"
+                        stroke-dasharray="5,5">
+                        <animate attributeName="stroke-dashoffset" from="0" to="20" dur="3s" repeatCount="indefinite" />
+                    </line>
+                    <line x1="60%" y1="20%" x2="85%" y2="50%" stroke="rgba(16, 185, 129, 0.1)" stroke-width="1"
+                        stroke-dasharray="5,5">
+                        <animate attributeName="stroke-dashoffset" from="0" to="20" dur="4s" repeatCount="indefinite" />
+                    </line>
+                    <line x1="30%" y1="70%" x2="70%" y2="80%" stroke="rgba(139, 92, 246, 0.08)" stroke-width="1"
+                        stroke-dasharray="5,5">
+                        <animate attributeName="stroke-dashoffset" from="0" to="20" dur="5s" repeatCount="indefinite" />
+                    </line>
+                </svg>
+            </div>
+
+            <div class="container" style="position: relative; z-index: 1;">
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center;">
+                    <div class="page-banner-content" style="max-width: none;">
+                        <div
+                            style="display: inline-flex; align-items: center; gap: 10px; background: rgba(59, 130, 246, 0.1); backdrop-filter: blur(10px); padding: 8px 18px; border-radius: 100px; margin-bottom: 28px; border: 1px solid rgba(59, 130, 246, 0.2);">
+                            <span
+                                style="width: 8px; height: 8px; background: #10B981; border-radius: 50%; animation: glow-pulse 2s infinite;"></span>
+                            <span
+                                style="font-size: 0.8rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-highlight);">Our
+                                Mission</span>
+                        </div>
+                        <h1 style="font-size: 3.5rem; line-height: 1.1; margin-bottom: 24px;">
+                            Pioneering<br>
+                            <span
+                                style="background: linear-gradient(135deg, var(--accent-highlight), #10B981); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Trustworthy
+                                GenAI for Healthcare</span>
+                        </h1>
+                        <p
+                            style="font-size: 1.25rem; line-height: 1.8; color: var(--text-secondary); margin-bottom: 36px;">
+                            ASKLEPIC develops secure, reliable, and on-premise GenAI infrastructure and autonomous
+                            applications. We build the full technology stack that empowers healthcare organizations to
+                            use Generative AI safely, within their own control.
+                        </p>
+                        <div style="display: flex; gap: 16px;">
+                            <a href="#why-partner" class="cta-button" style="padding: 16px 32px;">Learn More</a>
+                            <a href="contact.html" class="cta-button-outline"
+                                style="padding: 16px 32px; background: transparent; border: 2px solid var(--border-light); color: var(--text-primary);">Contact
+                                Us</a>
+                        </div>
+                    </div>
+
+                    <!-- Animated Visual: Trust Network -->
+                    <div
+                        style="position: relative; display: flex; justify-content: center; align-items: center; min-height: 450px;">
+                        <!-- Central node -->
+                        <div
+                            style="position: absolute; width: 120px; height: 120px; background: linear-gradient(135deg, rgba(59, 130, 246, 0.15), rgba(59, 130, 246, 0.05)); border-radius: 50%; display: flex; align-items: center; justify-content: center; border: 2px solid rgba(59, 130, 246, 0.3); box-shadow: 0 0 60px rgba(59, 130, 246, 0.2);">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24"
+                                stroke-width="1.5" stroke="var(--accent-highlight)" fill="none">
+                                <path
+                                    d="M12 3a12 12 0 0 0 8.5 3a12 12 0 0 1 -8.5 15a12 12 0 0 1 -8.5 -15a12 12 0 0 0 8.5 -3" />
+                                <path d="M9 12l2 2l4 -4" />
+                            </svg>
+                        </div>
+
+                        <!-- Orbit rings -->
+                        <div
+                            style="position: absolute; width: 280px; height: 280px; border: 1px dashed rgba(59, 130, 246, 0.2); border-radius: 50%; animation: orbit-rotate 30s linear infinite;">
+                        </div>
+                        <div
+                            style="position: absolute; width: 380px; height: 380px; border: 1px dashed rgba(16, 185, 129, 0.15); border-radius: 50%; animation: orbit-rotate 40s linear infinite reverse;">
+                        </div>
+
+                        <!-- Orbiting nodes -->
+                        <div
+                            style="position: absolute; width: 280px; height: 280px; animation: orbit-rotate 20s linear infinite;">
+                            <div
+                                style="position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 50px; height: 50px; background: linear-gradient(135deg, #10B981, #059669); border-radius: 12px; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 24px rgba(16, 185, 129, 0.3);">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white"
+                                    stroke-width="2">
+                                    <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div
+                            style="position: absolute; width: 280px; height: 280px; animation: orbit-rotate 25s linear infinite reverse;">
+                            <div
+                                style="position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: 50px; height: 50px; background: linear-gradient(135deg, #8B5CF6, #7C3AED); border-radius: 12px; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 24px rgba(139, 92, 246, 0.3);">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white"
+                                    stroke-width="2">
+                                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                                    <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                                </svg>
+                            </div>
+                        </div>
+                        <div
+                            style="position: absolute; width: 380px; height: 380px; animation: orbit-rotate 35s linear infinite;">
+                            <div
+                                style="position: absolute; left: 0; top: 50%; transform: translateY(-50%); width: 44px; height: 44px; background: linear-gradient(135deg, #F59E0B, #D97706); border-radius: 10px; display: flex; align-items: center; justify-content: center; box-shadow: 0 8px 24px rgba(245, 158, 11, 0.3);">
+                                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="white"
+                                    stroke-width="2">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                    <polyline points="14 2 14 8 20 8" />
+                                </svg>
+                            </div>
+                        </div>
+
+                        <!-- Pulsing dots -->
+                        <div
+                            style="position: absolute; top: 15%; right: 20%; width: 12px; height: 12px; background: #10B981; border-radius: 50%; animation: glow-pulse 3s infinite;">
+                        </div>
+                        <div
+                            style="position: absolute; bottom: 25%; left: 15%; width: 8px; height: 8px; background: var(--accent-highlight); border-radius: 50%; animation: glow-pulse 2.5s infinite 0.5s;">
+                        </div>
+                        <div
+                            style="position: absolute; top: 35%; left: 8%; width: 10px; height: 10px; background: #8B5CF6; border-radius: 50%; animation: glow-pulse 4s infinite 1s;">
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section id="our-focus" class="about-section alternate-bg scroll-snap-section">
+        <!-- Our Focus -->
+        <section class="commitment-section">
             <div class="container">
-                <div class="focus-grid animate-on-scroll fade-in-up">
-                    <div class="focus-column focus-column-left">
-                        <h2>Our Focus: Secure Solutions Across Sectors</h2>
-                        <p>In an era of rapid AI advancement, data security and operational reliability are paramount across all sectors. ASKLEPIC was founded on the principle that organizations must retain absolute control over their data and AI operations. While we bring deep expertise to the <strong>healthcare industry</strong>, our mission extends to providing advanced automation solutions built on Zero Trust security principles for any institution demanding control.</p>
+                <div class="commitment-grid">
+                    <div class="commitment-text">
+                        <h2>Focus: <span class="text-highlight">GenAI Infrastructure & Apps</span></h2>
+                        <p style="color: var(--text-secondary); font-size: 1.1rem; margin-bottom: 24px;">In an era of
+                            rapid AI advancement, data security and operational reliability are paramount. ASKLEPIC was
+                            founded on the principle that organizations must retain absolute control over their data and
+                            AI operations.</p>
+                        <p style="color: var(--text-secondary);">Our mission is to provide the comprehensive GenAI
+                            technology stack. We develop the applications and infrastructure that enable our partners to
+                            focus entirely on delivering clinical excellence.</p>
                     </div>
-                    <div class="focus-column focus-column-right">
-                        <p>Our core commitment is delivering intelligent systems that operate entirely within your control, enhancing efficiency and decision-making without compromising data sovereignty or security, regardless of your industry.</p>
-                        <p>We believe true innovation requires a foundation of unwavering trust and uncompromising security – especially critical in healthcare, but valuable everywhere.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="why-us" class="about-section scroll-snap-section">
-            <div class="container animate-on-scroll fade-in-up">
-                <h2>Why Partner with ASKLEPIC?</h2>
-                <div class="why-us-grid">
-                    <div class="why-us-card animate-on-scroll slide-up-delay-1">
-                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.008v.008H12v-.008Z" /></svg></div>
-                        <h3>Uncompromising Security</h3>
-                        <p>Zero Trust architecture ensures your data and operations remain entirely within your control.</p>
-                    </div>
-                    <div class="why-us-card animate-on-scroll slide-up-delay-2">
-                        <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z" /></svg></div>
-                        <h3>Industry Adaptability</h3>
-                        <p>Solutions designed for the rigorous demands of healthcare, adaptable to diverse industrial needs.</p>
-                    </div>
-                    <div class="why-us-card animate-on-scroll slide-up-delay-3">
-                         <div class="icon"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6"><path stroke-linecap="round" stroke-linejoin="round" d="M10.5 6h9.75M10.5 6a1.5 1.5 0 1 1-3 0m3 0a1.5 1.5 0 1 0-3 0M3.75 6H7.5m3 12h9.75m-9.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-3.75 0H7.5m9-6h3.75m-3.75 0a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m-9.75 0h9.75" /></svg></div>
-                        <h3>Expert Blend</h3>
-                        <p>Leadership combining deep medical insight with cutting-edge technological expertise.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="leadership" class="about-section alternate-bg scroll-snap-section">
-            <div class="container animate-on-scroll fade-in-up">
-                <h2>Leadership & Expertise</h2>
-                <p class="section-intro">ASKLEPIC is driven by a team uniquely positioned at the intersection of medicine and technology.</p>
-                <div class="leadership-grid">
-                    <div class="leader-profile animate-on-scroll fade-in-left">
-                        <img src="assets/rui.jpg" alt="Rui Costa Cunha" class="leader-photo">
-                        <div class="leader-info">
-                            <h3>Rui Costa Cunha, MD</h3>
-                            <h4>Senior DevOps</h4>
-                            <p>Bridging clinical understanding with deep expertise in scalable, secure infrastructure and operational excellence.</p>
-                        </div>
-                    </div>
-                    <div class="leader-profile animate-on-scroll fade-in-right">
-                        <img src="assets/tiago.png" alt="Tiago Taveira Gomes" class="leader-photo">
-                         <div class="leader-info">
-                            <h3>Tiago Taveira Gomes, MD, PhD</h3>
-                            <h4>Senior Developer</h4>
-                            <p>Combining medical insight and research rigor with advanced software development and AI implementation skills.</p>
+                    <div class="commitment-quote">
+                        <div class="card-base"
+                            style="border-left: 4px solid var(--accent-highlight); display: flex; align-items: center; height: 100%;">
+                            <blockquote style="font-size: 1.5rem; font-style: italic; color: var(--text-primary);">
+                                "We believe true innovation requires a foundation of unwavering trust and uncompromising
+                                security."
+                            </blockquote>
                         </div>
                     </div>
                 </div>
-                <p class="leadership-summary animate-on-scroll fade-in-up">Our leadership's dual background ensures that our solutions are not only technologically advanced but also deeply attuned to the real-world needs, complexities, and stringent requirements of demanding environments like healthcare.</p>
             </div>
         </section>
 
-        <section id="about-cta" class="about-section scroll-snap-section">
-             <div class="container text-center animate-on-scroll fade-in-up">
-                 <h2>Ready to Enhance Your Operations?</h2>
-                 <p class="section-intro">Discover how ASKLEPIC's secure autonomous systems can bring value to your organization, whether in healthcare or beyond.</p>
-                 <a href="mailto:general@asklepic.com" class="cta-button">Contact Us</a>
-             </div>
+        <!-- Why Partner - Bento Grid -->
+        <section id="why-partner" style="padding: 120px 0; background: var(--bg-secondary);">
+            <div class="container">
+                <div class="section-header text-center" style="margin-bottom: 60px;">
+                    <h2>Why Partner with ASKLEPIC?</h2>
+                    <p style="color: var(--text-secondary); font-size: 1.1rem; max-width: 500px; margin: 16px auto 0;">
+                        Building trust through security, expertise, and proven results.
+                    </p>
+                </div>
+
+                <div class="bento-grid">
+                    <!-- Large Feature Card: Uncompromising Security -->
+                    <div class="bento-card bento-card-lg bento-card-dark glow-effect"
+                        style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;">
+                        <div>
+                            <div
+                                style="display: inline-flex; align-items: center; gap: 8px; background: rgba(59, 130, 246, 0.2); padding: 6px 14px; border-radius: 100px; margin-bottom: 24px;">
+                                <span
+                                    style="width: 8px; height: 8px; background: #10B981; border-radius: 50%; animation: glow-pulse 2s infinite;"></span>
+                                <span style="font-size: 0.8rem; font-weight: 600; letter-spacing: 0.05em;">ZERO TRUST
+                                    ARCHITECTURE</span>
+                            </div>
+                            <h3 style="font-size: 2rem; margin-bottom: 16px; line-height: 1.2;">Uncompromising Security
+                            </h3>
+                            <p style="font-size: 1.1rem; line-height: 1.7; opacity: 0.8; margin-bottom: 28px;">
+                                In <strong>healthcare</strong>, patient data stays <strong>100% on-premise</strong>—no
+                                exceptions, no external calls. We bring the LLMs to your data, not the other way around.
+                            </p>
+                            <div style="display: flex; gap: 20px;">
+                                <div style="text-align: center;">
+                                    <div style="font-size: 1.8rem; font-weight: 700; color: var(--accent-highlight);">0
+                                    </div>
+                                    <div
+                                        style="font-size: 0.75rem; opacity: 0.6; text-transform: uppercase; letter-spacing: 0.05em;">
+                                        External Calls</div>
+                                </div>
+                                <div style="width: 1px; background: rgba(255,255,255,0.2);"></div>
+                                <div style="text-align: center;">
+                                    <div style="font-size: 1.8rem; font-weight: 700; color: var(--accent-highlight);">
+                                        100%</div>
+                                    <div
+                                        style="font-size: 0.75rem; opacity: 0.6; text-transform: uppercase; letter-spacing: 0.05em;">
+                                        Healthcare On-Prem</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div style="display: flex; justify-content: center; align-items: center;">
+                            <!-- Animated Shield Visual -->
+                            <div style="position: relative; width: 200px; height: 200px;">
+                                <!-- Outer pulse ring -->
+                                <div
+                                    style="position: absolute; inset: 0; border: 2px solid rgba(59, 130, 246, 0.3); border-radius: 50%; animation: pulse-ring 3s infinite;">
+                                </div>
+                                <!-- Middle ring -->
+                                <div
+                                    style="position: absolute; inset: 20px; border: 1px dashed rgba(59, 130, 246, 0.4); border-radius: 50%; animation: orbit-rotate 20s linear infinite reverse;">
+                                </div>
+                                <!-- Inner glow -->
+                                <div
+                                    style="position: absolute; inset: 40px; background: radial-gradient(circle, rgba(59, 130, 246, 0.2) 0%, transparent 70%); border-radius: 50%;">
+                                </div>
+                                <!-- Center shield icon -->
+                                <div
+                                    style="position: absolute; inset: 60px; display: flex; align-items: center; justify-content: center; background: rgba(59, 130, 246, 0.15); border-radius: 50%; border: 2px solid var(--accent-highlight);">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24"
+                                        stroke-width="1.5" stroke="var(--accent-highlight)" fill="none"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                        <path
+                                            d="M12 3a12 12 0 0 0 8.5 3a12 12 0 0 1 -8.5 15a12 12 0 0 1 -8.5 -15a12 12 0 0 0 8.5 -3" />
+                                        <path d="M12 11m-1 0a1 1 0 1 0 2 0a1 1 0 1 0 -2 0" />
+                                        <path d="M12 12l0 2.5" />
+                                    </svg>
+                                </div>
+                                <!-- Orbiting dot -->
+                                <div
+                                    style="position: absolute; top: 0; left: 50%; width: 10px; height: 10px; margin-left: -5px; background: var(--accent-highlight); border-radius: 50%; box-shadow: 0 0 15px var(--accent-highlight); animation: orbit-rotate 8s linear infinite;">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Medium Card: Industry Adaptability -->
+                    <div class="bento-card bento-card-md depth-card" style="display: flex; flex-direction: column;">
+                        <span class="bento-number">01</span>
+                        <div class="bento-icon" style="background: rgba(16, 185, 129, 0.1); color: #10B981;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
+                                stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path
+                                    d="M10.325 4.317c.426 -1.756 2.924 -1.756 3.35 0a1.724 1.724 0 0 0 2.573 1.066c1.543 -.94 3.31 .826 2.37 2.37a1.724 1.724 0 0 0 1.065 2.572c1.756 .426 1.756 2.924 0 3.35a1.724 1.724 0 0 0 -1.066 2.573c.94 1.543 -.826 3.31 -2.37 2.37a1.724 1.724 0 0 0 -2.572 1.065c-.426 1.756 -2.924 1.756 -3.35 0a1.724 1.724 0 0 0 -2.573 -1.066c-1.543 .94 -3.31 -.826 -2.37 -2.37a1.724 1.724 0 0 0 -1.065 -2.572c-1.756 -.426 -1.756 -2.924 0 -3.35a1.724 1.724 0 0 0 1.066 -2.573c-.94 -1.543 .826 -3.31 2.37 -2.37c1 .608 2.296 .07 2.572 -1.065z" />
+                                <circle cx="12" cy="12" r="3" />
+                            </svg>
+                        </div>
+                        <h3 style="font-size: 1.4rem; margin-bottom: 16px;">Industry Adaptability</h3>
+                        <p style="color: var(--text-secondary); margin-bottom: 24px; flex-grow: 1;">
+                            Solutions forged in the demanding crucible of healthcare compliance. For healthcare:
+                            <strong>100% on-premise</strong>. We provide the <strong>GenAI applications</strong> that
+                            power our partners' clinical services, ensuring a seamless division between technology and
+                            care.
+                            <strong>cloud-flexible</strong> with enterprise security.
+                        </p>
+                        <!-- Visual: Industry icons -->
+                        <div style="display: flex; gap: 12px; flex-wrap: wrap;">
+                            <span
+                                style="background: var(--bg-secondary); padding: 8px 14px; border-radius: 8px; font-size: 0.8rem; color: var(--text-secondary); display: flex; align-items: center; gap: 6px;">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+                                </svg>
+                                Healthcare
+                            </span>
+                            <span
+                                style="background: var(--bg-secondary); padding: 8px 14px; border-radius: 8px; font-size: 0.8rem; color: var(--text-secondary); display: flex; align-items: center; gap: 6px;">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M3 21h18M3 10h18M3 7l9-4 9 4M4 10v11M20 10v11" />
+                                </svg>
+                                Technology
+                            </span>
+                            <span
+                                style="background: var(--bg-secondary); padding: 8px 14px; border-radius: 8px; font-size: 0.8rem; color: var(--text-secondary); display: flex; align-items: center; gap: 6px;">
+                                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                    stroke-width="2">
+                                    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
+                                    <polyline points="14 2 14 8 20 8" />
+                                </svg>
+                                Infrastructure
+                            </span>
+                        </div>
+                    </div>
+
+                    <!-- Small Accent Card: Compliance Badge -->
+                    <div class="bento-card bento-card-sm bento-card-accent"
+                        style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+                        <div
+                            style="width: 64px; height: 64px; background: linear-gradient(135deg, var(--accent-highlight), #10B981); border-radius: 16px; display: flex; align-items: center; justify-content: center; margin-bottom: 16px; box-shadow: 0 8px 24px rgba(59, 130, 246, 0.25);">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
+                                stroke-width="2" stroke="white" fill="none" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path d="M5 12l5 5l10 -10" />
+                            </svg>
+                        </div>
+                        <h4 style="font-size: 1rem; margin-bottom: 4px;">HIPAA Ready</h4>
+                        <p style="font-size: 0.8rem; color: var(--text-secondary); margin: 0;">Compliance Built-In</p>
+                    </div>
+
+                    <!-- Medium Card: Expert Blend -->
+                    <div class="bento-card bento-card-md depth-card" style="display: flex; flex-direction: column;">
+                        <span class="bento-number">02</span>
+                        <div class="bento-icon" style="background: rgba(139, 92, 246, 0.1); color: #8B5CF6;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"
+                                stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <circle cx="12" cy="7" r="4" />
+                                <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+                            </svg>
+                        </div>
+                        <h3 style="font-size: 1.4rem; margin-bottom: 16px;">Expert Blend</h3>
+                        <p style="color: var(--text-secondary); margin-bottom: 24px; flex-grow: 1;">
+                            Leadership that uniquely combines deep medical domain knowledge with cutting-edge AI and
+                            infrastructure expertise.
+                        </p>
+                        <!-- Visual: Expertise blend -->
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 12px;">
+                            <div
+                                style="background: var(--bg-secondary); padding: 16px; border-radius: 12px; text-align: center;">
+                                <div
+                                    style="font-size: 0.7rem; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px;">
+                                    Medicine</div>
+                                <div style="font-size: 0.9rem; font-weight: 600; color: #8B5CF6;">MD, PhD</div>
+                            </div>
+                            <div
+                                style="background: var(--bg-secondary); padding: 16px; border-radius: 12px; text-align: center;">
+                                <div
+                                    style="font-size: 0.7rem; color: var(--text-tertiary); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 4px;">
+                                    Technology</div>
+                                <div style="font-size: 0.9rem; font-weight: 600; color: #10B981;">DevOps</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Small Card: Dedicated Support -->
+                    <div class="bento-card bento-card-sm" style="display: flex; align-items: center; gap: 20px;">
+                        <div class="bento-icon" style="margin-bottom: 0; flex-shrink: 0;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                                stroke-width="1.5" stroke="currentColor" fill="none" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0" />
+                                <path d="M3.6 9h16.8" />
+                                <path d="M3.6 15h16.8" />
+                                <path d="M11.5 3a17 17 0 0 0 0 18" />
+                                <path d="M12.5 3a17 17 0 0 1 0 18" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 style="font-size: 1.1rem; margin-bottom: 4px;">Dedicated Partnership</h4>
+                            <p style="color: var(--text-secondary); font-size: 0.9rem; margin: 0;">Direct access to our
+                                team</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
+
+        <!-- Leadership -->
+        <section class="platform-section" style="position: relative; overflow: hidden;">
+            <div class="container" style="position: relative; z-index: 1;">
+                <div class="section-header text-center" style="margin-bottom: 72px;">
+                    <span
+                        style="color: var(--text-tertiary); font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; display: block; margin-bottom: 16px; font-size: 0.75rem;">Leadership</span>
+                    <h2 style="font-size: 2.5rem; margin-bottom: 20px; font-weight: 500;">The Team Behind Asklepic</h2>
+                    <p class="section-intro"
+                        style="color: var(--text-secondary); font-size: 1.1rem; max-width: 520px; margin: 0 auto; line-height: 1.7;">
+                        Medical professionals and technologists building solutions grounded in clinical reality.
+                    </p>
+                </div>
+
+                <div
+                    style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; max-width: 920px; margin: 0 auto;">
+                    <!-- Founder Card 1 -->
+                    <div style="background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: 12px; padding: 36px; transition: box-shadow 0.3s ease;"
+                        onmouseover="this.style.boxShadow='0 8px 32px rgba(0,0,0,0.08)';"
+                        onmouseout="this.style.boxShadow='none';">
+                        <div style="display: flex; align-items: flex-start; gap: 24px; margin-bottom: 20px;">
+                            <div
+                                style="width: 88px; height: 88px; border-radius: 10px; overflow: hidden; flex-shrink: 0;">
+                                <img src="assets/rui.jpg" alt="Rui Costa Cunha"
+                                    style="width: 100%; height: 100%; object-fit: cover; filter: grayscale(15%);">
+                            </div>
+                            <div style="padding-top: 4px;">
+                                <h3
+                                    style="font-size: 1.25rem; margin-bottom: 4px; font-weight: 600; color: var(--text-primary);">
+                                    Rui Costa Cunha, MD</h3>
+                                <span
+                                    style="color: var(--text-tertiary); font-size: 0.85rem; font-weight: 400;">Co-Founder
+                                    · Senior DevOps</span>
+                            </div>
+                        </div>
+                        <p
+                            style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.65; margin-bottom: 20px;">
+                            Bridging clinical understanding with deep expertise in scalable, secure infrastructure and
+                            operational excellence.
+                        </p>
+                        <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+                            <span
+                                style="border: 1px solid var(--border-light); padding: 4px 10px; border-radius: 4px; font-size: 0.7rem; color: var(--text-tertiary); font-weight: 500;">GenAI</span>
+                            <span
+                                style="border: 1px solid var(--border-light); padding: 4px 10px; border-radius: 4px; font-size: 0.7rem; color: var(--text-tertiary); font-weight: 500;">Software
+                                Dev</span>
+                            <span
+                                style="border: 1px solid var(--border-light); padding: 4px 10px; border-radius: 4px; font-size: 0.7rem; color: var(--text-tertiary); font-weight: 500;">Infrastructure</span>
+                            <span
+                                style="border: 1px solid var(--border-light); padding: 4px 10px; border-radius: 4px; font-size: 0.7rem; color: var(--text-tertiary); font-weight: 500;">Security</span>
+                            <span
+                                style="border: 1px solid var(--border-light); padding: 4px 10px; border-radius: 4px; font-size: 0.7rem; color: var(--text-tertiary); font-weight: 500;">DevOps</span>
+                            <span
+                                style="border: 1px solid var(--border-light); padding: 4px 10px; border-radius: 4px; font-size: 0.7rem; color: var(--text-tertiary); font-weight: 500;">Medicine</span>
+                        </div>
+                    </div>
+
+                    <!-- Founder Card 2 -->
+                    <div style="background: var(--bg-surface); border: 1px solid var(--border-light); border-radius: 12px; padding: 36px; transition: box-shadow 0.3s ease;"
+                        onmouseover="this.style.boxShadow='0 8px 32px rgba(0,0,0,0.08)';"
+                        onmouseout="this.style.boxShadow='none';">
+                        <div style="display: flex; align-items: flex-start; gap: 24px; margin-bottom: 20px;">
+                            <div
+                                style="width: 88px; height: 88px; border-radius: 10px; overflow: hidden; flex-shrink: 0;">
+                                <img src="assets/tiago.png" alt="Tiago Taveira Gomes, MD, PhD"
+                                    style="width: 100%; height: 100%; object-fit: cover; filter: grayscale(15%);">
+                            </div>
+                            <div style="padding-top: 4px;">
+                                <h3
+                                    style="font-size: 1.25rem; margin-bottom: 4px; font-weight: 600; color: var(--text-primary);">
+                                    Tiago Taveira Gomes, MD, PhD</h3>
+                                <span
+                                    style="color: var(--text-tertiary); font-size: 0.85rem; font-weight: 400;">Co-Founder
+                                    · Senior Developer</span>
+                            </div>
+                        </div>
+                        <p
+                            style="color: var(--text-secondary); font-size: 0.95rem; line-height: 1.65; margin-bottom: 20px;">
+                            Combining medical insight and research rigor with advanced software development and AI
+                            implementation skills.
+                        </p>
+                        <div style="display: flex; flex-wrap: wrap; gap: 6px;">
+                            <span
+                                style="border: 1px solid var(--border-light); padding: 4px 10px; border-radius: 4px; font-size: 0.7rem; color: var(--text-tertiary); font-weight: 500;">AI/ML</span>
+                            <span
+                                style="border: 1px solid var(--border-light); padding: 4px 10px; border-radius: 4px; font-size: 0.7rem; color: var(--text-tertiary); font-weight: 500;">Medical
+                                Research</span>
+                            <span
+                                style="border: 1px solid var(--border-light); padding: 4px 10px; border-radius: 4px; font-size: 0.7rem; color: var(--text-tertiary); font-weight: 500;">Security</span>
+                            <span
+                                style="border: 1px solid var(--border-light); padding: 4px 10px; border-radius: 4px; font-size: 0.7rem; color: var(--text-tertiary); font-weight: 500;">Medicine</span>
+                            <span
+                                style="border: 1px solid var(--border-light); padding: 4px 10px; border-radius: 4px; font-size: 0.7rem; color: var(--text-tertiary); font-weight: 500;">Data
+                                Science</span>
+                            <span
+                                style="border: 1px solid var(--border-light); padding: 4px 10px; border-radius: 4px; font-size: 0.7rem; color: var(--text-tertiary); font-weight: 500;">Governance</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Combined expertise - simplified -->
+                <div
+                    style="margin-top: 64px; max-width: 700px; margin-left: auto; margin-right: auto; text-align: center;">
+                    <p style="color: var(--text-tertiary); font-size: 0.95rem; line-height: 1.8;">
+                        <span style="font-weight: 500; color: var(--text-secondary);">Two medical doctors</span> with
+                        over
+                        <span style="font-weight: 500; color: var(--text-secondary);">15 years of combined technology
+                            experience</span>
+                        — ensuring solutions that are both technically excellent and clinically informed.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="partnerships-section" style="border-top: 1px solid var(--border-light); padding: 100px 0;">
+            <div class="container text-center">
+                <h2 style="margin-bottom: 24px;">Ready to Enhance Your Operations?</h2>
+                <p class="section-intro"
+                    style="margin-bottom: 40px; max-width: 600px; margin-left: auto; margin-right: auto;">Discover how
+                    ASKLEPIC's secure autonomous systems can bring value to your organization.</p>
+                <a href="mailto:general@asklepic.com" class="cta-button">Contact Us</a>
+            </div>
+        </section>
+
     </main>
 
     <footer>
         <div class="container">
-             <div class="footer-links">
-                 <a href="mailto:general@asklepic.com">Contact</a>
-             </div>
-             <p class="copyright">© 2025 ASKLEPIC. All Rights Reserved. | Secure and reliable autonomy.</p>
-         </div>
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <span class="brand-name">ASKLEPIC</span>
+                    <p style="color: var(--text-secondary);">Secure and reliable autonomy.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="mailto:general@asklepic.com">Contact</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p class="copyright">© 2026 ASKLEPIC. All Rights Reserved.</p>
+            </div>
+        </div>
     </footer>
 
-    <script src="js/animations.js"></script>
+    <!-- Scripts -->
     <script src="js/main.js"></script>
-    <script> loadNavbar('about'); </script>
+    <script src="js/animations.js"></script>
+    <script src="js/init.js"></script>
+    <script>
+        loadNavbar('about'); 
+    </script>
 </body>
+
 </html>
-
-

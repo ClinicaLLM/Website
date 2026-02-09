@@ -6,13 +6,13 @@ const healthcareSolutionsHTML = `
     <div class="use-case-grid">
         <!-- Use Case Card 1 -->
         <div class="use-case-card">
-            <div class="use-case-icon"><img src="assets/logo.png" alt="ICD-10 Coding Icon"></div>
+            <div class="use-case-icon"><img src="assets/icd10-logo.png" alt="ICD-10 Coding Icon"></div>
             <h4>Automated ICD-10 Codification</h4>
             <p>Streamline medical billing by automatically suggesting accurate ICD-10 codes based on clinical documentation, reducing errors and accelerating revenue cycles.</p>
         </div>
         <!-- Use Case Card 2 -->
         <div class="use-case-card">
-            <div class="use-case-icon"><img src="assets/example1.png" alt="Referral Icon"></div>
+            <div class="use-case-icon"><img src="assets/icons/referral-icon.svg" alt="Referral Icon"></div>
             <h4>Intelligent Patient Referral</h4>
             <p>Automate the patient referral process by identifying appropriate specialists based on diagnosis, insurance, and location, ensuring timely access to care.</p>
         </div>
@@ -27,5 +27,3 @@ const healthcareSolutionsHTML = `
     </div>
 </div>
 `; 
-
-
