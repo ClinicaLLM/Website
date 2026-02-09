@@ -107,10 +107,14 @@ function initMobileMenu() {
     if (!toggle || !navMenu) return;
 
     // Toggle mobile menu
+    const navEl = document.querySelector('nav');
     toggle.addEventListener('click', function () {
         const isOpen = navMenu.classList.toggle('is-open');
         toggle.classList.toggle('is-active');
         toggle.setAttribute('aria-expanded', isOpen);
+
+        // Add class to nav itself so we can restyle it fullscreen
+        if (navEl) navEl.classList.toggle('menu-open', isOpen);
 
         // Prevent body scroll when menu is open
         document.body.style.overflow = isOpen ? 'hidden' : '';
@@ -136,14 +140,20 @@ function initMobileMenu() {
         });
     });
 
+    // Helper to close the mobile menu
+    function closeMenu() {
+        navMenu.classList.remove('is-open');
+        toggle.classList.remove('is-active');
+        toggle.setAttribute('aria-expanded', 'false');
+        if (navEl) navEl.classList.remove('menu-open');
+        document.body.style.overflow = '';
+    }
+
     // Close menu when clicking a link (except dropdown toggles)
     navMenu.querySelectorAll('a:not(.dropdown-toggle)').forEach(link => {
         link.addEventListener('click', function () {
             if (window.innerWidth <= 900) {
-                navMenu.classList.remove('is-open');
-                toggle.classList.remove('is-active');
-                toggle.setAttribute('aria-expanded', 'false');
-                document.body.style.overflow = '';
+                closeMenu();
             }
         });
     });
@@ -151,10 +161,7 @@ function initMobileMenu() {
     // Close menu on resize to desktop
     window.addEventListener('resize', function () {
         if (window.innerWidth > 900) {
-            navMenu.classList.remove('is-open');
-            toggle.classList.remove('is-active');
-            toggle.setAttribute('aria-expanded', 'false');
-            document.body.style.overflow = '';
+            closeMenu();
             dropdowns.forEach(dropdown => dropdown.classList.remove('is-open'));
         }
     });
@@ -163,10 +170,7 @@ function initMobileMenu() {
     document.addEventListener('click', function (e) {
         if (window.innerWidth <= 900 && navMenu.classList.contains('is-open')) {
             if (!navMenu.contains(e.target) && !toggle.contains(e.target)) {
-                navMenu.classList.remove('is-open');
-                toggle.classList.remove('is-active');
-                toggle.setAttribute('aria-expanded', 'false');
-                document.body.style.overflow = '';
+                closeMenu();
             }
         }
     });

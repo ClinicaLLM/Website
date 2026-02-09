@@ -1980,28 +1980,53 @@ footer::before {
         position: relative;
     }
 
-    nav ul.nav-menu {
-        display: none;
+    /* --- Fullscreen nav when menu is open --- */
+    nav.menu-open {
         position: fixed;
         top: 0;
         left: 0;
-        right: 0;
-        bottom: 0;
-        background: var(--bg-surface);
+        width: 100%;
+        height: 100vh;
+        height: 100dvh;
+        background: #FFFFFF;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+        z-index: 1000;
+        border-bottom: none;
+        padding: 20px 0 0;
+    }
+
+    nav.menu-open .container {
+        flex-direction: column;
+        align-items: center;
+        height: 100%;
+    }
+
+    /* Keep logo and toggle in a row at the top */
+    nav.menu-open .container > .logo,
+    nav.menu-open .container > .mobile-menu-toggle {
+        position: absolute;
+        top: 20px;
+    }
+
+    nav.menu-open .container > .logo {
+        left: 20px;
+    }
+
+    nav.menu-open .container > .mobile-menu-toggle {
+        right: 20px;
+    }
+
+    /* Hide menu by default, show when open */
+    nav ul.nav-menu {
+        display: none;
         flex-direction: column;
         align-items: center;
         justify-content: center;
         gap: 0;
-        padding: 80px 24px 40px;
-        z-index: 1001;
-        overflow-y: auto;
-        -webkit-overflow-scrolling: touch;
-        scrollbar-width: none;
-        -ms-overflow-style: none;
-    }
-
-    nav ul.nav-menu::-webkit-scrollbar {
-        display: none;
+        width: 100%;
+        flex: 1;
+        padding: 0 24px;
     }
 
     nav ul.nav-menu.is-open {
@@ -2022,7 +2047,7 @@ footer::before {
 
     nav ul.nav-menu a {
         display: block;
-        padding: 14px;
+        padding: 16px;
         font-size: 1rem;
     }
 
@@ -2966,13 +2991,17 @@ footer::before {
     }
 
     /* Nav menu on small phones */
-    nav ul.nav-menu {
-        padding: 70px 20px 30px;
+    nav.menu-open .container > .logo {
+        left: 16px;
+    }
+
+    nav.menu-open .container > .mobile-menu-toggle {
+        right: 16px;
     }
 
     nav ul.nav-menu a {
-        padding: 12px;
-        font-size: 0.95rem;
+        padding: 14px;
+        font-size: 0.9rem;
     }
 
     /* Section padding tighter */
