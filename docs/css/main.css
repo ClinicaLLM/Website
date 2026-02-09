@@ -1827,10 +1827,62 @@ footer::before {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 900px) {
+    /* Stack bento grid to single column on tablets */
     .bento-grid {
         grid-template-columns: 1fr;
         gap: 16px;
+    }
+
+    .bento-card-lg,
+    .bento-card-md,
+    .bento-card-sm,
+    .bento-card-wide,
+    .bento-card-tall {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+
+    /* Large bento card: stack flex children vertically */
+    .bento-card-lg {
+        flex-direction: column !important;
+        min-height: auto !important;
+        gap: 24px !important;
+    }
+
+    /* Override rigid flex-basis on visual element inside large card */
+    .bento-card-lg > div[style*="flex: 0 0 300px"],
+    .bento-card-lg > div[style*="flex: 0 0 280px"],
+    .bento-card-lg > div[style*="flex:0 0 300px"],
+    .bento-card-lg > div[style*="flex:0 0 280px"] {
+        flex: 1 1 auto !important;
+    }
+
+    /* Inner visual box sizing */
+    .bento-card-lg div[style*="width: 200px"][style*="height: 200px"] {
+        width: 160px !important;
+        height: 160px !important;
+        margin: 0 auto;
+    }
+
+    /* Inline heading sizes inside bento */
+    .bento-card h3[style*="font-size: 2rem"] {
+        font-size: 1.4rem !important;
+    }
+
+    .bento-card h3[style*="font-size: 1.6rem"] {
+        font-size: 1.25rem !important;
+    }
+
+    .bento-card p[style*="font-size: 1.15rem"] {
+        font-size: 1rem !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .bento-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
     }
 
     .bento-card-lg,
@@ -2561,19 +2613,9 @@ footer::before {
         font-size: 0.9rem !important;
     }
 
-    /* Bento grid mobile */
+    /* Bento grid mobile - tighter gaps */
     .bento-grid {
-        grid-template-columns: 1fr;
         gap: 14px;
-    }
-
-    .bento-card-lg,
-    .bento-card-md,
-    .bento-card-sm,
-    .bento-card-wide,
-    .bento-card-tall {
-        grid-column: span 1;
-        grid-row: span 1;
     }
 
     .bento-card {
@@ -2589,7 +2631,8 @@ footer::before {
         gap: 20px !important;
     }
 
-    .bento-card-lg>div[style*="flex: 0 0 280px"] {
+    .bento-card-lg > div[style*="flex: 0 0 280px"],
+    .bento-card-lg > div[style*="flex: 0 0 300px"] {
         flex: 1 1 auto !important;
     }
 
