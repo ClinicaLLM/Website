@@ -298,10 +298,14 @@
         text-align: left;
     }
     
-    /* About page banner */
+    /* About page banner - fill viewport on mobile */
     #about-page .page-banner {
-        min-height: auto;
+        min-height: 100vh;
+        min-height: 100dvh;
         padding: 100px 0 60px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
     
     #about-page .page-banner h1 {

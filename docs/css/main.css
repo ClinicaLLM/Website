@@ -1,5 +1,5 @@
 /* Import Fonts */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Roboto+Mono:wght@400;500&family=Space+Grotesk:wght@300;400;500;600&display=swap');
 
 /* --- Variables --- */
 :root {
@@ -53,6 +53,7 @@
     /* Fonts */
     --font-body: 'Inter', sans-serif;
     --font-heading: 'Space Grotesk', sans-serif;
+    --font-mono: 'Roboto Mono', monospace;
 
     /* Spacing */
     --container-width: 1280px;
@@ -108,6 +109,35 @@ h6 {
     font-weight: 600;
     letter-spacing: -0.03em;
     text-align: left;
+}
+
+/* Font consistency: ensure body text elements inherit Inter */
+p,
+li,
+span,
+label,
+input,
+textarea,
+select,
+button {
+    font-family: var(--font-body);
+}
+
+/* Ensure inline heading-style elements use the heading font */
+.brand-name,
+.section-header h2,
+.section-header h3,
+.hero-title,
+.commitment-text h2 {
+    font-family: var(--font-heading);
+}
+
+/* Monospace elements */
+code,
+pre,
+kbd,
+samp {
+    font-family: var(--font-mono);
 }
 
 /* Elements that should not be justified */
@@ -449,7 +479,7 @@ nav a.active {
     padding: 2rem;
     border-radius: 12px;
     border: 1px solid var(--border-light);
-    font-family: 'Roboto Mono', monospace;
+    font-family: var(--font-mono);
     font-size: 0.9rem;
     color: #e2e8f0;
     overflow-x: auto;
@@ -522,6 +552,9 @@ nav a.active {
     border-top: none;
     background: var(--bg-surface);
     position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
 }
 
 .commitment-section::before {
@@ -561,10 +594,52 @@ nav a.active {
 
 /* Pillars */
 /* Pillars */
-.pillars-section {
+.pillars-section,
+#pillars {
     padding: var(--section-padding);
     background: var(--bg-secondary);
     position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#pillars > .container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Platform overview / Framework section */
+#platform-overview {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#platform-overview > .container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Why Partner section (about page) */
+#why-partner {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#why-partner > .container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .pillars-grid {
@@ -595,6 +670,9 @@ nav a.active {
 /* Platform */
 .platform-section {
     padding: var(--section-padding);
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
 }
 
 .platform-grid {
@@ -804,6 +882,10 @@ nav a.active {
     text-align: center;
     background: var(--bg-surface);
     position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .partnerships-section::before {
@@ -891,11 +973,8 @@ nav a.active {
     font-size: 1.15rem;
     color: var(--text-secondary);
     line-height: 1.6;
-    font-family: var(--font-heading);
-    /* Space Grotesk for a bit more personality on quotes? Or stick to Inter. */
     font-family: var(--font-body);
     font-weight: 400;
-    /* Slightly heavier */
 }
 
 /* Footer */
@@ -1002,7 +1081,7 @@ footer::before {
 
 /* --- Page Banners --- */
 .page-banner {
-    height: 50vh;
+    min-height: 100vh;
     display: flex;
     align-items: center;
     position: relative;
@@ -1414,7 +1493,7 @@ footer::before {
 
 .typing-container {
     position: relative;
-    font-family: 'Roboto Mono', monospace;
+    font-family: var(--font-mono);
 }
 
 .typing-cursor {
@@ -2138,7 +2217,20 @@ footer::before {
         text-align: center !important;
     }
 
+    .page-banner-content h1,
+    .page-banner-content h2,
+    .page-banner-content h3,
+    .page-banner-content p,
+    .page-banner-content span {
+        text-align: center !important;
+    }
+
     .page-banner-content div[style*="display: flex"][style*="gap: 16px"] {
+        justify-content: center !important;
+    }
+
+    .page-banner-content div[style*="display: inline-flex"] {
+        display: flex !important;
         justify-content: center !important;
     }
 
@@ -2156,6 +2248,26 @@ footer::before {
     /* Homepage hero grid */
     .hero-grid[style*="grid-template-columns"] {
         grid-template-columns: 1fr !important;
+    }
+
+    /* Center hero content when grid is 1-column */
+    .hero-content {
+        text-align: center !important;
+    }
+
+    .hero-content h1,
+    .hero-content p {
+        text-align: center !important;
+    }
+
+    .hero-content > div:first-child {
+        display: flex !important;
+        justify-content: center !important;
+    }
+
+    .hero-cta {
+        display: flex;
+        justify-content: center;
     }
 
     /* 3-column grids to single column */
@@ -2272,10 +2384,11 @@ footer::before {
         font-size: 2rem !important;
     }
 
-    /* About page banner min-height override */
+    /* About page banner min-height - tablets keep full viewport */
     .page-banner[style*="min-height: 85vh"],
     div[style*="min-height: 85vh"] {
-        min-height: auto !important;
+        min-height: 100vh !important;
+        min-height: 100dvh !important;
     }
 
     /* Section padding reduction */
@@ -2405,10 +2518,96 @@ footer::before {
         font-size: 1.15rem !important;
     }
 
+    /* ===== MOBILE FULL-SCREEN SECTIONS ===== */
+    /* Only hero/banner sections fill the viewport; content sections use auto height with padding */
+
+    /* Hero and page banner sections fill viewport */
+    .hero-section {
+        min-height: 100vh !important;
+        min-height: 100dvh !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+    }
+
+    .page-banner,
+    .page-banner[style] {
+        min-height: 100vh !important;
+        min-height: 100dvh !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
+    }
+
+    /* Content sections: auto height with generous padding */
+    main > section:not(.hero-section):not(.page-banner),
+    main ~ section {
+        min-height: auto !important;
+        padding-top: 60px !important;
+        padding-bottom: 60px !important;
+    }
+
+    /* ===== MOBILE CENTERING ===== */
+    /* Center all text on mobile for hero, banner, and commitment sections */
+    .hero-content h1,
+    .hero-content h2,
+    .hero-content h3,
+    .hero-content p,
+    .page-banner-content h1,
+    .page-banner-content h2,
+    .page-banner-content h3,
+    .page-banner-content p,
+    .page-banner-content span,
+    .commitment-text h2,
+    .commitment-text p,
+    .commitment-quote blockquote {
+        text-align: center !important;
+    }
+
+    /* Center section headers on mobile */
+    .section-header h2,
+    .section-header p {
+        text-align: center !important;
+    }
+
+    /* Center inline badges/labels */
+    .hero-content > div:first-child {
+        display: flex !important;
+        justify-content: center !important;
+    }
+
+    .page-banner-content > div:first-child {
+        display: flex !important;
+        justify-content: center !important;
+    }
+
+    .page-banner-content > span,
+    .page-banner-content > span[style] {
+        text-align: center !important;
+    }
+
+    /* Center CTA buttons */
+    .page-banner-content div[style*="display: flex"][style*="gap: 16px"] {
+        justify-content: center !important;
+    }
+
+    /* Center commitment section content on mobile */
+    .commitment-section .container,
+    .commitment-section .commitment-grid {
+        text-align: center;
+    }
+
+    .commitment-section .commitment-text p {
+        text-align: center !important;
+    }
+
+    .commitment-section .commitment-quote {
+        text-align: center;
+    }
+
     /* Hero section */
     .hero-section {
         padding-top: 90px;
-        min-height: auto;
         padding-bottom: 50px;
     }
 
@@ -2601,10 +2800,12 @@ footer::before {
         font-size: 1.3rem;
     }
 
-    /* Page banners */
-    .page-banner {
+    /* Page banners - fill viewport on mobile (reinforce over inline styles) */
+    .page-banner,
+    .page-banner[style] {
         height: auto;
-        min-height: auto !important;
+        min-height: 100vh !important;
+        min-height: 100dvh !important;
         padding-top: 90px;
         padding-bottom: 40px;
     }
@@ -2815,24 +3016,30 @@ footer::before {
         padding: 24px !important;
     }
 
-    /* Weave hero min-height */
-    div[style*="min-height: 90vh"] {
-        min-height: auto !important;
-    }
-
+    /* Hero/banner sections on mobile - fill viewport */
+    div[style*="min-height: 90vh"],
     div[style*="min-height: 85vh"] {
-        min-height: auto !important;
+        min-height: 100vh !important;
+        min-height: 100dvh !important;
     }
 
+    /* Weave inner content min-height */
     div[style*="min-height: 70vh"] {
         min-height: auto !important;
     }
 
     /* Weave hero padding-top */
     section[style*="min-height: 90vh"] {
-        min-height: auto !important;
+        min-height: 100vh !important;
+        min-height: 100dvh !important;
         padding-top: 80px !important;
         padding-bottom: 40px !important;
+    }
+
+    /* About page banner override */
+    .page-banner[style*="min-height: 85vh"] {
+        min-height: 100vh !important;
+        min-height: 100dvh !important;
     }
 
     /* Weave scroll-to-explore */
