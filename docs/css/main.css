@@ -1830,8 +1830,10 @@ footer::before {
 @media (max-width: 900px) {
     /* Stack bento grid to single column on tablets */
     .bento-grid {
-        grid-template-columns: 1fr;
-        gap: 16px;
+        display: grid !important;
+        grid-template-columns: 1fr !important;
+        grid-auto-rows: auto !important;
+        gap: 16px !important;
     }
 
     .bento-card-lg,
@@ -1839,8 +1841,8 @@ footer::before {
     .bento-card-sm,
     .bento-card-wide,
     .bento-card-tall {
-        grid-column: span 1;
-        grid-row: span 1;
+        grid-column: span 1 !important;
+        grid-row: span 1 !important;
     }
 
     /* Large bento card: stack flex children vertically */
@@ -1848,6 +1850,7 @@ footer::before {
         flex-direction: column !important;
         min-height: auto !important;
         gap: 24px !important;
+        padding: 24px !important;
     }
 
     /* Override rigid flex-basis on visual element inside large card */
@@ -1856,12 +1859,13 @@ footer::before {
     .bento-card-lg > div[style*="flex:0 0 300px"],
     .bento-card-lg > div[style*="flex:0 0 280px"] {
         flex: 1 1 auto !important;
+        max-width: 100% !important;
     }
 
     /* Inner visual box sizing */
     .bento-card-lg div[style*="width: 200px"][style*="height: 200px"] {
-        width: 160px !important;
-        height: 160px !important;
+        width: 140px !important;
+        height: 140px !important;
         margin: 0 auto;
     }
 
@@ -1876,6 +1880,11 @@ footer::before {
 
     .bento-card p[style*="font-size: 1.15rem"] {
         font-size: 1rem !important;
+    }
+
+    /* Bento card internal grids */
+    .bento-card-lg[style*="grid-template-columns"] {
+        grid-template-columns: 1fr !important;
     }
 }
 
@@ -2169,17 +2178,31 @@ footer::before {
         max-height: 0;
         overflow: hidden;
         padding: 0;
-        background: var(--bg-secondary);
-        border-radius: 8px;
-        margin: 8px 0;
+        background: none;
+        border-radius: 0;
+        margin: 0;
         transition: all 0.3s ease;
         box-shadow: none;
+        border: none;
+        min-width: 0;
+        text-align: center;
+    }
+
+    nav .dropdown-menu li {
+        border-bottom: none;
+    }
+
+    nav .dropdown-menu a {
+        padding: 12px 16px;
+        text-align: center;
+        color: var(--accent-highlight);
+        font-size: 0.95rem;
     }
 
     nav .dropdown.is-open .dropdown-menu {
         visibility: visible;
         max-height: 200px;
-        padding: 8px;
+        padding: 0;
     }
 
     nav .dropdown:hover .dropdown-menu {
