@@ -8,15 +8,15 @@ function loadNavbar(activePage) {
 
     // Define navigation structure
     const navItems = [
-        { name: 'Home', href: 'index.html', id: 'home' },
-        { name: 'Weave', href: 'weave.html', id: 'weave' },
+        { name: 'Home', href: '/', id: 'home' },
+        { name: 'Weave', href: '/weave/', id: 'weave' },
         {
             name: 'Industries', id: 'industries',
             subItems: [
-                { name: 'Healthcare', href: 'healthcare.html', id: 'healthcare' }
+                { name: 'Healthcare', href: '/healthcare/', id: 'healthcare' }
             ]
         },
-        { name: 'About', href: 'about.html', id: 'about' },
+        { name: 'About', href: '/about/', id: 'about' },
         { name: 'Contact', href: 'mailto:general@asklepic.com', id: 'contact', isButton: true }
     ];
 
@@ -24,8 +24,8 @@ function loadNavbar(activePage) {
     let navHTML = `
 <nav>
     <div class="container">
-        <a href="index.html" class="logo">
-            <img src="assets/logo.png" alt="ASKLEPIC" style="height: 32px; width: auto;">
+        <a href="/" class="logo">
+            <img src="/assets/logo.png" alt="ASKLEPIC" style="height: 32px; width: auto;">
             <span class="logo-text">ASKLEPIC</span>
         </a>
         
