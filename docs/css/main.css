@@ -506,6 +506,23 @@ nav a.active {
 
 /* --- Sections --- */
 
+/* General: all sections within main fill the viewport for immersive scroll feel */
+main > section,
+main ~ section:not(footer) {
+    min-height: 100vh !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+main > section > .container,
+main ~ section:not(footer) > .container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
 /* Hero */
 /* Hero */
 .hero-section {
@@ -552,9 +569,6 @@ nav a.active {
     border-top: none;
     background: var(--bg-surface);
     position: relative;
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
 }
 
 .commitment-section::before {
@@ -594,52 +608,10 @@ nav a.active {
 
 /* Pillars */
 /* Pillars */
-.pillars-section,
-#pillars {
+.pillars-section {
     padding: var(--section-padding);
     background: var(--bg-secondary);
     position: relative;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-#pillars > .container {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-/* Platform overview / Framework section */
-#platform-overview {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-#platform-overview > .container {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-/* Why Partner section (about page) */
-#why-partner {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-#why-partner > .container {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
 }
 
 .pillars-grid {
@@ -670,9 +642,6 @@ nav a.active {
 /* Platform */
 .platform-section {
     padding: var(--section-padding);
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
 }
 
 .platform-grid {
@@ -882,10 +851,6 @@ nav a.active {
     text-align: center;
     background: var(--bg-surface);
     position: relative;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
 }
 
 .partnerships-section::before {
@@ -2371,7 +2336,8 @@ footer::before {
 
     /* Weave page hero grid */
     div[style*="min-height: 70vh"] {
-        min-height: auto !important;
+        min-height: 100vh !important;
+        min-height: 100dvh !important;
     }
 
     /* Weave hero h1 override */
@@ -2445,11 +2411,6 @@ footer::before {
         font-size: 5rem !important;
     }
 
-    /* Weave hero section */
-    div[style*="min-height: 90vh"] {
-        min-height: auto !important;
-    }
-
     /* Sections with heavy padding */
     section[style*="padding: 140px"] {
         padding: 80px 0 !important;
@@ -2519,15 +2480,22 @@ footer::before {
     }
 
     /* ===== MOBILE FULL-SCREEN SECTIONS ===== */
-    /* Only hero/banner sections fill the viewport; content sections use auto height with padding */
-
-    /* Hero and page banner sections fill viewport */
-    .hero-section {
+    /* Every section fills the viewport on mobile */
+    main > section,
+    main ~ section:not(footer) {
         min-height: 100vh !important;
         min-height: 100dvh !important;
         display: flex !important;
         flex-direction: column !important;
         justify-content: center !important;
+    }
+
+    main > section > .container,
+    main ~ section:not(footer) > .container {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
     }
 
     .page-banner,
@@ -2537,14 +2505,6 @@ footer::before {
         display: flex !important;
         flex-direction: column !important;
         justify-content: center !important;
-    }
-
-    /* Content sections: auto height with generous padding */
-    main > section:not(.hero-section):not(.page-banner),
-    main ~ section {
-        min-height: auto !important;
-        padding-top: 60px !important;
-        padding-bottom: 60px !important;
     }
 
     /* ===== MOBILE CENTERING ===== */
@@ -3025,7 +2985,8 @@ footer::before {
 
     /* Weave inner content min-height */
     div[style*="min-height: 70vh"] {
-        min-height: auto !important;
+        min-height: 100vh !important;
+        min-height: 100dvh !important;
     }
 
     /* Weave hero padding-top */
@@ -3312,13 +3273,13 @@ footer::before {
 /* Height-based media queries for short screens */
 @media (max-height: 700px) and (min-width: 769px) {
     .hero-section {
-        min-height: auto;
+        min-height: 100vh;
         padding: 120px 0 80px;
     }
 
     .page-banner {
         height: auto;
-        min-height: 40vh;
+        min-height: 100vh;
     }
 }
 
@@ -3348,12 +3309,12 @@ footer::before {
 /* Landscape phone orientation */
 @media (max-height: 500px) and (orientation: landscape) {
     .hero-section {
-        min-height: auto;
+        min-height: 100vh;
         padding: 80px 0 60px;
     }
 
     .page-banner {
-        min-height: auto;
+        min-height: 100vh;
         padding: 80px 0 40px;
     }
 
