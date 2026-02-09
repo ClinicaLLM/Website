@@ -120,8 +120,9 @@ nav,
 .footer-nav,
 .back-to-top,
 .hero-cta,
-blockquote {
-    text-align: initial;
+blockquote,
+.leadership-cards p {
+    text-align: left;
 }
 
 a {
