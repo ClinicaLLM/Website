@@ -116,7 +116,7 @@ document.addEventListener("DOMContentLoaded", () => {
             gsap.from(card, {
                 scrollTrigger: {
                     trigger: card,
-                    start: "top 90%",
+                    start: "top 85%",
                     toggleActions: "play none none none"
                 },
                 opacity: 0,
@@ -138,7 +138,7 @@ document.addEventListener("DOMContentLoaded", () => {
         gsap.from(el, {
             scrollTrigger: {
                 trigger: el,
-                start: "top 90%",
+                start: "top 85%",
                 toggleActions: "play none none none"
             },
             opacity: 0,
@@ -171,7 +171,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 gsap.from(el, {
                     scrollTrigger: {
                         trigger: el,
-                        start: "top 90%",
+                        start: "top 85%",
                         toggleActions: "play none none none"
                     },
                     opacity: 0,
@@ -433,7 +433,7 @@ document.addEventListener("DOMContentLoaded", () => {
             gsap.from(card, {
                 scrollTrigger: {
                     trigger: card,
-                    start: "top 90%",
+                    start: "top 85%",
                     toggleActions: "play none none none"
                 },
                 opacity: 0,

@@ -11,7 +11,7 @@
     <meta property="og:description"
         content="Advanced automation with Zero Trust security, operating entirely within your control. The new standard for critical infrastructure.">
     <meta property="og:image" content="https://asklepic.com/assets/homepage-preview.png">
-    <meta property="og:image:width" content="1138">
+    <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:url" content="https://asklepic.com">
     <meta property="og:type" content="website">
@@ -47,11 +47,14 @@
         <!-- Hero Section -->
         <section class="hero-section">
             <div class="container">
-                <div class="hero-grid">
+                <div class="hero-grid" style="grid-template-columns: 1.4fr 0.6fr;">
                     <div class="hero-content">
+                        <div style="display: inline-flex; align-items: center; gap: 10px; background: rgba(59, 130, 246, 0.08); backdrop-filter: blur(10px); padding: 8px 18px; border-radius: 100px; margin-bottom: 24px; border: 1px solid rgba(59, 130, 246, 0.15);">
+                            <span style="width: 8px; height: 8px; background: var(--accent-highlight); border-radius: 50%; animation: glow-pulse 2s infinite;"></span>
+                            <span style="font-size: 0.72rem; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent-highlight);">Healthcare Infrastructure</span>
+                        </div>
                         <h1 class="hero-title">
-                            Secure, Reliable <br>
-                            GenAI for Healthcare.
+                            Secure, Reliable GenAI for Healthcare.
                         </h1>
                         <p class="hero-subtitle">
                             Advanced Generative AI with Zero Trust security, operating 100% on-premise. The new standard
@@ -62,20 +65,54 @@
                         </div>
                     </div>
                     <div class="hero-visual">
-                        <!-- Abstract Geometric Visual -->
+                        <!-- Abstract Geometric Visual - Enhanced -->
                         <svg viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg"
                             style="width: 100%; height: auto; opacity: 1;" class="hero-visual-svg">
-                            <circle cx="200" cy="200" r="199" stroke="var(--border-strong)" stroke-width="1"
-                                stroke-dasharray="4 4" />
+                            <!-- Outer dashed ring - slow rotate -->
+                            <circle cx="200" cy="200" r="195" stroke="var(--border-strong)" stroke-width="1"
+                                stroke-dasharray="4 4" style="transform-origin: center; animation: spin-slow 60s linear infinite;" />
+                            <!-- Middle ring -->
                             <circle cx="200" cy="200" r="140" stroke="var(--accent-metallic)" stroke-width="1"
-                                opacity="0.5" />
-                            <circle cx="200" cy="200" r="80" stroke="var(--accent-highlight)" stroke-width="2" />
-                            <path d="M200 0V400" stroke="var(--border-light)" stroke-width="1" />
-                            <path d="M0 200H400" stroke="var(--border-light)" stroke-width="1" />
-                            <circle cx="200" cy="200" r="20" fill="var(--accent-highlight)" opacity="0.1">
-                                <animate attributeName="r" values="20;30;20" dur="4s" repeatCount="indefinite" />
-                                <animate attributeName="opacity" values="0.1;0.3;0.1" dur="4s"
-                                    repeatCount="indefinite" />
+                                opacity="0.4" />
+                            <!-- Inner highlighted ring - pulse -->
+                            <circle cx="200" cy="200" r="80" stroke="var(--accent-highlight)" stroke-width="2" opacity="0.8">
+                                <animate attributeName="r" values="78;84;78" dur="5s" repeatCount="indefinite" />
+                                <animate attributeName="opacity" values="0.8;1;0.8" dur="5s" repeatCount="indefinite" />
+                            </circle>
+                            <!-- Crosshair lines -->
+                            <path d="M200 20V380" stroke="var(--border-light)" stroke-width="0.5" opacity="0.4" />
+                            <path d="M20 200H380" stroke="var(--border-light)" stroke-width="0.5" opacity="0.4" />
+                            <!-- Center glow -->
+                            <circle cx="200" cy="200" r="20" fill="var(--accent-highlight)" opacity="0.08">
+                                <animate attributeName="r" values="18;28;18" dur="4s" repeatCount="indefinite" />
+                                <animate attributeName="opacity" values="0.08;0.2;0.08" dur="4s" repeatCount="indefinite" />
+                            </circle>
+                            <!-- Center dot -->
+                            <circle cx="200" cy="200" r="6" fill="var(--accent-highlight)" opacity="0.6" />
+                            <!-- Orbiting dots -->
+                            <circle r="5" fill="var(--accent-highlight)" opacity="0.7">
+                                <animateMotion dur="12s" repeatCount="indefinite">
+                                    <mpath href="#orbit-path-outer" />
+                                </animateMotion>
+                            </circle>
+                            <circle r="4" fill="#10B981" opacity="0.6">
+                                <animateMotion dur="8s" repeatCount="indefinite">
+                                    <mpath href="#orbit-path-inner" />
+                                </animateMotion>
+                            </circle>
+                            <circle r="3" fill="#8B5CF6" opacity="0.5">
+                                <animateMotion dur="16s" repeatCount="indefinite">
+                                    <mpath href="#orbit-path-mid" />
+                                </animateMotion>
+                            </circle>
+                            <!-- Orbit paths (invisible) -->
+                            <path id="orbit-path-outer" d="M200 5 A195 195 0 1 1 199.99 5" fill="none" stroke="none" />
+                            <path id="orbit-path-mid" d="M200 60 A140 140 0 1 1 199.99 60" fill="none" stroke="none" />
+                            <path id="orbit-path-inner" d="M200 120 A80 80 0 1 1 199.99 120" fill="none" stroke="none" />
+                            <!-- Pulsing ring -->
+                            <circle cx="200" cy="200" r="110" stroke="var(--accent-highlight)" stroke-width="0.5" fill="none" opacity="0">
+                                <animate attributeName="r" values="100;160;100" dur="6s" repeatCount="indefinite" />
+                                <animate attributeName="opacity" values="0.3;0;0.3" dur="6s" repeatCount="indefinite" />
                             </circle>
                         </svg>
                     </div>
@@ -437,7 +474,7 @@
                                     The declarative YAML framework for precisely defining agent behavior, tools, and
                                     constraints for reliable execution.
                                 </p>
-                                <a href="/weave/"
+                                <a href="weave/"
                                     style="display: inline-flex; align-items: center; gap: 8px; color: #10B981; font-weight: 600; font-size: 1rem; text-decoration: none; border-bottom: 2px solid #10B981; padding-bottom: 4px; transition: all 0.3s ease;">
                                     Explore Weave
                                     <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
@@ -501,14 +538,21 @@
             <div class="footer-content">
                 <div class="footer-brand">
                     <span class="brand-name">ASKLEPIC</span>
-                    <p style="color: var(--text-secondary);">Secure and reliable autonomy.</p>
+                    <p style="color: rgba(255,255,255,0.4); font-size: 0.9rem;">Secure and reliable autonomy.</p>
+                </div>
+                <div class="footer-nav">
+                    <a href="./">Home</a>
+                    <a href="weave/">Weave</a>
+                    <a href="about/">About</a>
+                    <a href="healthcare/">Healthcare</a>
                 </div>
                 <div class="footer-links">
-                    <a href="mailto:general@asklepic.com">Contact</a>
+                    <a href="mailto:general@asklepic.com">general@asklepic.com</a>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p class="copyright">© 2026 ASKLEPIC. All Rights Reserved.</p>
+                <p class="copyright">&copy; 2026 ASKLEPIC. All Rights Reserved.</p>
+                <a href="#" class="back-to-top" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">Back to top &uarr;</a>
             </div>
         </div>
     </footer>

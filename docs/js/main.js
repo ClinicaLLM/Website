@@ -1,3 +1,25 @@
+// Compute relative base path to the docs root so links work on both
+// a web server (where / is the site root) and when opening files locally
+// via file:// protocol.  It inspects the existing <link> to main.css
+// which every page already references with a correct relative path.
+function _getBasePath() {
+    var css = document.querySelector('link[href*="main.css"]');
+    if (css) {
+        // href is "css/main.css" (root) or "../css/main.css" (subdir)
+        return css.getAttribute('href').replace('css/main.css', '');
+    }
+    return './';
+}
+
+// On file:// protocol, browsers show a directory listing instead of
+// auto-serving index.html like a web server does, so we append it.
+function _pageHref(dir) {
+    if (window.location.protocol === 'file:') {
+        return dir + 'index.html';
+    }
+    return dir;
+}
+
 // Function to load the navigation bar
 function loadNavbar(activePage) {
     const navbarPlaceholder = document.getElementById('navbar-placeholder');
@@ -6,17 +28,21 @@ function loadNavbar(activePage) {
         return;
     }
 
-    // Define navigation structure
+    var base = _getBasePath();
+
+    // Define navigation structure (paths relative to docs root)
+    // _pageHref() appends index.html when on file:// so the browser
+    // opens the page instead of showing a directory listing.
     const navItems = [
-        { name: 'Home', href: '/', id: 'home' },
-        { name: 'Weave', href: '/weave/', id: 'weave' },
+        { name: 'Home', href: _pageHref(base), id: 'home' },
+        { name: 'Weave', href: _pageHref(base + 'weave/'), id: 'weave' },
         {
             name: 'Industries', id: 'industries',
             subItems: [
-                { name: 'Healthcare', href: '/healthcare/', id: 'healthcare' }
+                { name: 'Healthcare', href: _pageHref(base + 'healthcare/'), id: 'healthcare' }
             ]
         },
-        { name: 'About', href: '/about/', id: 'about' },
+        { name: 'About', href: _pageHref(base + 'about/'), id: 'about' },
         { name: 'Contact', href: 'mailto:general@asklepic.com', id: 'contact', isButton: true }
     ];
 
@@ -24,8 +50,8 @@ function loadNavbar(activePage) {
     let navHTML = `
 <nav>
     <div class="container">
-        <a href="/" class="logo">
-            <img src="/assets/logo.png" alt="ASKLEPIC" style="height: 32px; width: auto;">
+        <a href="${_pageHref(base)}" class="logo">
+            <img src="${base}assets/logo.png" alt="ASKLEPIC" style="height: 32px; width: auto;">
             <span class="logo-text">ASKLEPIC</span>
         </a>
         
@@ -146,6 +172,32 @@ function initMobileMenu() {
     });
 }
 
+// --- Nav shrink on scroll ---
+function initNavScroll() {
+    var nav = document.querySelector('nav');
+    if (!nav) return;
+    var threshold = 50;
+    window.addEventListener('scroll', function () {
+        if (window.scrollY > threshold) {
+            nav.classList.add('scrolled');
+        } else {
+            nav.classList.remove('scrolled');
+        }
+    }, { passive: true });
+}
+
+// --- Body fade-in on load ---
+function initBodyLoad() {
+    document.body.classList.add('loaded');
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     // Mobile menu is initialized when navbar is loaded
+    initNavScroll();
+    // Small delay to allow CSS to settle, then fade in
+    requestAnimationFrame(() => {
+        requestAnimationFrame(() => {
+            initBodyLoad();
+        });
+    });
 });
