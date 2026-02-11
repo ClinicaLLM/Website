@@ -1846,6 +1846,252 @@ footer::before {
 
 
 /* ===========================================
+   FIX: Depth card heading/text centering
+   =========================================== */
+
+.depth-card h4 {
+    text-align: center;
+}
+
+/* ===========================================
+   WEAVE PIPELINE (Define/Orchestrate/Execute)
+   =========================================== */
+
+.weave-pipeline {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 0;
+    gap: 0;
+}
+
+.weave-pipeline-stage {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+    min-width: 150px;
+    position: relative;
+    z-index: 2;
+}
+
+.weave-pipeline-circle {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, rgba(6, 182, 212, 0.15) 0%, rgba(6, 182, 212, 0.05) 100%);
+    border: 3px solid #06B6D4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 32px rgba(6, 182, 212, 0.2);
+    position: relative;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.weave-pipeline-circle:hover {
+    box-shadow: 0 8px 40px rgba(6, 182, 212, 0.4);
+    transform: scale(1.08);
+}
+
+.weave-pipeline-circle--active {
+    background: #06B6D4;
+    box-shadow: 0 8px 32px rgba(6, 182, 212, 0.4);
+}
+
+.weave-pipeline-circle--active:hover {
+    box-shadow: 0 12px 48px rgba(6, 182, 212, 0.6);
+}
+
+.weave-pipeline-orbit {
+    position: absolute;
+    inset: -12px;
+    border-radius: 50%;
+    border: 2px dashed rgba(6, 182, 212, 0.3);
+    animation: orbit-rotate 15s linear infinite;
+    pointer-events: none;
+}
+
+.weave-pipeline-circle--active .weave-pipeline-orbit {
+    border-color: rgba(6, 182, 212, 0.4);
+}
+
+.weave-pipeline-label {
+    margin-top: 20px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    text-align: center;
+}
+
+.weave-pipeline-desc {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    text-align: center;
+    max-width: 150px;
+    margin-top: 8px;
+}
+
+/* --- Connector line between stages --- */
+.weave-pipeline-connector {
+    flex: 1;
+    height: 4px;
+    position: relative;
+    z-index: 1;
+    margin-top: 38px; /* Align with center of 80px circle */
+    min-width: 60px;
+    overflow: visible;
+}
+
+.weave-pipeline-connector .connector-line {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background: linear-gradient(90deg, #06B6D4, #22D3EE, #06B6D4);
+    background-size: 200% 100%;
+    animation: connector-shimmer 3s ease-in-out infinite;
+    border-radius: 2px;
+}
+
+.weave-pipeline-connector .connector-glow {
+    position: absolute;
+    top: -6px;
+    left: 0;
+    right: 0;
+    height: 16px;
+    background: linear-gradient(90deg, transparent 0%, rgba(6, 182, 212, 0.15) 30%, rgba(34, 211, 238, 0.25) 50%, rgba(6, 182, 212, 0.15) 70%, transparent 100%);
+    background-size: 200% 100%;
+    animation: connector-shimmer 3s ease-in-out infinite;
+    filter: blur(4px);
+    border-radius: 8px;
+    pointer-events: none;
+}
+
+.weave-pipeline-connector .connector-particle {
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background: radial-gradient(circle, #22D3EE 0%, #06B6D4 70%, transparent 100%);
+    border-radius: 50%;
+    top: 50%;
+    transform: translateY(-50%);
+    box-shadow: 0 0 12px rgba(6, 182, 212, 0.8), 0 0 4px rgba(34, 211, 238, 0.6);
+    animation: connector-flow 2.5s linear infinite;
+}
+
+.weave-pipeline-connector .connector-particle:nth-child(3) {
+    animation-delay: 0.85s;
+    width: 8px;
+    height: 8px;
+}
+
+.weave-pipeline-connector .connector-particle:nth-child(4) {
+    animation-delay: 1.7s;
+    width: 7px;
+    height: 7px;
+}
+
+.weave-pipeline-connector .connector-particle:nth-child(5) {
+    animation-delay: 0.4s;
+    width: 6px;
+    height: 6px;
+    opacity: 0.7;
+}
+
+@keyframes connector-shimmer {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+}
+
+@keyframes connector-flow {
+    0% { left: -5%; opacity: 0; }
+    5% { opacity: 1; }
+    95% { opacity: 1; }
+    100% { left: 100%; opacity: 0; }
+}
+
+/* --- Pipeline responsive: vertical on mobile --- */
+@media (max-width: 900px) {
+    .weave-pipeline {
+        flex-direction: column;
+        align-items: center;
+        gap: 0;
+    }
+
+    .weave-pipeline-stage {
+        min-width: unset;
+    }
+
+    .weave-pipeline-connector {
+        width: 4px;
+        height: 50px;
+        flex: none;
+        margin-top: 0;
+        min-width: unset;
+    }
+
+    .weave-pipeline-connector .connector-line {
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(180deg, #06B6D4, #22D3EE, #06B6D4);
+        background-size: 100% 200%;
+        animation: connector-shimmer-v 3s ease-in-out infinite;
+    }
+
+    .weave-pipeline-connector .connector-glow {
+        top: 0;
+        left: -6px;
+        right: auto;
+        width: 16px;
+        height: 100%;
+        background: linear-gradient(180deg, transparent, rgba(6, 182, 212, 0.2), transparent);
+        background-size: 100% 200%;
+        animation: connector-shimmer-v 3s ease-in-out infinite;
+    }
+
+    .weave-pipeline-connector .connector-particle {
+        top: auto;
+        left: 50% !important;
+        transform: translateX(-50%);
+        animation: connector-flow-v 2.5s linear infinite;
+    }
+}
+
+@keyframes connector-shimmer-v {
+    0%, 100% { background-position: 50% 0%; }
+    50% { background-position: 50% 100%; }
+}
+
+@keyframes connector-flow-v {
+    0% { top: -5%; opacity: 0; }
+    5% { opacity: 1; }
+    95% { opacity: 1; }
+    100% { top: 100%; opacity: 0; }
+}
+
+/* ===========================================
+   FIX: Interface section mobile overflow
+   - Prevent clipping of tall stacked content
+   =========================================== */
+
+@media (max-width: 900px) {
+    #interface {
+        overflow: visible !important;
+        min-height: auto !important;
+        height: auto !important;
+    }
+
+    #interface > .container {
+        min-height: auto !important;
+        height: auto !important;
+    }
+}
+
+/* ===========================================
    BENTO GRID RESPONSIVE
    =========================================== */
 
@@ -2312,15 +2558,12 @@ footer::before {
         grid-template-columns: 1fr !important;
     }
 
-    /* Pipeline horizontal layout - vertical on tablet */
-    #workflow>.container>div[style*="display: flex"][style*="align-items: center"],
+    /* Pipeline horizontal layout - vertical on tablet (legacy #pipeline support) */
     #pipeline>.container>div[style*="display: flex"][style*="align-items: center"] {
         flex-direction: column !important;
         gap: 20px !important;
     }
 
-    /* Pipeline connectors horizontal to vertical */
-    #workflow>.container>div>div[style*="flex: 1"][style*="height: 4px"],
     #pipeline>.container>div>div[style*="flex: 1"][style*="height: 4px"] {
         width: 4px !important;
         height: 50px !important;
@@ -2328,8 +2571,6 @@ footer::before {
         margin: 0 !important;
     }
 
-    /* Pipeline stage bottom margin adjustment */
-    #workflow>.container>div>div[style*="flex-direction: column"][style*="margin-bottom: 60px"],
     #pipeline>.container>div>div[style*="flex-direction: column"] {
         margin-bottom: 0 !important;
     }
@@ -3053,10 +3294,7 @@ footer::before {
         gap: 12px !important;
     }
 
-    /* Pipeline connectors - hide on mobile */
-    div[style*="flex: 1"][style*="height: 4px"][style*="margin: 0 -20px"] {
-        display: none !important;
-    }
+    /* Pipeline connectors handled by .weave-pipeline responsive rules */
 
     /* Pipeline stages - adjust spacing */
     div[style*="width: 80px"][style*="height: 80px"][style*="border-radius: 50%"] {
