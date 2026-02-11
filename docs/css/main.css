@@ -77,6 +77,7 @@
 html {
     scroll-behavior: smooth;
     font-size: 20px;
+    overflow-x: hidden;
 }
 
 body {
@@ -1846,11 +1847,53 @@ footer::before {
 
 
 /* ===========================================
-   FIX: Depth card heading/text centering
+   FIX: Heading centering in centered containers
+   Base rule h1-h6 { text-align: left } overrides
+   inherited centering, so we fix it per-context.
    =========================================== */
 
+/* Generic: headings inside inline text-align:center parents */
+[style*="text-align: center"] h1,
+[style*="text-align: center"] h2,
+[style*="text-align: center"] h3,
+[style*="text-align: center"] h4,
+[style*="text-align: center"] h5,
+[style*="text-align: center"] h6,
+[style*="text-align:center"] h1,
+[style*="text-align:center"] h2,
+[style*="text-align:center"] h3,
+[style*="text-align:center"] h4,
+[style*="text-align:center"] h5,
+[style*="text-align:center"] h6 {
+    text-align: center;
+}
+
+/* Interface card: center headings and descriptions */
+.interface-card h3,
+.interface-card h4,
+.interface-card > div > div > h4,
+.interface-card > div > div > p {
+    text-align: center;
+}
+
+/* Depth cards: always centered layout */
+.depth-card h3,
 .depth-card h4 {
     text-align: center;
+}
+
+/* Card-base in commitment section: center content */
+.commitment-quote .card-base {
+    text-align: center;
+}
+
+.commitment-quote .card-base h3 {
+    text-align: center;
+}
+
+.commitment-quote .card-base .icon-box {
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* ===========================================
@@ -3415,7 +3458,8 @@ footer::before {
         display: none;
     }
 
-    /* Ensure body doesn't overflow horizontally */
+    /* Ensure page doesn't overflow horizontally */
+    html,
     body {
         overflow-x: hidden;
     }
