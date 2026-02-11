@@ -2074,13 +2074,17 @@ footer::before {
 }
 
 /* ===========================================
-   FIX: Interface section mobile overflow
+   FIX: Interface section mobile layout
    - Prevent clipping of tall stacked content
+   - Stack 2-column grids to single column
+   - Disable float animation on mobile
    =========================================== */
 
 @media (max-width: 900px) {
+    /* Allow vertical overflow but keep horizontal clipped for decorative elements */
     #interface {
-        overflow: visible !important;
+        overflow-x: hidden !important;
+        overflow-y: visible !important;
         min-height: auto !important;
         height: auto !important;
     }
@@ -2088,6 +2092,90 @@ footer::before {
     #interface > .container {
         min-height: auto !important;
         height: auto !important;
+    }
+
+    /* Disable float animation on mobile */
+    #interface .interface-card {
+        animation: none !important;
+    }
+
+    /* Stack 2-column template grid to 1 column */
+    #interface div[style*="grid-template-columns: repeat(2"] {
+        grid-template-columns: 1fr !important;
+        gap: 12px !important;
+    }
+
+    /* Constrain all inner containers to viewport */
+    #interface div[style*="max-width: 1000px"] {
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+
+    /* Card: keep overflow hidden (for glow), reduce padding, fit within parent */
+    #interface .interface-card {
+        padding: 24px !important;
+        border-radius: 14px !important;
+        margin-bottom: 32px !important;
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+        width: auto !important;
+    }
+
+    /* Ensure all content inside the card stays within bounds */
+    #interface .interface-card * {
+        max-width: 100%;
+        box-sizing: border-box;
+    }
+
+    /* Force text to wrap within card */
+    #interface .interface-card p,
+    #interface .interface-card h3,
+    #interface .interface-card h4,
+    #interface .interface-card div {
+        overflow-wrap: break-word !important;
+        word-wrap: break-word !important;
+    }
+
+    /* Template cards: reduce padding for mobile */
+    #interface .template-card {
+        padding: 14px !important;
+        gap: 12px !important;
+    }
+
+    /* Section header spacing */
+    #interface .section-header {
+        margin-bottom: 40px !important;
+    }
+
+    /* Wizard step cards - stack to 1 column */
+    #interface div[style*="grid-template-columns: repeat(3"] {
+        grid-template-columns: 1fr !important;
+        gap: 20px !important;
+    }
+
+    /* YAML editor demo - constrain width */
+    #interface div[style*="border-radius: 16px"][style*="overflow: hidden"][style*="background: #0f172a"] {
+        max-width: 100% !important;
+        box-sizing: border-box !important;
+    }
+}
+
+@media (max-width: 480px) {
+    #interface .interface-card {
+        padding: 16px !important;
+    }
+
+    #interface div[style*="padding: 32px"] {
+        padding: 16px !important;
+    }
+
+    #interface .template-card {
+        padding: 12px !important;
+    }
+
+    /* Further reduce YAML demo font for small phones */
+    #interface div[style*="font-family"][style*="font-size: 0.8rem"] {
+        font-size: 0.65rem !important;
     }
 }
 
