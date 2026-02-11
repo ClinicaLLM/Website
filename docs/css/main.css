@@ -2124,12 +2124,12 @@ footer::before {
    =========================================== */
 
 @media (max-width: 900px) {
-    /* Allow vertical overflow but keep horizontal clipped for decorative elements */
+    /* Remove height constraints so stacked content can expand */
     #interface {
-        overflow-x: hidden !important;
-        overflow-y: visible !important;
         min-height: auto !important;
         height: auto !important;
+        padding-top: 80px !important;
+        padding-bottom: 80px !important;
     }
 
     #interface > .container {
