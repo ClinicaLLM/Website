@@ -6,7 +6,9 @@ function _getBasePath() {
     var css = document.querySelector('link[href*="main.css"]');
     if (css) {
         // href is "css/main.css" (root) or "../css/main.css" (subdir)
-        return css.getAttribute('href').replace('css/main.css', '');
+        // Strip query string (e.g. ?v=...) before extracting the base path
+        var href = css.getAttribute('href').split('?')[0];
+        return href.replace('css/main.css', '');
     }
     return './';
 }
